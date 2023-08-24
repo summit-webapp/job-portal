@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
@@ -19,8 +20,8 @@ const Footer = () => {
             <div className="col-xl-5 col-lg-12" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
          
               <div className="btns d-flex justify-content-xl-end justify-content-center align-items-xl-center flex-wrap h-100  mx-n4">
-                <a className="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#login">Log in</a>
-                <a className="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase" href="#" data-toggle="modal" data-target="#signup">Register</a>
+                <Link href='/login' className="btn btn-outline-gallery btn-xl mx-4 mt-6 text-uppercase">Log in</Link>
+                <Link href='/register' className="btn btn-green btn-h-60 btn-xl mx-4 mt-6 text-uppercase">Register</Link>
               </div>
         
             </div>

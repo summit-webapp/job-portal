@@ -8860,3 +8860,17 @@ a.hover-text-hitgray:hover {
 }
 
 /*# sourceMappingURL=maps/main.css.map */
+
+/* Login custom */
+.login-wrapper{
+  margin: 100px auto;
+  width: 500px;
+}
+
+/* Register custom */
+.register-wrapper{
+  border: 1px solid black !important;
+  border: 5px !important;
+  margin: 50px auto;
+  width: 600px;
+}
