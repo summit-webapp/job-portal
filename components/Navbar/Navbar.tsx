@@ -1,18 +1,18 @@
-'use client';
-import React from 'react'
+"use client";
+import React from "react";
 
 const Navbar = () => {
-    return (
-        <>
-          <div className="container">
-            <div className="row">
-                <div className="col-12 mt-5">
-                    <p>Welcome To Job Portal</p>
-                </div>
-            </div>
-          </div>
-        </>
-    )
-}
+  return (
+    <>
+      <header className="site-header site-header--menu-right bg-default py-7 py-lg-0 site-header--absolute site-header--sticky">
+        <div className="container">
+          <nav className="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
+            
+          </nav>
+        </div>
+      </header>
+    </>
+  );
+};
 
-export default Navbar
+export default Navbar;
