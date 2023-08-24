@@ -474,6 +474,34 @@ body[data-theme='light'] .dark-mode-texts .light-shape.default-shape, .light-mod
 .sticky-bg-white.reveal-header {
   background: #fff;
 }
+/* styles.css */
+.dynamic-sticky-bg.reveal-header {
+  background: var(--bg);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.sticky-bg-white.reveal-header {
+  background: #fff;
+}
+
+/* styles.css */
+.site-header {
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.site-header.sticky {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 
 .notification-block {
   position: relative;
