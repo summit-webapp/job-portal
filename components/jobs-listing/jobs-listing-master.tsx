@@ -12,14 +12,14 @@ const JobsListMaster = () => {
           </div>
 
           <div className="col-12 col-md-8 col-xs-12 ">
-            <JobSearch />
+            {/* <JobSearch /> */}
 
-            <div className="pt-12 ml-lg-0 ml-md-15">
+            <div className=" ml-lg-0 ml-md-15">
               {/* count of jobs div starts */}
               <div className="d-flex align-items-center justify-content-between">
                 <h5 className="font-size-4 font-weight-normal text-default-color">
                   <span className="heading-default-color">120</span>
-                  results for{" "}
+                  {" "}results for{" "}
                   <span className="heading-default-color">UI Designer</span>
                 </h5>
               </div>
