@@ -13,11 +13,25 @@ const FilterSection = () => {
             <ul className="list-unstyled filter-check-list">
               {filter?.values?.map((value: string) => {
                 return (
-                  <li className="mb-2">
-                    <a href="#" className="toggle-item">
+                  <div className="d-flex">
+                    <input
+                      type="checkbox"
+                      name={filter.section}
+                      // onChange={handleApplyFilters}
+                      // value={filterValue}
+                      // checked={selectedFilters.some(
+                      //   (selectedFilter: any) =>
+                      //     selectedFilter.name === filter.section &&
+                      //     selectedFilter.value.includes(filterValue)
+                      // )}
+                    />
+                    <label
+                      className="form-check-label pl-2"
+                      htmlFor="flexCheckDefault"
+                    >
                       {value}
-                    </a>
-                  </li>
+                    </label>
+                  </div>
                 );
               })}
             </ul>
