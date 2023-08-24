@@ -1,23 +1,21 @@
+import Link from "next/link";
 import { job_details_data } from "../../datasets/job-details";
 
 const JobDetailMaster = () => {
   return (
     <div>
-      <div className="jobDetails-section bg-default-1 pt-14 pt-lg-4 pb-xl-25 pb-12">
+      <div className="jobDetails-section bg-default-1 pt-22 pt-lg-22 pb-xl-25 pb-12">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-xl-10 col-lg-11 mt-2 ml-xxl-32 ml-xl-15 dark-mode-texts">
+            <div className="col-xl-10 col-lg-11 mt-5 ml-xxl-32 ml-xl-15 dark-mode-texts">
               <div className="mb-9">
-                <a
-                  className="d-flex align-items-center ml-4"
-                  href="dashboard-main.html"
-                >
+                <Link href="/jobs" className="d-flex align-items-center ml-4">
                   {" "}
                   <i className="icon icon-small-left bg-white circle-40 mr-5 font-size-7 text-black font-weight-bold shadow-8"></i>
                   <span className="text-uppercase font-size-3 font-weight-bold text-gray">
                     Back to view jobs
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
 
