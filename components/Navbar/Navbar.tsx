@@ -35,7 +35,7 @@ const Navbar = () => {
               <div className="collapse navbar-collapse" id="mobile-menu">
                 <div className="navbar-nav-wrapper">
                   <ul className="navbar-nav main-menu">
-                    <li className="nav-item dropdown active">
+                    <li className="nav-item dropdown">
                       <Link className="nav-link" href='/jobs'>Explore Jobs</Link>
                     </li>
                    

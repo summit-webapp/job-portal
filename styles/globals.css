@@ -8863,14 +8863,18 @@ a.hover-text-hitgray:hover {
 
 /* Login custom */
 .login-wrapper{
+  border: 1px solid black !important;
+  border-radius: 5px;
   margin: 100px auto;
-  width: 500px;
+  width: 450px;
 }
 
 /* Register custom */
-.register-wrapper{
+.register-wrapper {
+  overflow: hidden;
   border: 1px solid black !important;
-  border: 5px !important;
-  margin: 50px auto;
-  width: 600px;
+  border-radius: 5px;
+  margin: 90px auto 50px auto;
+  width: 800px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box-shadow property for the shadow effect */
 }
