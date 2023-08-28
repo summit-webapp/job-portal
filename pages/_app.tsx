@@ -11,26 +11,20 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <div>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            {() => (
+              <div>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+
+              </div>
+            )}
+          </PersistGate>
+        </Provider>
       </div>
     </QueryClientProvider>
-    // <div>
-    //   <Provider store={store}>
-    //     <PersistGate loading={null} persistor={persistor}>
-    //       {() => (
-    //         <div>
-    //           <QueryClientProvider>
-    // <Layout>
-    //   <Component {...pageProps} />
-    // </Layout>
-    //           </QueryClientProvider>
-    //         </div>
-    //       )}
-    //     </PersistGate>
-    //   </Provider>
-    // </div>
   );
 }
 export default MyApp;

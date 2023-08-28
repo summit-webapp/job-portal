@@ -35,7 +35,7 @@ const NavSection = () => {
               <div className="collapse navbar-collapse" id="mobile-menu">
                 <div className="navbar-nav-wrapper">
                   <ul className="navbar-nav main-menu">
-                  <li className="nav-item dropdown active">
+                  <li className="nav-item dropdown">
                       <Link className="nav-link" href='/jobs'>Explore Jobs</Link>
                     </li>
                    
@@ -84,7 +84,7 @@ const NavSection = () => {
                   that you deserve.</h1>
                 <div className="">
 
-                  <form action="/" className="search-form shadow-6">
+                  {/* <form action="/" className="search-form shadow-6">
                     <div className="filter-search-form-1 bg-white rounded-sm shadow-4">
                       <div className="filter-inputs">
                         <div className="form-group position-relative">
@@ -110,9 +110,9 @@ const NavSection = () => {
                       </div>
 
                     </div>
-                  </form>
+                  </form> */}
 
-                  <p className="heading-default-color font-size-3 pt-7"><span className="text-smoke">Search keywords e.g.</span> Product Designer</p>
+                  {/* <p className="heading-default-color font-size-3 pt-7"><span className="text-smoke">Search keywords e.g.</span> Product Designer</p> */}
                 </div>
               </div>
 

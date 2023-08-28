@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -12,10 +13,10 @@ const LoginValidationSchema = Yup.object().shape({
 const Login = () => {
   return (
     <>
-      <div className="bg-white rounded-8 overflow-hidden login-wrapper">
+      <div className="bg-white overflow-hidden login-wrapper shadow-lg">
         <div className="row">
           <div className="col-lg-12 col-md-12">
-            <div className="bg-white-2 h-100 px-11 pt-11 pb-7">
+            <div className="bg-white-2 h-100 p-5">
               <div className='mt-2 mb-2 text-center'>
                 <h5>Logo</h5>
               </div>
@@ -44,7 +45,7 @@ const Login = () => {
                     </div>
                     <ErrorMessage name="password" component="div" className="error_message" />
                   </div>
-                  <div className="form-group d-flex flex-wrap justify-content-between align-items-center">
+                  <div className="form-group d-flex flex-wrap justify-content-end align-items-center">
                     {/* <FormCheck>
                       <Field type="checkbox" name="remember" id="terms-check" as={FormCheck.Input} />
                       <FormCheck.Label className="font-size-3 mb-0 line-height-reset mb-1 d-block">
@@ -53,8 +54,8 @@ const Login = () => {
                     </FormCheck> */}
                     <a href="" className="font-size-3 text-dodger line-height-reset" style={{textDecoration:'underline'}}>Forget Password</a>
                   </div>
-                  <div className="form-group mb-8">
-                    <button type="submit" className="btn btn-primary btn-medium w-100 rounded-5 text-uppercase">Log in</button>
+                  <div className="form-group mb-8 text-center">
+                    <button type="submit" className="btn btn-primary btn-medium w-50 rounded-5 text-uppercase">Log in</button>
                   </div>
                   <p className="font-size-4 text-center heading-default-color">Don't have an account? <Link className="text-primary" href="/register"> Create a free account</Link></p>
                 </Form>
