@@ -1,6 +1,7 @@
-let ENV = "DEV";
 
-export const CONSTANTS = {
-  API_BASE_URL:"",
-  
+export const API_CONFIG = {
+  headers: {
+    Accept: "application/json",
+  },
+  withCredentials: true,
 };
