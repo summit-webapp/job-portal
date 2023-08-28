@@ -1,8 +1,9 @@
+import { JobsListInterface } from "@/interfaces/jobs-list-interface";
 import FilterSection from "./filter-section";
 import JobSearch from "./job-search";
 import JobsCardContainer from "./jobs-card-container";
 
-const JobsListMaster = () => {
+const JobsListMaster = ({ isLoading, data, error }: JobsListInterface) => {
   return (
     <div className="bg-default-1 pt-26 pt-lg-28 pb-13 pb-lg-25">
       <div className="container">
@@ -25,7 +26,11 @@ const JobsListMaster = () => {
               {/* count of jobs div ends */}
 
               <div className="pt-6">
-                <JobsCardContainer />
+                <JobsCardContainer
+                  isLoading={isLoading}
+                  data={data}
+                  error={error}
+                />
               </div>
             </div>
           </div>
