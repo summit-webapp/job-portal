@@ -11,8 +11,8 @@ import getAccessTokenApi from '@/services/api/auth_api/login_api';
 import { useRouter } from 'next/router';
 
 const LoginValidationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().required('Password is required'),
+  usr: Yup.string().email('Invalid email').required('Email is required'),
+  pwd: Yup.string().required('Password is required'),
 });
 
 const Login = () => {
@@ -47,7 +47,7 @@ const Login = () => {
                   usr: '',
                   pwd: '',
                 }}
-                // validationSchema={LoginValidationSchema}
+                validationSchema={LoginValidationSchema}
                 onSubmit={(values) => {
                   handleSubmit(values);
               }}

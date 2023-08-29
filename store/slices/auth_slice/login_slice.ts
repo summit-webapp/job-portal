@@ -57,9 +57,9 @@ const accessTokenSlice = createSlice({
         }
         state.isLoading = false;
       })
-      .addCase(fetchAccessToken.rejected, (state) => {
+      .addCase(fetchAccessToken.rejected, (state:any , action?:any) => {
         state.isLoading = true;
-        state.error = "Failed to fetch data";
+        state.error =  action?.payload;
       });
   },
 });
