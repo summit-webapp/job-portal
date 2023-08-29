@@ -4,13 +4,35 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Form as BootstrapForm, FormCheck } from 'react-bootstrap';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { fetchAccessToken } from '@/store/slices/auth_slice/login_slice';
+import { useMutation, useQueryClient } from 'react-query';
+import getAccessTokenApi from '@/services/api/auth_api/login_api';
+import { useRouter } from 'next/router';
 
 const LoginValidationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().required('Password is required'),
+  usr: Yup.string().email('Invalid email').required('Email is required'),
+  pwd: Yup.string().required('Password is required'),
 });
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const queryClient = useQueryClient(); // Create a query client instance
+  const mutation = useMutation((values:any) => getAccessTokenApi(values.usr, values.pwd), {
+    // onSuccess: (response:any) => {
+    //   // On success, refetch data if needed
+    //   queryClient.invalidateQueries('accessToken'); // Replace 'accessToken' with your query key
+    // },
+  });
+
+  const handleSubmit = (values:any) => {
+    console.log("token handle submit",values)
+    mutation.mutate(values); // Start the mutation
+    dispatch(fetchAccessToken(values) as any)
+    router.push('/')
+  };
+
   return (
     <>
       <div className="bg-white overflow-hidden login-wrapper shadow-lg">
@@ -22,28 +44,26 @@ const Login = () => {
               </div>
               <Formik
                 initialValues={{
-                  email: '',
-                  password: '',
-                  remember: false,
+                  usr: '',
+                  pwd: '',
                 }}
                 validationSchema={LoginValidationSchema}
                 onSubmit={(values) => {
-                  // Handle login logic here
-                  console.log(values);
-                }}
+                  handleSubmit(values);
+              }}
               >
                 <Form>
                   <div className="form-group">
                     <label htmlFor="email" className="font-size-4 text-black-2 font-weight-semibold line-height-reset">E-mail</label>
-                    <Field type="email" className="form-control" name="email" placeholder="example@gmail.com" />
-                    <ErrorMessage name="email" component="div" className="error_message" />
+                    <Field type="email" className="form-control" name="usr" placeholder="example@gmail.com" />
+                    <ErrorMessage name="usr" component="div" className="error_message" />
                   </div>
                   <div className="form-group">
                     <label htmlFor="password" className="font-size-4 text-black-2 font-weight-semibold line-height-reset">Password</label>
                     <div className="position-relative">
-                      <Field type="password" className="form-control" name="password" placeholder="Enter password" />
+                      <Field type="password" className="form-control" name="pwd" placeholder="Enter password" />
                     </div>
-                    <ErrorMessage name="password" component="div" className="error_message" />
+                    <ErrorMessage name="pwd" component="div" className="error_message" />
                   </div>
                   <div className="form-group d-flex flex-wrap justify-content-end align-items-center">
                     {/* <FormCheck>
