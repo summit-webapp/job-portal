@@ -2,12 +2,12 @@ import Link from "next/link";
 import { jobsData } from "../datasets/jobs-data";
 // import { company } from "../public/image/l1/png/feature-brand-1.png";
 
-const JobsGridCard = () => {
+const JobsGridCard = ({ jobsData }: any) => {
   return (
     <>
-      {jobsData?.map((job: any, index: number) => {
+      {jobsData?.message?.data?.map((job: any, index: number) => {
         return (
-          <div className="col-12 col-lg-6" key={job.id}>
+          <div className="col-12 col-lg-6" key={index}>
             <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
               <div className="d-block mb-7">
                 <a href="#">
@@ -24,7 +24,7 @@ const JobsGridCard = () => {
                 </Link>
               </h2>
               <ul className="list-unstyled mb-1 card-tag-list">
-                <li>
+                {/* <li>
                   <a
                     href=""
                     className="bg-regent-opacity-15 text-denim font-size-3 rounded-3"
@@ -32,8 +32,8 @@ const JobsGridCard = () => {
                     <i className="icon icon-pin-3 mr-2 font-weight-bold"></i>{" "}
                     {job.location}
                   </a>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <a
                     href=""
                     className="bg-regent-opacity-15 text-orange font-size-3 rounded-3"
@@ -41,9 +41,11 @@ const JobsGridCard = () => {
                     <i className="fa fa-briefcase mr-2 font-weight-bold"></i>{" "}
                     {job.employmentType}
                   </a>
-                </li>
+                </li> */}
               </ul>
-              <p className="mb-7 font-size-4 text-gray">{job.description}</p>
+              {/* <p className="mb-7 font-size-4 text-gray"> */}
+              <div dangerouslySetInnerHTML={{ __html: job.description }} />
+              {/* </p> */}
               <div className="card-btn-group">
                 <a
                   className="btn btn-green text-uppercase btn-medium rounded-3"
