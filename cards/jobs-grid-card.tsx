@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { jobsData } from "../datasets/jobs-data";
+
 // import { company } from "../public/image/l1/png/feature-brand-1.png";
 
 const JobsGridCard = ({ jobsData }: any) => {
@@ -24,7 +24,7 @@ const JobsGridCard = ({ jobsData }: any) => {
                 </Link>
               </h2>
               <ul className="list-unstyled mb-1 card-tag-list">
-                {/* <li>
+                <li>
                   <a
                     href=""
                     className="bg-regent-opacity-15 text-denim font-size-3 rounded-3"
@@ -32,8 +32,8 @@ const JobsGridCard = ({ jobsData }: any) => {
                     <i className="icon icon-pin-3 mr-2 font-weight-bold"></i>{" "}
                     {job.location}
                   </a>
-                </li> */}
-                {/* <li>
+                </li>
+                <li>
                   <a
                     href=""
                     className="bg-regent-opacity-15 text-orange font-size-3 rounded-3"
@@ -41,10 +41,10 @@ const JobsGridCard = ({ jobsData }: any) => {
                     <i className="fa fa-briefcase mr-2 font-weight-bold"></i>{" "}
                     {job.employmentType}
                   </a>
-                </li> */}
+                </li>
               </ul>
               {/* <p className="mb-7 font-size-4 text-gray"> */}
-              <div dangerouslySetInnerHTML={{ __html: job.description }} />
+              {/* <div dangerouslySetInnerHTML={{ __html: job.description }} /> */}
               {/* </p> */}
               <div className="card-btn-group">
                 <a

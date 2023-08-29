@@ -3,9 +3,7 @@ import useJobsList from "@/hooks/jobs-list";
 import { JobsListInterface } from "@/interfaces/jobs-list-interface";
 
 const JobsListing = () => {
-  const { isLoading, data, error } = useJobsList();
-
-  console.log("jobs list data", data);
+  const { isLoading, data, error }: any = useJobsList();
   return (
     <div>
       <JobsListMaster isLoading={isLoading} data={data} error={error} />

@@ -19,18 +19,29 @@ const JobsListMaster = ({ isLoading, data, error }: JobsListInterface) => {
               {/* count of jobs div starts */}
               <div className="d-flex align-items-center justify-content-between">
                 <h5 className="font-size-4 font-weight-normal text-default-color">
-                  <span className="heading-default-color">120</span> results for{" "}
-                  <span className="heading-default-color">UI Designer</span>
+                  {data?.message?.data?.length} Job Openings
+                  {/* <span className="heading-default-color">120</span> results for{" "}
+                  <span className="heading-default-color">UI Designer</span> */}
                 </h5>
               </div>
               {/* count of jobs div ends */}
 
               <div className="pt-6">
-                <JobsCardContainer
-                  isLoading={isLoading}
-                  data={data}
-                  error={error}
-                />
+                {error ? (
+                  <div className="row justify-content-center">
+                    <div className="col-12">
+                      <h6>
+                        Something went wrong ... Please look back in sometime
+                      </h6>
+                    </div>
+                  </div>
+                ) : (
+                  <JobsCardContainer
+                    isLoading={isLoading}
+                    data={data}
+                    error={error}
+                  />
+                )}
               </div>
             </div>
           </div>

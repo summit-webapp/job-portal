@@ -1,0 +1,57 @@
+.skeleton_blog {
+  /* margin-bottom: 2em; */
+  animation: scale 4s infinite;
+  height: 350px;
+  width: 300px;
+  background-color: #fff;
+  padding-top: 1.875rem;
+  padding-left: 1.5625rem;
+  padding-right: 1.5625rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.875rem;
+  border-radius: 10px;
+}
+.header {
+  /* margin: 2em;
+  padding-top: 1em; */
+}
+.skeleton_avatar {
+  background: #e5e4e2;
+  /* padding-top: 2em; */
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.skeleton_author {
+  background: #e5e4e2;
+  height: 30px;
+  width: 300px;
+  margin-top: 1.5em;
+  /* margin-left: 1.75rem; */
+  border-radius: 6px;
+}
+.skeleton_types {
+  background: #e5e4e2;
+  height: 30px;
+  width: 150px;
+  margin-top: 1em;
+  /* margin-left: 1.75rem; */
+  border-radius: 6px;
+}
+.skeleton_image {
+  height: 100px;
+  width: 320px;
+  border-radius: 6px;
+  background: #e5e4e2;
+  margin-top: 10px;
+}
+.footer {
+  width: 300px;
+}
+.skeleton_footer {
+  height: 60px;
+  width: 100px;
+  border-radius: 6px;
+  background: #e5e4e2;
+  margin-top: 10px;
+}
