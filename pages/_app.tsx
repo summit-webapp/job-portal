@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import type { AppProps } from "next/app";
 import { persistor, store } from "../store/store";
 import { PersistGate } from "redux-persist/integration/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Layout from "../components/Layout";
 import "../styles/bootstrap.css";
 import "../styles/globals.css";

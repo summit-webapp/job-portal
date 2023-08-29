@@ -2,8 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import heroImg from "../../public/image/patterns/hero-pattern.png"
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import LogoutList from '@/services/api/auth_api/logout_api';
+import { ClearToken, get_access_token } from '@/store/slices/auth_slice/login_slice';
+import { useDispatch, useSelector } from 'react-redux';
 const NavSection = () => {
-  console.log("img",heroImg);
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
@@ -20,7 +25,28 @@ const NavSection = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  const [LoggedIn, setLoggedIn] = useState<any>(false)
+  const login = useSelector(get_access_token);
+  const loginCheck = login.user
+  console.log('token login check', loginCheck)
+  let isLoggedIn: any;
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // isLoggedIn = localStorage.getItem("LoggedIn");
+      setLoggedIn(loginCheck);
+    }
+  }, [login])
+  const handleLogOut = () => {
+      LogoutList()
+      dispatch(ClearToken());
+      localStorage.removeItem('LoggedIn');
+      console.log('Logged out');
+      setTimeout(() => {
+          router.push('/')
+      }, 1000)
+      console.log('logout called')
 
+  };
   return (
     <>
       <div className={`site-wrapper overflow-hidden ${isSticky ? 'sticky' : ''}`}>
@@ -46,11 +72,20 @@ const NavSection = () => {
                 </button>
               </div>
               <div className="header-btns header-btn-devider ml-auto pr-2 ml-lg-6">
+                {
+                  LoggedIn === "LoggedIn" ? <Link href='' legacyBehavior>
+                  <a  onClick={handleLogOut} className="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset">
+                    Log out
+                  </a>
+                  </Link>
+                  :
+
                 <Link href='/login' legacyBehavior>
                 <a className="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset">
                   Log in
                 </a>
                 </Link>
+                }
                <Link href='/register' legacyBehavior> 
                 <a className="btn btn-primary text-uppercase font-size-3">
                   Sign up

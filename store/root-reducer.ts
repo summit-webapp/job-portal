@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
-
+import accessTokenSlice from "../store/slices/auth_slice/login_slice"
 const appReducer = combineReducers({
-  
+  accessTokenSlice:accessTokenSlice,
 });
 
 const rootReducer = (state: any, action: any) => {

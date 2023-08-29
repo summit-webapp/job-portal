@@ -2,9 +2,17 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ClearToken, get_access_token } from '@/store/slices/auth_slice/login_slice';
+import LogoutList from '@/services/api/auth_api/logout_api';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 const Navbar = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [isSticky, setIsSticky] = useState(false);
-
+  const login = useSelector(get_access_token);
+  const loginCheck = login.user
+  console.log('token login', login)
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -19,6 +27,26 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  const [LoggedIn, setLoggedIn] = useState<any>(false)
+
+  let isLoggedIn: any;
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // isLoggedIn = localStorage.getItem("LoggedIn");
+      setLoggedIn(loginCheck);
+    }
+  }, [login])
+  const handleLogOut = () => {
+      LogoutList()
+      dispatch(ClearToken());
+      localStorage.removeItem('LoggedIn');
+      console.log('Logged out');
+      setTimeout(() => {
+          router.push('/')
+      }, 1000)
+      console.log('logout called')
+
+  };
 
   return (
     <>
@@ -46,11 +74,20 @@ const Navbar = () => {
                 </button>
               </div>
               <div className="header-btns header-btn-devider ml-auto pr-2 ml-lg-6">
+              {
+                  LoggedIn === "LoggedIn" ? <Link href='' legacyBehavior>
+                  <a  onClick={handleLogOut} className="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset">
+                    Log out
+                  </a>
+                  </Link>
+                  :
+
                 <Link href='/login' legacyBehavior>
                 <a className="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset">
                   Log in
                 </a>
                 </Link>
+                }
                <Link href='/register' legacyBehavior> 
                 <a className="btn btn-primary text-uppercase font-size-3">
                   Sign up
