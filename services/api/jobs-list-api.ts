@@ -5,7 +5,7 @@ import { API_CONFIG, TIMEOUT } from "../config/app-config";
 const GetJobsListAPI = (): Promise<any> =>
   axios
     .get(
-      "https://demo-v14.8848digitalerp.com/api/method/job_portal.sdk.api?version=v1&method=get_job_opening&entity=job_opening"
+      "https://demo-v14.8848digitalerp.com/api/method/job_portal.sdk.api?version=v1&method=job_opening_list&entity=job_opening"
     )
     .then((response) => response.data);
 

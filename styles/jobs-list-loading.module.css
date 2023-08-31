@@ -30,6 +30,11 @@
   /* margin-left: 1.75rem; */
   border-radius: 6px;
 }
+.category_skeleton_heading {
+  height: 30px;
+  width: 150px;
+  border-radius: 6px;
+}
 .skeleton_types {
   background: #e5e4e2;
   height: 30px;

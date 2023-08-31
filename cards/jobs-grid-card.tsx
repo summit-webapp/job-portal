@@ -17,7 +17,7 @@ const JobsGridCard = ({ jobsData }: any) => {
 
               <h2 className="mt-n4">
                 <Link
-                  href="/job-details"
+                  href={`/job-details/${job.name}`}
                   className="font-size-7 text-black-2 font-weight-bold mb-4"
                 >
                   {job.job_title}
@@ -30,7 +30,7 @@ const JobsGridCard = ({ jobsData }: any) => {
                     className="bg-regent-opacity-15 text-denim font-size-3 rounded-3"
                   >
                     <i className="icon icon-pin-3 mr-2 font-weight-bold"></i>{" "}
-                    {job.location}
+                    {job.working_module}
                   </a>
                 </li>
                 <li>
@@ -39,13 +39,14 @@ const JobsGridCard = ({ jobsData }: any) => {
                     className="bg-regent-opacity-15 text-orange font-size-3 rounded-3"
                   >
                     <i className="fa fa-briefcase mr-2 font-weight-bold"></i>{" "}
-                    {job.employmentType}
+                    {job.employement_type}
                   </a>
                 </li>
               </ul>
-              {/* <p className="mb-7 font-size-4 text-gray"> */}
-              {/* <div dangerouslySetInnerHTML={{ __html: job.description }} /> */}
-              {/* </p> */}
+              <p className="mb-7 font-size-4 text-gray">
+                {/* {job.custom_job_description.slice(15)} */}
+                {`${job.custom_job_description.slice(0, 150)}...`}
+              </p>
               <div className="card-btn-group">
                 <a
                   className="btn btn-green text-uppercase btn-medium rounded-3"

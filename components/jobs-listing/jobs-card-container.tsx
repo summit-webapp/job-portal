@@ -1,8 +1,8 @@
 import JobsGridCard from "@/cards/jobs-grid-card";
-import { JobsListInterface } from "@/interfaces/jobs-list-interface";
+import { APIDataTypes } from "@/interfaces/api-data-types";
 import JobsListLoading from "./jobs-list-loading";
 
-const JobsCardContainer = ({ isLoading, data, error }: JobsListInterface) => {
+const JobsCardContainer = ({ isLoading, data, error }: APIDataTypes) => {
   if (isLoading) {
     return (
       <div className="row justify-content-center">
