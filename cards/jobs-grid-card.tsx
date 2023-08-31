@@ -17,7 +17,7 @@ const JobsGridCard = ({ jobsData }: any) => {
 
               <h2 className="mt-n4">
                 <Link
-                  href="/job-details"
+                  href={`/job-details/${job.name}`}
                   className="font-size-7 text-black-2 font-weight-bold mb-4"
                 >
                   {job.job_title}
