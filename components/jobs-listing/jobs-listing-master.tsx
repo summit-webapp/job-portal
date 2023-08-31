@@ -1,9 +1,9 @@
-import { JobsListInterface } from "@/interfaces/jobs-list-interface";
+import { APIDataTypes } from "@/interfaces/api-data-types";
 import FilterSection from "./filter-section";
 import JobSearch from "./job-search";
 import JobsCardContainer from "./jobs-card-container";
 
-const JobsListMaster = ({ isLoading, data, error }: JobsListInterface) => {
+const JobsListMaster = ({ isLoading, data, error }: APIDataTypes) => {
   return (
     <div className="bg-default-1 pt-26 pt-lg-28 pb-13 pb-lg-25">
       <div className="container">

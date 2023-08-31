@@ -1,6 +1,6 @@
 import JobsListMaster from "@/components/jobs-listing/jobs-listing-master";
-import useJobsList from "@/hooks/jobs-list";
-import { JobsListInterface } from "@/interfaces/jobs-list-interface";
+import useJobsList from "@/hooks/jobs-list-hook";
+import { APIDataTypes } from "@/interfaces/api-data-types";
 
 const JobsListing = () => {
   const { isLoading, data, error }: any = useJobsList();

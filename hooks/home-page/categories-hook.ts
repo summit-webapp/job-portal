@@ -1,22 +1,14 @@
+import CategoriesAPI from "@/services/api/home-page/categories-api";
 import GetJobsListAPI from "@/services/api/jobs-list-api";
 import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
 
-const useJobsList = () => {
+const useCategories = () => {
   const { isLoading, data, error } = useQuery({
-    queryKey: ["jobs-list"],
-    queryFn: () => GetJobsListAPI(),
+    queryKey: ["categories-list"],
+    queryFn: () => CategoriesAPI(),
     staleTime: 300000, // 5 minutes in milliseconds
     cacheTime: 600000, // 10 minutes in milliseconds
   });
-
-  // useEffect(() => {
-  //   console.log("Component mounted");
-
-  //   return () => {
-  //     console.log("Component unmounted");
-  //   };
-  // }, []);
 
   return {
     isLoading,
@@ -25,4 +17,4 @@ const useJobsList = () => {
   };
 };
 
-export default useJobsList;
+export default useCategories;
