@@ -6,7 +6,7 @@ import { Form as BootstrapForm, FormCheck } from 'react-bootstrap';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { fetchAccessToken } from '@/store/slices/auth_slice/login_slice';
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import getAccessTokenApi from '@/services/api/auth_api/login_api';
 import { useRouter } from 'next/router';
 

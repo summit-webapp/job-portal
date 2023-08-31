@@ -6,7 +6,7 @@ import { Form as BootstrapForm, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import RegisterPost from '@/services/api/auth_api/register_api';
 
 const SignupValidationSchema = Yup.object().shape({
