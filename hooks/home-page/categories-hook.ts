@@ -1,5 +1,5 @@
 import CategoriesAPI from "@/services/api/home-page/categories-api";
-import GetJobsListAPI from "@/services/api/jobs-list-api";
+import GetJobsListAPI from "@/services/api/jobs-list/jobs-list-api";
 import { useQuery } from "@tanstack/react-query";
 
 const useCategories = () => {

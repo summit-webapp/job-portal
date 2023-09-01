@@ -3,10 +3,24 @@ import useJobsList from "@/hooks/jobs-list-hook";
 import { APIDataTypes } from "@/interfaces/api-data-types";
 
 const JobsListing = () => {
-  const { isLoading, data, error }: any = useJobsList();
+  const {
+    JobsListQuery,
+    FilterQuery,
+    selectedFilters,
+    handleApplyFilters,
+  }: any = useJobsList();
   return (
     <div>
-      <JobsListMaster isLoading={isLoading} data={data} error={error} />
+      <JobsListMaster
+        jobListIsLoading={JobsListQuery.isLoading}
+        jobListData={JobsListQuery.data}
+        jobListError={JobsListQuery.error}
+        filterLoading={FilterQuery.isLoading}
+        filterData={FilterQuery.data}
+        filterError={FilterQuery.error}
+        selectedFilters={selectedFilters}
+        handleApplyFilters={handleApplyFilters}
+      />
     </div>
   );
 };
