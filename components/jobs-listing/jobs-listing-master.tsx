@@ -14,8 +14,9 @@ const JobsListMaster = ({
   selectedFilters,
   handleApplyFilters,
 }: any) => {
+  console.log("mountinggggg");
   return (
-    <div className="bg-default-1 pt-20 pt-lg-23 pb-13 pb-lg-25">
+    <div className="bg-default-1 pt-24 pt-lg-28 pb-13 pb-lg-25">
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-3 col-xs-8">

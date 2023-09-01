@@ -217,9 +217,15 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                         <p className="font-size-4 font-weight-semibold text-black-2 mb-7">
                           Job Description
                         </p>
-                        <p className="font-size-4 text-black-2 mb-7">
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: data?.message?.data?.description,
+                          }}
+                          className="description-html font-size-4 text-black-2 mb-7"
+                        />
+                        {/* <p className="font-size-4 text-black-2 mb-7">
                           {data?.message?.data?.custom_job_description}
-                        </p>
+                        </p> */}
                       </div>
 
                       <a

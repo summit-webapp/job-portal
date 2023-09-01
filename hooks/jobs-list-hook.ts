@@ -1,17 +1,18 @@
 import GetFiltersListAPI from "@/services/api/jobs-list/filter-list-api";
-import GetJobsListAPI from "@/services/api/jobs-list/jobs-list-api";
-import { useQuery } from "@tanstack/react-query";
+import { GetJobsListAPI } from "@/services/api/jobs-list/jobs-list-api";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 const useJobsList = () => {
+  console.log("query client check");
   const router = useRouter();
+  const queryClient = useQueryClient();
   const [selectedFilters, setSelectedFilters] = useState<any>([]);
-  const JobsListQuery = useQuery({
+  const JobsListQuery: any = useQuery({
+    queryFn: (filters?: any) => GetJobsListAPI(filters),
     queryKey: ["jobs-list"],
-    queryFn: () => GetJobsListAPI(),
-    staleTime: 300000, // 5 minutes in milliseconds
-    cacheTime: 600000, // 10 minutes in milliseconds
+    enabled: true,
   });
 
   const FilterQuery = useQuery({
@@ -76,10 +77,20 @@ const useJobsList = () => {
     if (filterString !== "") {
       url += `?filter=${filterString}`;
     }
+    console.log("filters", duplicateFilters);
 
     // Use the new URL for navigation
+
     await router.push(url);
   };
+
+  useEffect(() => {
+    console.log("router uqyer", router.query);
+    queryClient.invalidateQueries({
+      queryKey: ["jobs-list"],
+    });
+  }, [router]);
+
   return {
     JobsListQuery,
     FilterQuery,

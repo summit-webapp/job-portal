@@ -75,14 +75,6 @@ const ExploreByCategory = () => {
                 </h2>
               </div>
             </div>
-
-            <div className="col-12 col-lg-6">
-              <div className="text-center text-lg-right">
-                <a className="btn btn-outline-green text-uppercase" href="#">
-                  Explore All
-                </a>
-              </div>
-            </div>
           </div>
 
           <div className="row justify-content-center">
