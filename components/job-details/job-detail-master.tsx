@@ -4,16 +4,12 @@ import { APIDataTypes } from "@/interfaces/api-data-types";
 
 const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
   const returnFormattedDate = (raw_date: any) => {
-    const inputDateString: any = "2023-08-31 13:02:34.615560";
-    const inputDate: any = new Date(inputDateString);
-
-    const day: any = inputDate.getDate();
-    const month: any = new Intl.DateTimeFormat("en-US", {
-      month: "long",
-    }).format(inputDate);
-    const year: any = inputDate.getFullYear();
-
-    const formattedDate: any = `${day} ${month} ${year}`;
+    const splitDate: any = raw_date?.split(" ");
+    const options: any = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(splitDate).toLocaleDateString(
+      "en-US",
+      options
+    );
     return formattedDate;
   };
   return (
@@ -44,7 +40,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                         {/* media logo start */}
                         <div className="square-72 d-block mr-8">
                           <img
-                            src="./image/l2/png/featured-job-logo-1.png"
+                            src="/image/l2/png/featured-job-logo-1.png"
                             alt=""
                           />
                         </div>
@@ -53,7 +49,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                         {/* media texts start */}
                         <div>
                           <h3 className="font-size-6 mb-0">
-                            {data?.message?.data[0]?.job_title}
+                            {data?.message?.data?.job_title}
                           </h3>
                           <span className="font-size-3 text-gray line-height-2">
                             8848 Digital LLP
@@ -67,9 +63,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                       {/* media date start */}
                       <div className="media justify-content-md-end">
                         <p className="font-size-4 text-gray mb-0">
-                          {returnFormattedDate(
-                            data?.message?.data[0]?.modified
-                          )}
+                          {returnFormattedDate(data?.message?.data?.modified)}
                         </p>
                       </div>
                       {/* <!-- media date end --> */}
@@ -117,21 +111,26 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                           <img src="./image/svg/icon-briefcase.svg" alt="" />
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
-                          {data?.message?.data[0]?.employement_type?.length >
-                          1 ? (
+                          {data?.message?.data?.employement_type?.length > 1 ? (
                             <>
-                              {data?.message?.data[0]?.employement_type?.map(
-                                (employement_type_data: any) => {
-                                  return <>{employement_type_data}/</>;
-                                }
+                              {data?.message?.data?.employement_type?.map(
+                                (module_name: any, index: number) => (
+                                  <span key={index}>
+                                    {module_name}
+                                    {index !==
+                                      data?.message?.data?.employement_type
+                                        ?.length -
+                                        1 && "/"}
+                                  </span>
+                                )
                               )}
                             </>
                           ) : (
                             <>
-                              {data?.message?.data[0]?.employement_type?.map(
-                                (employement_type_data: any) => {
-                                  return <>{employement_type_data}</>;
-                                }
+                              {data?.message?.data?.employement_type?.map(
+                                (module_name: any) => (
+                                  <span key={module_name}>{module_name}</span>
+                                )
                               )}
                             </>
                           )}
@@ -144,15 +143,14 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                           <img src="./image/svg/icon-location.svg" alt="" />
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
-                          {data?.message?.data[0]?.working_module?.length >
-                          1 ? (
+                          {data?.message?.data?.working_module?.length > 1 ? (
                             <>
-                              {data?.message?.data[0]?.working_module?.map(
+                              {data?.message?.data?.working_module?.map(
                                 (module_name: any, index: number) => (
                                   <span key={index}>
                                     {module_name}
                                     {index !==
-                                      data?.message?.data[0]?.working_module
+                                      data?.message?.data?.working_module
                                         ?.length -
                                         1 && "/"}
                                   </span>
@@ -161,7 +159,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                             </>
                           ) : (
                             <>
-                              {data?.message?.data[0]?.working_module?.map(
+                              {data?.message?.data?.working_module?.map(
                                 (module_name: any) => (
                                   <span key={module_name}>{module_name}</span>
                                 )
@@ -178,7 +176,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                       <div className="tags">
                         <p className="font-size-4 text-gray mb-0">Soft Skill</p>
                         <ul className="list-unstyled mr-n3 mb-0">
-                          {data?.message?.data[0]?.soft_skills?.map(
+                          {data?.message?.data?.soft_skills?.map(
                             (skill: string) => {
                               return (
                                 <li className="d-block font-size-4 text-black-2 mt-2">
@@ -197,7 +195,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                           Technical Skill
                         </p>
                         <ul className="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
-                          {data?.message?.data[0]?.technical_skills?.map(
+                          {data?.message?.data?.technical_skills?.map(
                             (skill: string) => {
                               return (
                                 <li className="bg-regent-opacity-15 mr-3 h-px-33 text-center flex-all-center rounded-3 px-5 font-size-3 text-black-2 mt-2">
@@ -220,7 +218,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                           Job Description
                         </p>
                         <p className="font-size-4 text-black-2 mb-7">
-                          {data?.message?.data[0]?.custom_job_description}
+                          {data?.message?.data?.custom_job_description}
                         </p>
                       </div>
 

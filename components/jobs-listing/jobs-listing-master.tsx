@@ -2,6 +2,7 @@ import { APIDataTypes } from "@/interfaces/api-data-types";
 import FilterSection from "./filter-section";
 import JobSearch from "./job-search";
 import JobsCardContainer from "./jobs-card-container";
+import ReactPaginate from "react-paginate";
 
 const JobsListMaster = ({
   jobListIsLoading,
@@ -14,7 +15,7 @@ const JobsListMaster = ({
   handleApplyFilters,
 }: any) => {
   return (
-    <div className="bg-default-1 pt-26 pt-lg-28 pb-13 pb-lg-25">
+    <div className="bg-default-1 pt-20 pt-lg-23 pb-13 pb-lg-25">
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-3 col-xs-8">
@@ -28,7 +29,21 @@ const JobsListMaster = ({
           </div>
 
           <div className="col-12 col-md-9 col-xs-12 ">
-            {/* <JobSearch /> */}
+            {/* <div>
+              <ReactPaginate
+                previousLabel={"Previous"}
+                nextLabel={"Next"}
+                pageCount={pageCount}
+                pageRangeDisplayed={3}
+                onPageChange={handlePageClick}
+                containerClassName={"paginationBttns"}
+                previousLinkClassName={"previousBttn"}
+                nextLinkClassName={"nextBttn"}
+                disabledClassName={"paginationDisabled"}
+                activeClassName={"paginationActive"}
+                forcePage={pageOffset}
+              />
+            </div> */}
 
             <div className=" ml-lg-0 ml-md-15">
               {/* count of jobs div starts */}
