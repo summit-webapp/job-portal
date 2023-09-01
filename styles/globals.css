@@ -8878,3 +8878,36 @@ a.hover-text-hitgray:hover {
   width: 500px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box-shadow property for the shadow effect */
 }
+
+.profile-wrapper{
+  margin-top: 100px;
+}
+
+.react-tabs__tab-list{
+  border:none !important;
+}
+.react-tabs__tab {
+  /* border: 1px solid transparent !important; */ 
+  /* margin-bottom: 20px !important; */
+}
+
+.react-tabs__tab:focus:after {
+background: none !important;
+}
+
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer{
+  margin-top: auto !important;
+}

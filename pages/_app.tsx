@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             {() => (
-              <div>
+              <div className="content-wrapper">
                 <Layout>
                   <Component {...pageProps} />
                 </Layout>

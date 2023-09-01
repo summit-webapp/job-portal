@@ -20,8 +20,10 @@
     "react": "18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
+    "react-loader-spinner": "^5.4.5",
     "react-query": "^3.39.3",
     "react-redux": "^8.1.2",
+    "react-tabs": "^6.0.2",
     "redux-persist": "^6.0.0",
     "typescript": "5.1.6",
     "yup": "^1.2.0"
