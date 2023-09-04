@@ -17,7 +17,7 @@ const getAccessTokenApi = async (usr:any, pwd:any) => {
         timeout: 5000,
       })
       .then((res) => {
-        response = res.data.message.data;
+        response = res.data.message;
         console.log("login api res",response)
       })
       .catch((err) => {

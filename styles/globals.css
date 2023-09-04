@@ -8867,6 +8867,7 @@ a.hover-text-hitgray:hover {
   border-radius: 5px;
   margin: 100px auto;
   width: 450px;
+  padding: 25px;
 }
 
 /* Register custom */
@@ -8877,6 +8878,7 @@ a.hover-text-hitgray:hover {
   margin: 90px auto 50px auto;
   width: 500px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added box-shadow property for the shadow effect */
+  padding: 25px;
 }
 
 .profile-wrapper{
@@ -8910,4 +8912,147 @@ background: none !important;
 
 .footer{
   margin-top: auto !important;
+}
+
+.icon-size{
+  font-size: 40px;
+}
+
+.error_message{
+  color:red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.custom-toast {
+  top: 80px;
+}
+
+/* attach resume css */
+
+
+.file {
+  position: relative;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.file > input[type='file'] {
+  display: none
+}
+
+.file > label {
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  outline: 0;
+  user-select: none;
+  border-color: #00b074;
+  border-style: solid;
+  border-radius: 4px;
+  border-width: 1px;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 29%);
+  padding:8px 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file > label:hover {
+  border-color: hsl(0, 0%, 21%);
+}
+
+.file > label:active {
+  background-color: hsl(0, 0%, 96%);
+}
+
+.file > label > i {
+  padding-right: 5px;
+}
+
+.file--upload > label {
+  /* color: hsl(204, 86%, 53%);
+  border-color: hsl(204, 86%, 53%); */
+  color:  #00b074;
+  border-color:  #00b074;
+
+ 
+}
+
+.file--upload > label:hover {
+  color:  #00b074;
+  border-color:  #00b074;
+}
+
+.file--upload > label:active {
+  background-color: hsl(204, 86%, 91%);
+}
+
+.file--uploading > label {
+  color: hsl(48, 100%, 67%);
+  border-color: hsl(48, 100%, 67%);
+}
+
+.file--uploading > label > i {
+  animation: pulse 5s infinite;
+}
+
+.file--uploading > label:hover {
+  border-color: hsl(48, 100%, 67%);
+  background-color: hsl(48, 100%, 96%);
+}
+
+.file--uploading > label:active {
+  background-color: hsl(48, 100%, 91%);
+}
+
+.file--success > label {
+  color: hsl(141, 71%, 48%);
+  border-color: hsl(141, 71%, 48%);
+}
+
+.file--success > label:hover {
+  border-color: hsl(141, 71%, 48%);
+  background-color: hsl(141, 71%, 96%);
+}
+
+.file--success > label:active {
+  background-color: hsl(141, 71%, 91%);
+}
+
+.file--danger > label {
+  color: hsl(348, 100%, 61%);
+  border-color: hsl(348, 100%, 61%);
+}
+
+.file--danger > label:hover {
+  border-color: hsl(348, 100%, 61%);
+  background-color: hsl(348, 100%, 96%);
+}
+
+.file--danger > label:active {
+  background-color: hsl(348, 100%, 91%);
+}
+
+.file--disabled {
+  cursor: not-allowed;
+}
+
+.file--disabled > label {
+  border-color: #e6e7ef;
+  color: #e6e7ef;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    color: hsl(48, 100%, 67%);
+  }
+  50% {
+    color: hsl(48, 100%, 38%);
+  }
+  100% {
+    color: hsl(48, 100%, 67%);
+  }
 }

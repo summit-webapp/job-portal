@@ -9,6 +9,7 @@ import {
   get_access_token,
 } from "@/store/slices/auth_slice/login_slice";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 const NavSection = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -44,6 +45,10 @@ const NavSection = () => {
     dispatch(ClearToken());
     localStorage.removeItem("LoggedIn");
     console.log("Logged out");
+    toast.success('Logout successful', {
+      autoClose: 3000, 
+      className: 'custom-toast',// Close the notification after 3 seconds
+    });
     setTimeout(() => {
       router.push("/");
     }, 1000);
@@ -121,7 +126,7 @@ const NavSection = () => {
                         aria-expanded="false"
                       >
                         <div className="circle-40">
-                          <img src="./image/header-profile.png" alt="" />
+                        <i className="fas fa-user-circle icon-size"></i>
                         </div>
                         <i className="fas fa-chevron-down heading-default-color ml-6"></i>
                       </a>

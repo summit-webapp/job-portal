@@ -6,7 +6,7 @@ import { applied_jobs_data } from "../../datasets/applied-jobs";
 import Link from "next/link";
 import ProfileInfoCard from "@/cards/profile-info-card";
 import AppliedJobsCard from "@/cards/applied-jobs-card";
-import SavedJobsCard from "@/cards/saved-jobs-card";
+import SavedJobsCard from "@/cards/profile-jobs-card";
 import Loader from "react-loader-spinner";
 
 const ProfileMaster = () => {
@@ -50,37 +50,34 @@ const ProfileMaster = () => {
           {/* sidebar ends */}
           <div className="col-12 col-xl-8 col-lg-8 ms-3">
             <div className="mb-5">
-              <Tabs selectedIndex={activeTabIndex} onSelect={(index) => setActiveTabIndex(index)}>
-                <TabList>
-                  <Tab>Applied Jobs</Tab>
-                  <Tab>Saved Jobs</Tab>
-                </TabList>
+              <div>
+                <h4>Applied Jobs</h4>
+                {profileQuery.isLoading ? (
+                  <div className="spinner-border text-success  text-center" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                ) : profileQuery.error ? (
+                  <div>Error</div>
+                ) : (
 
-                <TabPanel>
-                  {profileQuery.isLoading ? (
-                    <div className="spinner-border text-success  text-center" role="status">
-                      <span className="sr-only">Loading...</span>
-                    </div>
-                  ) : profileQuery.error ? (
-                    <div>Error</div>
-                  ) : (
+                  <AppliedJobsCard isLoading={appliedJobsQuery.isLoading} data={appliedJobsQuery.data} error={appliedJobsQuery.error} />
+                )
+                }
+              </div>
+              
+              <div>
+                <h4>Saved Jobs</h4>
+                {profileQuery.isLoading ? (
+                  <div className="spinner-border text-success  text-center" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                ) : profileQuery.error ? (
+                  <div>Error</div>
+                ) : (
+                  <SavedJobsCard isLoading={savedJobsQuery.isLoading} data={savedJobsQuery.data} error={savedJobsQuery.error} />
+                )}
+              </div>
 
-                    <AppliedJobsCard isLoading={appliedJobsQuery.isLoading} data={appliedJobsQuery.data} error={appliedJobsQuery.error} />
-                  )
-                  }
-                </TabPanel>
-                <TabPanel>
-                  {profileQuery.isLoading ? (
-                    <div className="spinner-border text-success  text-center" role="status">
-                      <span className="sr-only">Loading...</span>
-                    </div>
-                  ) : profileQuery.error ? (
-                    <div>Error</div>
-                  ) : (
-                    <SavedJobsCard isLoading={savedJobsQuery.isLoading} data={savedJobsQuery.data} error={savedJobsQuery.error} />
-                  )}
-                </TabPanel>
-              </Tabs>
             </div>
           </div>
         </div>

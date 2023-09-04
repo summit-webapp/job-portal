@@ -35,7 +35,7 @@ const RegisterPost = async (request: any) => {
         )
         .then((res) => {
             console.log(res, "response in api");
-            response = res;
+            response = res.data.message;
         })
         .catch((err) => {
             if (err.code === "ECONNABORTED") {

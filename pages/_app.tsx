@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Layout from "../components/Layout";
 import "../styles/bootstrap.css";
 import "../styles/globals.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
   return (
@@ -15,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <PersistGate loading={null} persistor={persistor}>
             {() => (
               <div className="content-wrapper">
+                <ToastContainer/>
                 <Layout>
                   <Component {...pageProps} />
                 </Layout>
@@ -23,6 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           </PersistGate>
         </Provider>
       </div>
+
+        
     </QueryClientProvider>
   );
 }
