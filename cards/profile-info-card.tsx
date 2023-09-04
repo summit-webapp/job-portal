@@ -9,11 +9,7 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
       <div className="bg-white shadow-9 rounded-4">
         <div className="px-5 pt-8 text-center border-bottom border-mercury">
           <a className="mb-4" href="#">
-            <img
-              className="circle-54"
-              src="./image/l3/png/pro-img.png"
-              alt=""
-            />
+          <i className="fas fa-user-circle icon-size"></i>
           </a>
           <h4 className="mb-0">
             {data?.data?.name}

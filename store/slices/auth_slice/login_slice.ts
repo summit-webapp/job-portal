@@ -48,13 +48,12 @@ const accessTokenSlice = createSlice({
         state.user = "";
       })
       .addCase(fetchAccessToken.fulfilled, (state?:any, action?:any) => {
-        if (action?.payload?.hasOwnProperty("access_token")) {
-          state.token = action?.payload?.access_token;
+      
+          state.token = action?.payload?.data?.access_token;
           localStorage.setItem("LoggedIn", "true");
           state.user = "LoggedIn";
           console.log("token in slice",state.token)
           console.log("token in user",state.user)
-        }
         state.isLoading = false;
       })
       .addCase(fetchAccessToken.rejected, (state:any , action?:any) => {
