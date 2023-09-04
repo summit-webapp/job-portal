@@ -14,7 +14,7 @@ const JobsListMaster = ({
   selectedFilters,
   handleApplyFilters,
 }: any) => {
-  console.log("mountinggggg");
+  // console.log("mountinggggg");
   return (
     <div className="bg-default-1 pt-24 pt-lg-28 pb-13 pb-lg-25">
       <div className="container">
@@ -50,7 +50,7 @@ const JobsListMaster = ({
               {/* count of jobs div starts */}
               <div className="d-flex align-items-center justify-content-between">
                 <h5 className="font-size-4 font-weight-normal text-default-color">
-                  {jobListData?.message?.data?.length} Job Openings
+                  {jobListData?.length} Job Openings
                   {/* <span className="heading-default-color">120</span> results for{" "}
                   <span className="heading-default-color">UI Designer</span> */}
                 </h5>

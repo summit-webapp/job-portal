@@ -93,12 +93,12 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                 </div>
                 {/* job opening data main ends */}
 
-                <div className="job-details-content pt-8 pl-sm-9 pl-6 pr-sm-9 pr-6 pb-10 border-bottom border-width-1 border-default-color light-mode-texts">
+                <div className="job-details-content pt-8 pl-sm-9 pl-6 pr-sm-9 pr-6 pb-6 border-bottom border-width-1 border-default-color light-mode-texts">
                   <div className="row mb-7">
                     <div className="col-md-4 mb-md-0 mb-6">
                       <div className="media justify-content-md-start">
                         <div className="image mr-5">
-                          <img src="./image/svg/icon-dolor.svg" alt="" />
+                          <img src="/image/svg/icon-dolor.svg" alt="" />
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
                           As per Industry standard
@@ -108,7 +108,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                     <div className="col-md-4 pr-lg-0 pl-lg-10 mb-md-0 mb-6">
                       <div className="media justify-content-md-start">
                         <div className="image mr-5">
-                          <img src="./image/svg/icon-briefcase.svg" alt="" />
+                          <img src="/image/svg/icon-briefcase.svg" alt="" />
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
                           {data?.message?.data?.employement_type?.length > 1 ? (
@@ -140,7 +140,7 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                     <div className="col-md-4 pl-lg-0">
                       <div className="media justify-content-md-start">
                         <div className="image mr-5">
-                          <img src="./image/svg/icon-location.svg" alt="" />
+                          <img src="/image/svg/icon-location.svg" alt="" />
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
                           {data?.message?.data?.working_module?.length > 1 ? (

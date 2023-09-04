@@ -1,10 +1,33 @@
 import FeaturedJobsGridCard from "@/cards/featured-jobs-grid-card";
+import useJobsList from "@/hooks/jobs-list-hook";
 import React from "react";
+import JobsListLoading from "../jobs-listing/jobs-list-loading";
 
 const FeaturedJobs = () => {
+  const { jobsListQuery }: any = useJobsList();
+
+  const renderCards = () => {
+    if (jobsListQuery.isLoading) {
+      return (
+        <>
+          <JobsListLoading />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <FeaturedJobsGridCard
+            jobListIsLoading={jobsListQuery.isLoading}
+            jobListData={jobsListQuery.data}
+            jobListError={jobsListQuery.error}
+          />
+        </>
+      );
+    }
+  };
   return (
     <>
-      <div className="pt-8 pt-lg-27 pb-7 pb-lg-26 bg-black-2 dark-mode-texts">
+      <div className="pt-8 pt-lg-27 pb-5 pb-lg-26 bg-black-2 dark-mode-texts">
         <div className="container">
           <div className="row align-items-center pb-14">
             <div className="col-12 col-xl-6 col-lg-6">
@@ -25,9 +48,7 @@ const FeaturedJobs = () => {
             </div>
           </div>
 
-          <div className="row justify-content-center">
-            <FeaturedJobsGridCard />
-          </div>
+          <div className="row justify-content-center">{renderCards()}</div>
         </div>
       </div>
     </>
