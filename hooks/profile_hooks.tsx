@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const useProfileQuery = () => {
   const token = useSelector(get_access_token);
-  console.log('profile token', token.token);
+  // console.log('profile token', token.token);
 
   // Define separate queries for profile and applied jobs
   const profileQuery = useQuery({
@@ -29,11 +29,11 @@ const useProfileQuery = () => {
     staleTime: 300000, // 5 minutes in milliseconds
     cacheTime: 600000, // 10 minutes in milliseconds
   });
-console.log('saved jobs hook',savedJobsQuery.data)
+  // console.log('saved jobs hook',savedJobsQuery.data)
   return {
     profileQuery,
     appliedJobsQuery,
-    savedJobsQuery
+    savedJobsQuery,
   };
 };
 

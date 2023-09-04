@@ -1,6 +1,8 @@
 import JobsListMaster from "@/components/jobs-listing/jobs-listing-master";
 import useJobsList from "@/hooks/jobs-list-hook";
+import useProfileQuery from "@/hooks/profile_hooks";
 import { APIDataTypes } from "@/interfaces/api-data-types";
+import { useState } from "react";
 
 const JobsListing = () => {
   const {
@@ -8,8 +10,13 @@ const JobsListing = () => {
     FilterQuery,
     selectedFilters,
     handleApplyFilters,
+    createJobApplicantFunction,
+    appliedJobsQuery,
+    savedJobsQuery,
   }: any = useJobsList();
-  console.log("job listing", jobsListQuery.data);
+
+  // const [appliedJobsQueryData, setAppliedJobsQueryData] = useState([]);
+  // console.log("job listing", jobsListQuery.data);
   return (
     <div>
       <JobsListMaster
@@ -21,6 +28,9 @@ const JobsListing = () => {
         filterError={FilterQuery.error}
         selectedFilters={selectedFilters}
         handleApplyFilters={handleApplyFilters}
+        createJobApplicantFunction={createJobApplicantFunction}
+        appliedJobsQuery={appliedJobsQuery.data}
+        savedJobsQuery={savedJobsQuery.data}
       />
     </div>
   );

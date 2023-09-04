@@ -1,13 +1,21 @@
+import CreateJobApplicantAPI from "@/services/api/jobs-list/create-job-applicant";
 import GetFiltersListAPI from "@/services/api/jobs-list/filter-list-api";
 import GetJobsListAPI from "@/services/api/jobs-list/jobs-list-api";
+import { toast } from "react-toastify";
+import { get_access_token } from "@/store/slices/auth_slice/login_slice";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import useProfileQuery from "./profile_hooks";
 
 const useJobsList = () => {
-  console.log("query client check");
+  // console.log("query client check");
   const router = useRouter();
+  const tokenFromStore = useSelector(get_access_token);
   const queryClient = useQueryClient();
+
+  let designationSet: any;
 
   const [jobsListQuery, setJobsListQuery] = useState({
     isLoading: true,
@@ -20,6 +28,8 @@ const useJobsList = () => {
   //   queryKey: ["jobs-list"],
   //   enabled: true,
   // });
+
+  const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
 
   const FilterQuery = useQuery({
     queryKey: ["filters-list"],
@@ -128,6 +138,47 @@ const useJobsList = () => {
     }
   };
 
+  const createJobApplicantFunction = async (
+    designation: string,
+    name: string,
+    status: string
+  ) => {
+    const callAPIForCreatingJobApplicant = await CreateJobApplicantAPI(
+      tokenFromStore.token,
+      designation,
+      name,
+      status
+    );
+    console.log(
+      "applicant creation api successfull in hook",
+      callAPIForCreatingJobApplicant
+    );
+
+    if (callAPIForCreatingJobApplicant?.status === 200) {
+      if (callAPIForCreatingJobApplicant?.data?.message?.msg === "success") {
+        toast.success(
+          `${callAPIForCreatingJobApplicant?.data?.message?.data}`,
+          {
+            autoClose: 3000,
+            className: "custom-toast", // Close the notification after 3 seconds
+          }
+        );
+      } else {
+        toast.error(`${callAPIForCreatingJobApplicant?.data?.message?.data}`, {
+          autoClose: 5000,
+          className: "custom-toast", // Close the notification after 5 seconds
+        });
+      }
+    } else {
+      toast.error(`Something went wrong. Please check back in sometime.`, {
+        autoClose: 5000,
+        className: "custom-toast", // Close the notification after 5 seconds
+      });
+    }
+
+    await router.push("/profile");
+  };
+
   useEffect(() => {
     getJobsListingDataFunction();
   }, [router.query]);
@@ -137,6 +188,9 @@ const useJobsList = () => {
     FilterQuery,
     selectedFilters,
     handleApplyFilters,
+    createJobApplicantFunction,
+    appliedJobsQuery,
+    savedJobsQuery,
   };
 };
 
