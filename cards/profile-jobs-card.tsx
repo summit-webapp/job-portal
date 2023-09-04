@@ -68,7 +68,10 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                
               </ul>
               <p className="mb-7 font-size-4 text-gray">
-              {job.description}
+              <p className="mb-7 font-size-4 text-gray">{`${job?.custom_job_description?.slice(
+                0,
+                100
+              )}...`}</p>
               </p>
               {/* <div className="card-btn-group">
                 <a

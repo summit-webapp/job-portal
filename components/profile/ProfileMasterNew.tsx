@@ -14,7 +14,7 @@ import FeaturedJobsGridCard from "@/cards/featured-jobs-grid-card";
 const ProfileMasterNew = () => {
   const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-
+console.log('saved jobs',savedJobsQuery)
   return (
     <div className="bg-default-2 pt-8 pt-lg-8 pb-7 pb-lg-23 profile-wrapper">
       <div className="container">
@@ -80,7 +80,7 @@ const ProfileMasterNew = () => {
                   ) : profileQuery.error ? (
                     <div>Error</div>
                   ) : (
-
+                    
                     <ProfileJobsCard isLoading={savedJobsQuery.isLoading} data={savedJobsQuery.data} error={savedJobsQuery.error} />
                   )
                   }
