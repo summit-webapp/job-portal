@@ -40,8 +40,10 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                         {/* media logo start */}
                         <div className="square-72 d-block mr-8">
                           <img
-                            src="/image/l2/png/featured-job-logo-1.png"
+                            src="/image/l1/png/logo.png"
                             alt=""
+                            width={80}
+                            height={72}
                           />
                         </div>
                         {/* media logo end */}
