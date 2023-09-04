@@ -8,19 +8,19 @@ import GetSavedJobAPI from '@/services/api/profile_api/saved_jobs_api';
 const useProfileQuery = () => {
   const dispatch = useDispatch();
   const token = useSelector(get_access_token);
-  console.log('profile token', token.token);
+  // console.log('profile token', token.token);
 
-  const [profileData, setProfileData] = useState({
+  const [profileQuery, setProfileQuery] = useState({
     isLoading: true,
     data: [],
     error: false,
   });
-  const [appliedJobsData, setAppliedJobsData] = useState({
+  const [appliedJobsQuery, setAppliedJobsQuery] = useState({
     isLoading: true,
     data: [],
     error: false,
   });
-  const [savedJobsData, setSavedJobsData] = useState({
+  const [savedJobsQuery, setSavedJobsQuery] = useState({
     isLoading: true,
     data: [],
     error: false,
@@ -30,14 +30,14 @@ const useProfileQuery = () => {
     const fetchProfileData = async () => {
       try {
         const response = await GetProfileAPI(token.token);
-        setProfileData({
+        setProfileQuery({
           isLoading: false, // Set isLoading to false when data is successfully fetched
           data: response,
           error: false,
         });
       } catch (error) {
         console.error('Error fetching profile data:', error);
-        setProfileData({
+        setProfileQuery({
           isLoading: false, // Set isLoading to false when there's an error
           data: [],
           error: true,
@@ -48,14 +48,14 @@ const useProfileQuery = () => {
     const fetchAppliedJobsData = async () => {
       try {
         const response = await GetAppliedJobAPI(token.token);
-        setAppliedJobsData({
+        setAppliedJobsQuery({
           isLoading: false, // Set isLoading to false when data is successfully fetched
           data: response,
           error: false,
         });
       } catch (error) {
         console.error('Error fetching applied jobs data:', error);
-        setAppliedJobsData({
+        setAppliedJobsQuery({
           isLoading: false, // Set isLoading to false when there's an error
           data: [],
           error: true,
@@ -66,14 +66,14 @@ const useProfileQuery = () => {
     const fetchSavedJobsData = async () => {
       try {
         const response = await GetSavedJobAPI(token.token);
-        setSavedJobsData({
+        setSavedJobsQuery({
           isLoading: false, // Set isLoading to false when data is successfully fetched
           data: response,
           error: false,
         });
       } catch (error) {
         console.error('Error fetching saved jobs data:', error);
-        setSavedJobsData({
+        setSavedJobsQuery({
           isLoading: false, // Set isLoading to false when there's an error
           data: [],
           error: true,
@@ -86,14 +86,14 @@ const useProfileQuery = () => {
     fetchSavedJobsData();
   }, [token]);
 
-  console.log('profile data', profileData);
-  console.log('applied jobs data', appliedJobsData);
-  console.log('saved jobs data', savedJobsData);
+  console.log('profile data', setProfileQuery);
+  console.log('applied jobs data', setAppliedJobsQuery);
+  console.log('saved jobs data', setSavedJobsQuery);
 
   return {
-    profileData,
-    appliedJobsData,
-    savedJobsData,
+    profileQuery,
+    appliedJobsQuery,
+    savedJobsQuery,
   };
 };
 

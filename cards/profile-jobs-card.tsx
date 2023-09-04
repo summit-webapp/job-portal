@@ -1,24 +1,22 @@
-import { applied_jobs_data } from '@/datasets/applied-jobs';
-import { ProfileInterface } from '@/interfaces/profile-interface';
-import Link from 'next/link';
-import React from 'react'
+import { applied_jobs_data } from "@/datasets/applied-jobs";
+import { ProfileInterface } from "@/interfaces/profile-interface";
+import Link from "next/link";
+import React from "react";
 
 const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
-  console.log('saved Jobs Data', data)
+  console.log("saved Jobs Data", data);
   return (
     <>
-    
-
-        {data?.map((job: any, index: any) => {
-          return (
-            <div className="col-12 col-lg-6" key={job.id}>
+      {data?.map((job: any, index: any) => {
+        return (
+          <div className="col-12 col-lg-6" key={job.id}>
             <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
               <div className="d-block mb-7">
                 <a href="#">
-                  <img src='./image/l1/png/feature-brand-1.png' alt="" />
+                  <img src="./image/l1/png/feature-brand-1.png" alt="" />
                 </a>
               </div>
-             
+
               <h2 className="mt-n4">
                 <Link
                   href={`/job-details/${job?.job_title}`}
@@ -34,17 +32,16 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                     className="bg-regent-opacity-15 text-denim font-size-3 rounded-3"
                   >
                     <i className="icon icon-pin-3 mr-2 font-weight-bold"></i>{" "}
-                    {job.location}{
-                          job?.working_module?.map((type: any, index: any) => {
-
-                            return (
-                              <>
-                                {index > 0 && " / "} {/* Add a slash and space between modules */}
-                                {type}
-                              </>
-                            )
-                          })
-                        }
+                    {job.location}
+                    {job?.working_module?.map((type: any, index: any) => {
+                      return (
+                        <>
+                          {index > 0 && " / "}{" "}
+                          {/* Add a slash and space between modules */}
+                          {type}
+                        </>
+                      );
+                    })}
                   </a>
                 </li>
                 <li>
@@ -53,19 +50,11 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                     className="bg-regent-opacity-15 text-orange font-size-3 rounded-3"
                   >
                     <i className="fa fa-briefcase mr-2 font-weight-bold"></i>{" "}
-                    {
-                          job?.employement_type?.map((type: any, index: any) => {
-
-                            return (
-                              <>
-                                {type}
-                              </>
-                            )
-                          })
-                        }
+                    {job?.employement_type?.map((type: any, index: any) => {
+                      return <>{type}</>;
+                    })}
                   </a>
                 </li>
-               
               </ul>
               <p className="mb-7 font-size-4 text-gray">
               <p className="mb-7 font-size-4 text-gray">{`${job?.custom_job_description?.slice(
@@ -90,11 +79,10 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
               </div> */}
             </div>
           </div>
-          );
-        })}
-      
+        );
+      })}
     </>
-  )
-}
+  );
+};
 
-export default ProfileJobsCard
+export default ProfileJobsCard;

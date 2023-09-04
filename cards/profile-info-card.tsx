@@ -2,11 +2,11 @@ import { ProfileInterface } from '@/interfaces/profile-interface';
 import React from 'react'
 
 const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
-  console.log('profile@@ data', data.data)
+  console.log('profile@@ data', data)
   return (
     <>
       {
-        data?.data && data?.data.map((data:any , index:any)=>{
+        data && data.map((data:any , index:any)=>{
           return(
 
       <div className="bg-white shadow-9 rounded-4">

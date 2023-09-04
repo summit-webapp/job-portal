@@ -13,8 +13,17 @@ const JobsListMaster = ({
   filterError,
   selectedFilters,
   handleApplyFilters,
+  createJobApplicantFunction,
+  appliedJobsQuery,
+  savedJobsQuery,
 }: any) => {
-  // console.log("mountinggggg");
+  const appliedJobsDesignationSet = new Set(
+    appliedJobsQuery?.map((item: any) => item.designation)
+  );
+  const savedJobsDesignationSet = new Set(
+    savedJobsQuery?.map((item: any) => item.designation)
+  );
+  // console.log("applicant ", appliedJobsDesignationSet);
   return (
     <div className="bg-default-1 pt-24 pt-lg-28 pb-13 pb-lg-25">
       <div className="container">
@@ -71,6 +80,9 @@ const JobsListMaster = ({
                     isLoading={jobListIsLoading}
                     data={jobListData}
                     error={jobListError}
+                    createJobApplicantFunction={createJobApplicantFunction}
+                    appliedJobsDesignationSet={appliedJobsDesignationSet}
+                    savedJobsDesignationSet={savedJobsDesignationSet}
                   />
                 )}
               </div>

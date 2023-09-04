@@ -2,7 +2,19 @@ import Link from "next/link";
 import { job_details_data } from "../../datasets/job-details";
 import { APIDataTypes } from "@/interfaces/api-data-types";
 
-const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
+const JobDetailMaster = ({
+  isLoading,
+  data,
+  error,
+  appliedJobsQuery,
+  savedJobsQuery,
+}: any) => {
+  const appliedJobsDesignationSet = new Set(
+    appliedJobsQuery?.map((item: any) => item.designation)
+  );
+  const savedJobsDesignationSet = new Set(
+    savedJobsQuery?.map((item: any) => item.designation)
+  );
   const returnFormattedDate = (raw_date: any) => {
     const splitDate: any = raw_date?.split(" ");
     const options: any = { year: "numeric", month: "long", day: "numeric" };
@@ -40,8 +52,10 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                         {/* media logo start */}
                         <div className="square-72 d-block mr-8">
                           <img
-                            src="/image/l2/png/featured-job-logo-1.png"
+                            src="/image/l1/png/logo.png"
                             alt=""
+                            width={80}
+                            height={72}
                           />
                         </div>
                         {/* media logo end */}
@@ -73,19 +87,57 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                     <div className="col-12">
                       {/* card-btn-group start */}
                       <div className="card-btn-group">
-                        <a
-                          className="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5"
-                          href="#"
-                        >
-                          Apply to this job
-                        </a>
-                        <a
-                          className="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5"
-                          href="#"
-                        >
-                          <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
-                          Save job
-                        </a>
+                        {appliedJobsDesignationSet?.has(
+                          data?.message?.data?.designation
+                        ) ? (
+                          <>
+                            <a
+                              className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${
+                                appliedJobsDesignationSet?.has(
+                                  data?.message?.data?.designation
+                                )
+                                  ? "disabled"
+                                  : null
+                              }`}
+                            >
+                              Applied
+                            </a>
+                          </>
+                        ) : (
+                          <>
+                            {" "}
+                            <a
+                              className="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5"
+                              href="#"
+                            >
+                              Apply to this job
+                            </a>
+                          </>
+                        )}
+
+                        {savedJobsDesignationSet?.has(
+                          data?.message?.data?.designation
+                        ) ? (
+                          <a
+                            className={`btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5  ${
+                              savedJobsDesignationSet?.has(
+                                data?.message?.data?.designation
+                              )
+                                ? "disabled"
+                                : null
+                            }`}
+                          >
+                            <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
+                            Saved
+                          </a>
+                        ) : (
+                          <>
+                            <a className="btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5">
+                              <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
+                              Save Job
+                            </a>
+                          </>
+                        )}
                       </div>
                       {/* card-btn-group end */}
                     </div>
@@ -228,12 +280,33 @@ const JobDetailMaster = ({ isLoading, data, error }: APIDataTypes) => {
                         </p> */}
                       </div>
 
-                      <a
-                        className="btn btn-green text-uppercase btn-medium w-180 h-px-48 rounded-3 mr-4 mt-6"
-                        href="#"
-                      >
-                        Apply to this job
-                      </a>
+                      {appliedJobsDesignationSet?.has(
+                        data?.message?.data?.designation
+                      ) ? (
+                        <>
+                          <a
+                            className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${
+                              appliedJobsDesignationSet?.has(
+                                data?.message?.data?.designation
+                              )
+                                ? "disabled"
+                                : null
+                            }`}
+                          >
+                            Applied
+                          </a>
+                        </>
+                      ) : (
+                        <>
+                          {" "}
+                          <a
+                            className="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5"
+                            href="#"
+                          >
+                            Apply to this job
+                          </a>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
