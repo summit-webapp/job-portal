@@ -60,7 +60,7 @@ const ExploreByCategory = () => {
   } else {
     return (
       <div
-        className="pt-11 pt-lg-26 pb-lg-16"
+        className="pt-8 pt-lg-18 pb-lg-8"
         data-aos="fade-left"
         data-aos-duration="800"
         data-aos-delay="400"

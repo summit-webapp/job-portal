@@ -11,10 +11,6 @@ const JobsListLoading = () => {
         return (
           <div className="col-12 col-lg-6">
             <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-              <div className="d-block mb-7">
-                <div className={loading.skeleton_avatar}></div>
-              </div>
-
               <div className={`${loading.skeleton_author} mt-n4`}></div>
 
               <ul className="list-unstyled mb-1 card-tag-list">
