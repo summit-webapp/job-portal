@@ -12,9 +12,9 @@ import JobsGridCard from "@/cards/jobs-grid-card";
 import FeaturedJobsGridCard from "@/cards/featured-jobs-grid-card";
 
 const ProfileMasterNew = () => {
-  const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
+  const { profileData, appliedJobsData, savedJobsData } = useProfileQuery();
   const [activeTabIndex, setActiveTabIndex] = useState(0);
-console.log('saved jobs',savedJobsQuery)
+
   return (
     <div className="bg-default-2 pt-8 pt-lg-8 pb-7 pb-lg-23 profile-wrapper">
       <div className="container">
@@ -35,15 +35,14 @@ console.log('saved jobs',savedJobsQuery)
             <div className="mr-0 mr-xl-17">
               <div className="pl-lg-5">
                 <div>
-                  {profileQuery.isLoading ? (
+                  {profileData.isLoading ? (
                     <div className="spinner-border text-success text-center" role="status">
                       <span className="sr-only">Loading...</span>
                     </div>
-                  ) : profileQuery.error ? (
+                  ) : profileData.error ? (
                     <div>Error</div>
                   ) : (
-
-                    <ProfileInfoCard isLoading={profileQuery.isLoading} data={profileQuery.data} error={profileQuery.error} />
+                    <ProfileInfoCard isLoading={profileData.isLoading} data={profileData.data} error={profileData.error} />
                   )}
                 </div>
               </div>
@@ -55,38 +54,32 @@ console.log('saved jobs',savedJobsQuery)
               <div>
                 <h4>Applied Jobs</h4>
                 <div className="row">
-                  {profileQuery.isLoading ? (
+                  {appliedJobsData.isLoading ? (
                     <div className="spinner-border text-success  text-center" role="status">
                       <span className="sr-only">Loading...</span>
                     </div>
-                  ) : profileQuery.error ? (
+                  ) : appliedJobsData.error ? (
                     <div>Error</div>
                   ) : (
-
-                    <ProfileJobsCard isLoading={appliedJobsQuery.isLoading} data={appliedJobsQuery.data} error={appliedJobsQuery.error} />
-                  )
-                  }
+                    <ProfileJobsCard isLoading={appliedJobsData.isLoading} data={appliedJobsData.data} error={appliedJobsData.error} />
+                  )}
                 </div>
               </div>
-
 
               <div>
                 <h4 className="mt-5">Saved Jobs</h4>
                 <div className="row">
-                  {profileQuery.isLoading ? (
+                  {savedJobsData.isLoading ? (
                     <div className="spinner-border text-success  text-center" role="status">
                       <span className="sr-only">Loading...</span>
                     </div>
-                  ) : profileQuery.error ? (
+                  ) : savedJobsData.error ? (
                     <div>Error</div>
                   ) : (
-                    
-                    <ProfileJobsCard isLoading={savedJobsQuery.isLoading} data={savedJobsQuery.data} error={savedJobsQuery.error} />
-                  )
-                  }
+                    <ProfileJobsCard isLoading={savedJobsData.isLoading} data={savedJobsData.data} error={savedJobsData.error} />
+                  )}
                 </div>
               </div>
-
             </div>
           </div>
         </div>

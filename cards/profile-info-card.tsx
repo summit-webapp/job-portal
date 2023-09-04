@@ -2,9 +2,12 @@ import { ProfileInterface } from '@/interfaces/profile-interface';
 import React from 'react'
 
 const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
-  console.log('profile data', data.data)
+  console.log('profile@@ data', data.data)
   return (
     <>
+      {
+        data?.data && data?.data.map((data:any , index:any)=>{
+          return(
 
       <div className="bg-white shadow-9 rounded-4">
         <div className="px-5 pt-8 text-center border-bottom border-mercury">
@@ -12,7 +15,7 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
           <i className="fas fa-user-circle icon-size"></i>
           </a>
           <h4 className="mb-0">
-            {data?.data?.name}
+            {data?.name1}
           </h4>
           {/* <p className="mb-8">
                       <a className="text-gray font-size-4" href="#">
@@ -30,14 +33,14 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
           <div className="mb-7">
             <p className="font-size-4 mb-0">Location</p>
             <h5 className="font-size-4 font-weight-semibold mb-0 text-black-2 text-break">
-              {data?.data?.city}
+              {data?.city}
             </h5>
           </div>
 
           <div className="mb-7">
             <p className="font-size-4 mb-0">E-mail</p>
             <h5 className="font-size-4 font-weight-semibold mb-0">
-              {data?.data?.email}
+              {data?.email}
             </h5>
           </div>
 
@@ -48,13 +51,16 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
                 className="text-black-2 text-break"
                 href=""
               >
-                {data?.data?.phone_number}
+                {data?.phone_number}
               </a>
             </h5>
           </div>
         </div>
         {/* Bottom End */}
       </div>
+          )
+        })
+      }
     </>
   )
 }

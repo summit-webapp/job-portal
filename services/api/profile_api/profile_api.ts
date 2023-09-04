@@ -22,7 +22,7 @@ const GetProfileAPI =async (token:any) => {
         .get(
             `${CONSTANTS.API_BASE_URL}${CONSTANTS.API_MANDATE_PARAMS}${params}`,config)
         .then((res) => {
-            response = res.data.message;
+            response = res.data.message.data;
             console.log(response, "profile response in api");
         })
         .catch((err) => {
