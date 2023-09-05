@@ -5,10 +5,7 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
   console.log('profile@@ data', data)
   return (
     <>
-      {
-        data && data.map((data:any , index:any)=>{
-          return(
-
+   
       <div className="bg-white shadow-9 rounded-4">
         <div className="px-5 pt-8 text-center border-bottom border-mercury">
           <a className="mb-4" href="#">
@@ -58,9 +55,8 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
         </div>
         {/* Bottom End */}
       </div>
-          )
-        })
-      }
+       
+     
     </>
   )
 }

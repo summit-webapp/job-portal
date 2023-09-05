@@ -92,13 +92,12 @@ const JobDetailMaster = ({
                         ) ? (
                           <>
                             <a
-                              className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${
-                                appliedJobsDesignationSet?.has(
-                                  data?.message?.data?.designation
-                                )
+                              className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${appliedJobsDesignationSet?.has(
+                                data?.message?.data?.designation
+                              )
                                   ? "disabled"
                                   : null
-                              }`}
+                                }`}
                             >
                               Applied
                             </a>
@@ -119,13 +118,12 @@ const JobDetailMaster = ({
                           data?.message?.data?.designation
                         ) ? (
                           <a
-                            className={`btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5  ${
-                              savedJobsDesignationSet?.has(
-                                data?.message?.data?.designation
-                              )
+                            className={`btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5  ${savedJobsDesignationSet?.has(
+                              data?.message?.data?.designation
+                            )
                                 ? "disabled"
                                 : null
-                            }`}
+                              }`}
                           >
                             <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
                             Saved
@@ -150,7 +148,11 @@ const JobDetailMaster = ({
                     <div className="col-md-4 mb-md-0 mb-6">
                       <div className="media justify-content-md-start">
                         <div className="image mr-5">
-                          <img src="/image/svg/icon-dolor.svg" alt="" />
+                          {/* <img src="/image/svg/icon-dolor.svg" className="svg-icon" alt="" /> */}
+                          <div className="circle-icon">
+
+                          <i className="fas fa-dollar-sign"></i>
+                          </div>
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
                           As per Industry standard
@@ -160,7 +162,10 @@ const JobDetailMaster = ({
                     <div className="col-md-4 pr-lg-0 pl-lg-10 mb-md-0 mb-6">
                       <div className="media justify-content-md-start">
                         <div className="image mr-5">
-                          <img src="/image/svg/icon-briefcase.svg" alt="" />
+                          {/* <img src="/image/svg/icon-briefcase.svg" className="svg-icon" alt="" /> */}
+                          <div className="circle-icon">
+                          <i className="fas fa-briefcase"></i>
+                          </div>
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
                           {data?.message?.data?.employement_type?.length > 1 ? (
@@ -172,7 +177,7 @@ const JobDetailMaster = ({
                                     {index !==
                                       data?.message?.data?.employement_type
                                         ?.length -
-                                        1 && "/"}
+                                      1 && "/"}
                                   </span>
                                 )
                               )}
@@ -192,7 +197,11 @@ const JobDetailMaster = ({
                     <div className="col-md-4 pl-lg-0">
                       <div className="media justify-content-md-start">
                         <div className="image mr-5">
-                          <img src="/image/svg/icon-location.svg" alt="" />
+                          {/* <img src="/image/svg/icon-location.svg" className="svg-icon" alt="" /> */}
+                          <div className="circle-icon">
+                            <i className="fas fa-map-marker-alt"></i>
+                          </div>
+
                         </div>
                         <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
                           {data?.message?.data?.working_module?.length > 1 ? (
@@ -204,7 +213,7 @@ const JobDetailMaster = ({
                                     {index !==
                                       data?.message?.data?.working_module
                                         ?.length -
-                                        1 && "/"}
+                                      1 && "/"}
                                   </span>
                                 )
                               )}
@@ -285,13 +294,12 @@ const JobDetailMaster = ({
                       ) ? (
                         <>
                           <a
-                            className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${
-                              appliedJobsDesignationSet?.has(
-                                data?.message?.data?.designation
-                              )
+                            className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${appliedJobsDesignationSet?.has(
+                              data?.message?.data?.designation
+                            )
                                 ? "disabled"
                                 : null
-                            }`}
+                              }`}
                           >
                             Applied
                           </a>

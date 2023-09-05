@@ -11,11 +11,11 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
         return (
           <div className="col-12 col-lg-6" key={job.id}>
             <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-              <div className="d-block mb-7">
+              {/* <div className="d-block mb-7">
                 <a href="#">
                   <img src="./image/l1/png/feature-brand-1.png" alt="" />
                 </a>
-              </div>
+              </div> */}
 
               <h2 className="mt-n4">
                 <Link
@@ -51,7 +51,9 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                   >
                     <i className="fa fa-briefcase mr-2 font-weight-bold"></i>{" "}
                     {job?.employement_type?.map((type: any, index: any) => {
-                      return <>{type}</>;
+                      return <>{index > 0 && " / "}{" "}
+                      {/* Add a slash and space between modules */}
+                      {type}</>;
                     })}
                   </a>
                 </li>
