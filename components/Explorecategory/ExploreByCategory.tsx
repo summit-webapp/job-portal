@@ -68,7 +68,7 @@ const ExploreByCategory = () => {
       >
         <div className="container">
           <div className="row align-items-center pb-14">
-            <div className="col-12 col-lg-6">
+            <div className="col-12 col-lg-6 text-center">
               <div className="text-center text-lg-left mb-13 mb-lg-0">
                 <h2 className="font-size-9 font-weight-bold">
                   Explore by category
@@ -89,6 +89,8 @@ const ExploreByCategory = () => {
                       href="#"
                       className="icon-color bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100"
                     >
+                      <div className="d-flex flex-column just-content-center align-items-center">
+
                       <div className=" bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
                         <i className={`${category?.icon}`}></i>
                       </div>
@@ -97,6 +99,7 @@ const ExploreByCategory = () => {
                         <h5 className="font-size-5 font-weight-semibold text-black-2 line-height-1">
                           {category?.title}
                         </h5>
+                      </div>
                       </div>
                     </a>
                   </div>

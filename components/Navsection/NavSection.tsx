@@ -10,6 +10,9 @@ import {
 } from "@/store/slices/auth_slice/login_slice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import partnerImg from '../../public/image/frappe-partner-removebg-preview.png'
+import iso1 from '../../public/image/iso1-removebg-preview.png'
+import iso2 from '../../public/image/iso2-removebg-preview.png'
 const NavSection = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -200,38 +203,15 @@ const NavSection = () => {
                 data-aos-once="true"
               >
                 <h1 className="font-size-11 mb-12 pr-md-30 pr-lg-0">
-                  Find the perfect job that you deserve.
+                Elevate Your Career to New Heights
                 </h1>
                 <div className="">
-                  {/* <form action="/" className="search-form shadow-6">
-                    <div className="filter-search-form-1 bg-white rounded-sm shadow-4">
-                      <div className="filter-inputs">
-                        <div className="form-group position-relative">
-                          <input className="form-control focus-reset pl-13" type="text" id="keyword" placeholder="Job title" />
-                          <span className="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><i className="icon icon-zoom-2 text-primary font-weight-bold"></i></span>
-                        </div>
-
-                        <div className="form-group position-relative">
-                          <select name="country" id="country" className="nice-select pl-13 h-100 arrow-3 font-size-4">
-                            <option value="" data-display="Location" className="text-uppercase">Location</option>
-                            <option value="">United States of America</option>
-                            <option value="">United Arab Emirates</option>
-                            <option value="">Bangladesh</option>
-                            <option value="">Pakistan</option>
-                          </select>
-                          <span className="h-100 w-px-50 pos-abs-tl d-flex align-items-center justify-content-center font-size-6"><i className="icon icon-pin-3 text-primary font-weight-bold"></i></span>
-                        </div>
-
-                      </div>
-
-                      <div className="button-block">
-                        <button className="btn btn-primary line-height-reset h-100 btn-submit w-100 text-uppercase">Search</button>
-                      </div>
-
-                    </div>
-                  </form> */}
-
-                  {/* <p className="heading-default-color font-size-3 pt-7"><span className="text-smoke">Search keywords e.g.</span> Product Designer</p> */}
+                 <div>
+                  <img src={partnerImg.src}  width='100px' alt="" style={{marginRight:'20px'}}/>
+                  <img src={iso1.src}   width='100px' alt=""  style={{marginRight:'20px'}}/>
+                  <img src={iso2.src}  width='100px' alt=""  style={{marginRight:'20px'}}/>
+                 </div>
+                 
                 </div>
               </div>
 

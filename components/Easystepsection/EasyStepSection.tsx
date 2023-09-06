@@ -6,15 +6,14 @@ const EasyStepSection = () => {
       <div className="pt-8 pt-lg-16 pb-2 pb-lg-12">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-12 col-md-8 col-lg-6 col-xxl-5">
+            <div className="col-12 col-md-8 ">
               <div className="text-center mb-8 mb-lg-18 px-xl-9 px-xxl-7">
                 <h2 className="font-size-9 mb-6">
-                  Easy steps to
-                  <br className="d-none d-sm-block" /> land your next job
+                Our Recruitment Process
+                  <br className="d-none d-sm-block" /> Simple, Streamlined, and Focused on You
                 </h2>
                 <p className="font-size-4 text-default-color px-xs-9 px-md-0">
-                  Creating a beautiful job website is not easy always. To make
-                  your life easier, we are introducing Jobcamp template.
+                At 8848 Digital, we’ve streamlined our recruitment process to make it as straightforward and stress-free as possible. In just three easy steps, you could be on your way to scaling new heights in your career.
                 </p>
               </div>
             </div>
@@ -32,10 +31,9 @@ const EasyStepSection = () => {
                   <img src="./image/svg/shoot.svg" alt="" />
                 </div>
                 <div className="services-content">
-                  <h3 className="font-size-6 mb-7">Register Your Account</h3>
+                  <h3 className="font-size-6 mb-7">Step 1: Register Your Account</h3>
                   <p className="font-size-4 text-default-color">
-                    Capitalize on low hanging fruit to identify a ballpark value
-                    added activity to beta test. Override the digital.
+                  To kickstart your journey with 8848 Digital, the first step is to create an account. It’s quick, easy, and secure.
                   </p>
                 </div>
               </div>
@@ -47,10 +45,9 @@ const EasyStepSection = () => {
                   <img src="./image/svg/user.svg" alt="" />
                 </div>
                 <div className="services-content">
-                  <h3 className="font-size-6 mb-7">Apply for New Jobs</h3>
+                  <h3 className="font-size-6 mb-7">Step 2: Apply for an Opening</h3>
                   <p className="font-size-4 text-default-color">
-                    Leverage agile frameworks to provide a robust synopsis for
-                    high level overviews. Iterative approaches.
+                  Found a role that excites you? It's time to apply!
                   </p>
                 </div>
               </div>
@@ -62,10 +59,9 @@ const EasyStepSection = () => {
                   <img src="./image/svg/heart.svg" alt="" />
                 </div>
                 <div className="services-content">
-                  <h3 className="font-size-6 mb-7">Get Hired Immediately</h3>
+                  <h3 className="font-size-6 mb-7">Get Hired</h3>
                   <p className="font-size-4 text-default-color">
-                    Capitalize on low hanging fruit to identify a ballpark value
-                    added activity to beta test. Override the digital.
+                  Congratulations, you’ve made it to the final stage!
                   </p>
                 </div>
               </div>

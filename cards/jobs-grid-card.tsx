@@ -88,7 +88,7 @@ const JobsGridCard = ({
 
               <p className="mb-7 font-size-4 text-gray">
                 {/* {job.custom_job_description.slice(15)} */}
-                {`${job?.custom_job_description?.slice(0, 150)}...`}
+                {`${job?.job_summary?.slice(0, 150)}...`}
               </p>
               <div className="card-btn-group">
                 {appliedJobsDesignationSet?.has(job.designation) ? (
