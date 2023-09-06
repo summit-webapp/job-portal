@@ -45,9 +45,9 @@ const NavSection = () => {
     dispatch(ClearToken());
     localStorage.removeItem("LoggedIn");
     console.log("Logged out");
-    toast.success('Logout successful', {
-      autoClose: 3000, 
-      className: 'custom-toast',// Close the notification after 3 seconds
+    toast.success("Logout successful", {
+      autoClose: 3000,
+      className: "custom-toast", // Close the notification after 3 seconds
     });
     setTimeout(() => {
       router.push("/");
@@ -69,7 +69,7 @@ const NavSection = () => {
               <div className="brand-logo">
                 <Link href="/">
                   <img
-                    src="./image/l1/png/logo.png"
+                    src="/image/l1/png/logo.png"
                     alt=""
                     width={120}
                     height={100}
@@ -126,7 +126,7 @@ const NavSection = () => {
                         aria-expanded="false"
                       >
                         <div className="circle-40">
-                        <i className="fas fa-user-circle icon-size"></i>
+                          <i className="fas fa-user-circle icon-size"></i>
                         </div>
                         <i className="fas fa-chevron-down heading-default-color ml-6"></i>
                       </a>
