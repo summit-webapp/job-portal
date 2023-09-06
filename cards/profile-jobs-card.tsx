@@ -59,7 +59,7 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                 </li>
               </ul>
               <p className="mb-7 font-size-4 text-gray">
-              <p className="mb-7 font-size-4 text-gray">{`${job?.custom_job_description?.slice(
+              <p className="mb-7 font-size-4 text-gray">{`${job?.job_summary?.slice(
                 0,
                 100
               )}...`}</p>

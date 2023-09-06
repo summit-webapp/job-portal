@@ -80,7 +80,7 @@ const FeaturedJobsGridCard = ({ jobListData }: any) => {
                 </Link>
               </h2>
               {showWorkingModuleAndEmploymentType(job)}
-              <p className="mb-7 font-size-4 text-gray">{`${job?.custom_job_description?.slice(
+              <p className="mb-7 font-size-4 text-gray">{`${job?.job_summary?.slice(
                 0,
                 100
               )}...`}</p>
