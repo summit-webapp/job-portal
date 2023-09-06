@@ -23,7 +23,9 @@ const ProfileMasterNew = () => {
             <div className="mb-9">
               <Link href="/" className="d-flex align-items-center ml-4">
                 <i className="icon icon-small-left bg-white circle-40 mr-5 font-size-7 text-black font-weight-bold shadow-8"></i>
-                <span className="text-uppercase font-size-3 font-weight-bold text-gray">Back</span>
+                <span className="text-uppercase font-size-3 font-weight-bold text-gray">
+                  Back
+                </span>
               </Link>
             </div>
           </div>
@@ -36,13 +38,20 @@ const ProfileMasterNew = () => {
               <div className="pl-lg-5">
                 <div>
                   {profileQuery.isLoading ? (
-                    <div className="spinner-border text-success text-center" role="status">
+                    <div
+                      className="spinner-border text-success text-center"
+                      role="status"
+                    >
                       <span className="sr-only">Loading...</span>
                     </div>
                   ) : profileQuery.error ? (
                     <div>Error</div>
                   ) : (
-                    <ProfileInfoCard isLoading={profileQuery.isLoading} data={profileQuery.data} error={profileQuery.error} />
+                    <ProfileInfoCard
+                      isLoading={profileQuery.isLoading}
+                      data={profileQuery.data}
+                      error={profileQuery.error}
+                    />
                   )}
                 </div>
               </div>
@@ -55,13 +64,20 @@ const ProfileMasterNew = () => {
                 <h4>Applied Jobs</h4>
                 <div className="row">
                   {appliedJobsQuery.isLoading ? (
-                    <div className="spinner-border text-success  text-center" role="status">
+                    <div
+                      className="spinner-border text-success  text-center"
+                      role="status"
+                    >
                       <span className="sr-only">Loading...</span>
                     </div>
                   ) : appliedJobsQuery.error ? (
                     <div>Error</div>
                   ) : (
-                    <ProfileJobsCard isLoading={appliedJobsQuery.isLoading} data={appliedJobsQuery.data} error={appliedJobsQuery.error} />
+                    <ProfileJobsCard
+                      isLoading={appliedJobsQuery.isLoading}
+                      data={appliedJobsQuery.data}
+                      error={appliedJobsQuery.error}
+                    />
                   )}
                 </div>
               </div>
@@ -70,13 +86,20 @@ const ProfileMasterNew = () => {
                 <h4 className="mt-5">Saved Jobs</h4>
                 <div className="row">
                   {savedJobsQuery.isLoading ? (
-                    <div className="spinner-border text-success  text-center" role="status">
+                    <div
+                      className="spinner-border text-success  text-center"
+                      role="status"
+                    >
                       <span className="sr-only">Loading...</span>
                     </div>
                   ) : savedJobsQuery.error ? (
                     <div>Error</div>
                   ) : (
-                    <ProfileJobsCard isLoading={savedJobsQuery.isLoading} data={savedJobsQuery.data} error={savedJobsQuery.error} />
+                    <ProfileJobsCard
+                      isLoading={savedJobsQuery.isLoading}
+                      data={savedJobsQuery.data}
+                      error={savedJobsQuery.error}
+                    />
                   )}
                 </div>
               </div>

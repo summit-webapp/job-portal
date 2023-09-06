@@ -50,14 +50,14 @@ const JobDetailMaster = ({
                       {/* media start */}
                       <div className="media align-items-center">
                         {/* media logo start */}
-                        <div className="square-72 d-block mr-8">
+                        {/* <div className="square-72 d-block mr-8">
                           <img
                             src="/image/l1/png/logo.png"
                             alt=""
-                            width={80}
+                            width={90}
                             height={72}
                           />
-                        </div>
+                        </div> */}
                         {/* media logo end */}
 
                         {/* media texts start */}
@@ -92,12 +92,13 @@ const JobDetailMaster = ({
                         ) ? (
                           <>
                             <a
-                              className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${appliedJobsDesignationSet?.has(
-                                data?.message?.data?.designation
-                              )
+                              className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${
+                                appliedJobsDesignationSet?.has(
+                                  data?.message?.data?.designation
+                                )
                                   ? "disabled"
                                   : null
-                                }`}
+                              }`}
                             >
                               Applied
                             </a>
@@ -118,12 +119,13 @@ const JobDetailMaster = ({
                           data?.message?.data?.designation
                         ) ? (
                           <a
-                            className={`btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5  ${savedJobsDesignationSet?.has(
-                              data?.message?.data?.designation
-                            )
+                            className={`btn btn-outline-mercury text-black-2 text-uppercase h-px-48 rounded-3 mb-5 px-5  ${
+                              savedJobsDesignationSet?.has(
+                                data?.message?.data?.designation
+                              )
                                 ? "disabled"
                                 : null
-                              }`}
+                            }`}
                           >
                             <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
                             Saved
@@ -150,13 +152,14 @@ const JobDetailMaster = ({
                         <div className="image mr-5">
                           {/* <img src="/image/svg/icon-dolor.svg" className="svg-icon" alt="" /> */}
                           <div className="circle-icon">
-
-                          <i className="fas fa-dollar-sign"></i>
+                            <i className="fas fa-dollar-sign"></i>
                           </div>
                         </div>
-                        <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
-                          As per Industry standard
-                        </p>
+                        <div style={{ paddingTop: "6px" }}>
+                          <p className="font-weight-semibold font-size-4 text-black mb-0">
+                            As per Industry standard
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div className="col-md-4 pr-lg-0 pl-lg-10 mb-md-0 mb-6">
@@ -164,34 +167,37 @@ const JobDetailMaster = ({
                         <div className="image mr-5">
                           {/* <img src="/image/svg/icon-briefcase.svg" className="svg-icon" alt="" /> */}
                           <div className="circle-icon">
-                          <i className="fas fa-briefcase"></i>
+                            <i className="fas fa-briefcase"></i>
                           </div>
                         </div>
-                        <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
-                          {data?.message?.data?.employement_type?.length > 1 ? (
-                            <>
-                              {data?.message?.data?.employement_type?.map(
-                                (module_name: any, index: number) => (
-                                  <span key={index}>
-                                    {module_name}
-                                    {index !==
-                                      data?.message?.data?.employement_type
-                                        ?.length -
-                                      1 && "/"}
-                                  </span>
-                                )
-                              )}
-                            </>
-                          ) : (
-                            <>
-                              {data?.message?.data?.employement_type?.map(
-                                (module_name: any) => (
-                                  <span key={module_name}>{module_name}</span>
-                                )
-                              )}
-                            </>
-                          )}
-                        </p>
+                        <div style={{ paddingTop: "6px" }}>
+                          <p className="font-weight-semibold font-size-4 text-black mb-0">
+                            {data?.message?.data?.employement_type?.length >
+                            1 ? (
+                              <>
+                                {data?.message?.data?.employement_type?.map(
+                                  (module_name: any, index: number) => (
+                                    <span key={index}>
+                                      {module_name}
+                                      {index !==
+                                        data?.message?.data?.employement_type
+                                          ?.length -
+                                          1 && "/"}
+                                    </span>
+                                  )
+                                )}
+                              </>
+                            ) : (
+                              <>
+                                {data?.message?.data?.employement_type?.map(
+                                  (module_name: any) => (
+                                    <span key={module_name}>{module_name}</span>
+                                  )
+                                )}
+                              </>
+                            )}
+                          </p>
+                        </div>
                       </div>
                     </div>
                     <div className="col-md-4 pl-lg-0">
@@ -201,33 +207,34 @@ const JobDetailMaster = ({
                           <div className="circle-icon">
                             <i className="fas fa-map-marker-alt"></i>
                           </div>
-
                         </div>
-                        <p className="font-weight-semibold font-size-4 text-black-2 mb-0">
-                          {data?.message?.data?.working_module?.length > 1 ? (
-                            <>
-                              {data?.message?.data?.working_module?.map(
-                                (module_name: any, index: number) => (
-                                  <span key={index}>
-                                    {module_name}
-                                    {index !==
-                                      data?.message?.data?.working_module
-                                        ?.length -
-                                      1 && "/"}
-                                  </span>
-                                )
-                              )}
-                            </>
-                          ) : (
-                            <>
-                              {data?.message?.data?.working_module?.map(
-                                (module_name: any) => (
-                                  <span key={module_name}>{module_name}</span>
-                                )
-                              )}
-                            </>
-                          )}
-                        </p>
+                        <div style={{ paddingTop: "6px" }}>
+                          <p className="font-weight-semibold font-size-4 text-black mb-0">
+                            {data?.message?.data?.working_module?.length > 1 ? (
+                              <>
+                                {data?.message?.data?.working_module?.map(
+                                  (module_name: any, index: number) => (
+                                    <span key={index}>
+                                      {module_name}
+                                      {index !==
+                                        data?.message?.data?.working_module
+                                          ?.length -
+                                          1 && "/"}
+                                    </span>
+                                  )
+                                )}
+                              </>
+                            ) : (
+                              <>
+                                {data?.message?.data?.working_module?.map(
+                                  (module_name: any) => (
+                                    <span key={module_name}>{module_name}</span>
+                                  )
+                                )}
+                              </>
+                            )}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -252,7 +259,7 @@ const JobDetailMaster = ({
                     </div>
                     <div className="col-md-4 pr-lg-0 pl-lg-10 mb-lg-0 mb-8">
                       <div className="tags">
-                        <p className="font-size-4 text-gray mb-3">
+                        <p className="font-size-4 text-black mb-3">
                           Technical Skill
                         </p>
                         <ul className="d-flex list-unstyled flex-wrap pr-sm-25 pr-md-0">
@@ -275,14 +282,14 @@ const JobDetailMaster = ({
                   <div className="row">
                     <div className="col-xl-11 col-md-12 pr-xxl-9 pr-xl-10 pr-lg-20">
                       <div className="">
-                        <p className="font-size-4 font-weight-semibold text-black-2 mb-7">
+                        {/* <p className="font-size-4 font-weight-semibold text-black-2 mb-7">
                           Job Description
-                        </p>
+                        </p> */}
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: data?.message?.data?.description,
+                            __html: data?.message?.data?.custom_job_description,
                           }}
-                          className="description-html font-size-4 text-black-2 mb-7"
+                          className="description-html font-size-4 text-dark mb-7"
                         />
                         {/* <p className="font-size-4 text-black-2 mb-7">
                           {data?.message?.data?.custom_job_description}
@@ -294,12 +301,13 @@ const JobDetailMaster = ({
                       ) ? (
                         <>
                           <a
-                            className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${appliedJobsDesignationSet?.has(
-                              data?.message?.data?.designation
-                            )
+                            className={`btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5 ${
+                              appliedJobsDesignationSet?.has(
+                                data?.message?.data?.designation
+                              )
                                 ? "disabled"
                                 : null
-                              }`}
+                            }`}
                           >
                             Applied
                           </a>

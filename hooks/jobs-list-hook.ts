@@ -29,7 +29,12 @@ const useJobsList = () => {
   //   enabled: true,
   // });
 
-  const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
+  const {
+    appliedJobsQuery,
+    savedJobsQuery,
+    fetchAppliedJobsData,
+    fetchSavedJobsData,
+  } = useProfileQuery();
 
   const FilterQuery = useQuery({
     queryKey: ["filters-list"],
@@ -143,40 +148,53 @@ const useJobsList = () => {
     name: string,
     status: string
   ) => {
-    const callAPIForCreatingJobApplicant = await CreateJobApplicantAPI(
-      tokenFromStore.token,
-      designation,
-      name,
-      status
-    );
-    console.log(
-      "applicant creation api successfull in hook",
-      callAPIForCreatingJobApplicant
-    );
+    console.log("token", tokenFromStore.token);
+    if (
+      tokenFromStore.token !== "" &&
+      tokenFromStore.token !== null &&
+      tokenFromStore.token !== undefined
+    ) {
+      const callAPIForCreatingJobApplicant = await CreateJobApplicantAPI(
+        tokenFromStore.token,
+        designation,
+        name,
+        status
+      );
+      // console.log(
+      //   "applicant creation api successfull in hook",
+      //   callAPIForCreatingJobApplicant
+      // );
 
-    if (callAPIForCreatingJobApplicant?.status === 200) {
-      if (callAPIForCreatingJobApplicant?.data?.message?.msg === "success") {
-        toast.success(
-          `${callAPIForCreatingJobApplicant?.data?.message?.data}`,
-          {
-            autoClose: 3000,
-            className: "custom-toast", // Close the notification after 3 seconds
-          }
-        );
+      if (callAPIForCreatingJobApplicant?.status === 200) {
+        if (callAPIForCreatingJobApplicant?.data?.message?.msg === "success") {
+          toast.success(
+            `${callAPIForCreatingJobApplicant?.data?.message?.data}`,
+            {
+              autoClose: 3000,
+              className: "custom-toast", // Close the notification after 3 seconds
+            }
+          );
+        } else {
+          toast.error(
+            `${callAPIForCreatingJobApplicant?.data?.message?.data}`,
+            {
+              autoClose: 5000,
+              className: "custom-toast", // Close the notification after 5 seconds
+            }
+          );
+        }
       } else {
-        toast.error(`${callAPIForCreatingJobApplicant?.data?.message?.data}`, {
+        toast.error(`Something went wrong. Please check back in sometime.`, {
           autoClose: 5000,
           className: "custom-toast", // Close the notification after 5 seconds
         });
       }
-    } else {
-      toast.error(`Something went wrong. Please check back in sometime.`, {
-        autoClose: 5000,
-        className: "custom-toast", // Close the notification after 5 seconds
-      });
-    }
 
-    await router.push("/profile");
+      await fetchAppliedJobsData();
+      await fetchSavedJobsData();
+    } else {
+      router.push("/login");
+    }
   };
 
   useEffect(() => {
