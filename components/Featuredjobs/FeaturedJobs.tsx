@@ -4,8 +4,19 @@ import React from "react";
 import JobsListLoading from "../jobs-listing/jobs-list-loading";
 
 const FeaturedJobs = () => {
-  const { jobsListQuery }: any = useJobsList();
+  const {
+    jobsListQuery,
+    appliedJobsQuery,
+    savedJobsQuery,
+    createJobApplicantFunction,
+  }: any = useJobsList();
 
+  const appliedJobsDesignationSet = new Set(
+    appliedJobsQuery?.data?.map((item: any) => item.designation)
+  );
+  const savedJobsDesignationSet = new Set(
+    savedJobsQuery?.data?.map((item: any) => item.designation)
+  );
   const renderCards = () => {
     if (jobsListQuery.isLoading) {
       return (
@@ -20,6 +31,9 @@ const FeaturedJobs = () => {
             jobListIsLoading={jobsListQuery.isLoading}
             jobListData={jobsListQuery.data}
             jobListError={jobsListQuery.error}
+            createJobApplicantFunction={createJobApplicantFunction}
+            appliedJobsDesignationSet={appliedJobsDesignationSet}
+            savedJobsDesignationSet={savedJobsDesignationSet}
           />
         </>
       );

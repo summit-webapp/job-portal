@@ -66,89 +66,94 @@ const JobsGridCard = ({
   };
   return (
     <>
-      {jobsData?.map((job: any, index: number) => {
-        return (
-          <div className="col-12 col-lg-6" key={index}>
-            <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-              {/* <div className="d-block mb-7">
-                <a href="#">
-                  <img src="/image/l1/png/feature-brand-1.png" alt="" />
-                </a>
-              </div> */}
-
-              <h2 className="mt-n4">
-                <Link
-                  href={`/job-details/${job?.name}`}
-                  className="font-size-7 text-black-2 font-weight-bold mb-4"
-                >
-                  {job?.job_title}
-                </Link>
-              </h2>
-              {showWorkingModuleAndEmploymentType(job)}
-
-              <p className="mb-7 font-size-4 text-gray">
-                {/* {job.custom_job_description.slice(15)} */}
-                {`${job?.job_summary?.slice(0, 150)}...`}
-              </p>
-              <div className="card-btn-group">
-                {appliedJobsDesignationSet?.has(job.designation) ? (
-                  <a
-                    className={`btn btn-green text-uppercase btn-medium rounded-3 ${
-                      appliedJobsDesignationSet?.has(job.designation)
-                        ? "disabled"
-                        : null
-                    } `}
+      {jobsData?.length > 0 ? (
+        jobsData?.map((job: any, index: number) => {
+          return (
+            <div className="col-12 col-lg-6" key={index}>
+              <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+                <h2 className="mt-n4">
+                  <Link
+                    href={`/job-details/${job?.name}`}
+                    className="font-size-7 text-black-2 font-weight-bold mb-4"
                   >
-                    Applied
-                  </a>
-                ) : (
-                  <a
-                    className={`btn btn-green text-uppercase btn-medium rounded-3  `}
-                    onClick={() =>
-                      createJobApplicantFunction(
-                        job.designation,
-                        job.name,
-                        "Apply"
-                      )
-                    }
-                  >
-                    Apply Now
-                  </a>
-                )}
+                    {job?.job_title}
+                  </Link>
+                </h2>
+                {showWorkingModuleAndEmploymentType(job)}
 
-                {savedJobsDesignationSet?.has(job.designation) ? (
-                  <a
-                    className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${
-                      savedJobsDesignationSet?.has(job.designation)
-                        ? "disabled"
-                        : null
-                    }`}
-                  >
-                    <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
-                    Saved
-                  </a>
-                ) : (
-                  <>
+                <p className="mb-7 font-size-4 text-gray">
+                  {`${job?.job_summary?.slice(0, 150)}...`}
+                </p>
+                <div className="card-btn-group">
+                  {appliedJobsDesignationSet?.has(job.designation) ? (
                     <a
-                      className="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3"
+                      className={`btn btn-green text-uppercase btn-medium rounded-3 ${
+                        appliedJobsDesignationSet?.has(job.designation)
+                          ? "disabled"
+                          : null
+                      } `}
+                    >
+                      Applied
+                    </a>
+                  ) : (
+                    <a
+                      className={`btn btn-green text-uppercase btn-medium rounded-3  `}
                       onClick={() =>
                         createJobApplicantFunction(
                           job.designation,
                           job.name,
-                          "Save"
+                          "Apply"
                         )
                       }
                     >
-                      <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
-                      Save it
+                      Apply Now
                     </a>
-                  </>
-                )}
+                  )}
+
+                  {savedJobsDesignationSet?.has(job.designation) ? (
+                    <a
+                      className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${
+                        savedJobsDesignationSet?.has(job.designation)
+                          ? "disabled"
+                          : null
+                      }`}
+                    >
+                      <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
+                      Saved
+                    </a>
+                  ) : (
+                    <>
+                      <a
+                        className="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3"
+                        onClick={() =>
+                          createJobApplicantFunction(
+                            job.designation,
+                            job.name,
+                            "Save"
+                          )
+                        }
+                      >
+                        <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
+                        Save it
+                      </a>
+                    </>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      ) : (
+        <>
+          {" "}
+          <img
+            src="/image/no-data.jpg"
+            width="100%"
+            height="75%"
+            style={{ margin: "8px" }}
+          />
+        </>
+      )}
     </>
   );
 };

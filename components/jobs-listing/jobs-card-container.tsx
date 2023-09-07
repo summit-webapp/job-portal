@@ -18,7 +18,7 @@ const JobsCardContainer = ({
     );
   }
   return (
-    <div className="row justify-content-center">
+    <div className="row">
       <JobsGridCard
         jobsData={data}
         createJobApplicantFunction={createJobApplicantFunction}

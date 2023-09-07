@@ -83,6 +83,7 @@ const useJobsList = () => {
       return updatedFilters;
     });
 
+    console.log("duplicateFilters", duplicateFilters);
     // Construct the filterString
     const filterString = encodeURIComponent(
       JSON.stringify(
@@ -92,6 +93,7 @@ const useJobsList = () => {
         }))
       )
     );
+    console.log("duplicateFilters", filterString);
 
     // Construct the new URL
     let url = router.asPath.split("?")[0]; // Get the URL without existing query params
@@ -167,13 +169,10 @@ const useJobsList = () => {
 
       if (callAPIForCreatingJobApplicant?.status === 200) {
         if (callAPIForCreatingJobApplicant?.data?.message?.msg === "success") {
-          toast.success(
-            `${callAPIForCreatingJobApplicant?.data?.message?.data}`,
-            {
-              autoClose: 3000,
-              className: "custom-toast", // Close the notification after 3 seconds
-            }
-          );
+          toast.success(`Your Application has been Received!`, {
+            autoClose: 3000,
+            className: "custom-toast", // Close the notification after 3 seconds
+          });
         } else {
           toast.error(
             `${callAPIForCreatingJobApplicant?.data?.message?.data}`,

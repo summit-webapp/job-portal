@@ -3,8 +3,15 @@ import JobDetailMaster from "../../../components/job-details/job-detail-master";
 import useProfileQuery from "@/hooks/profile_hooks";
 
 const JobsDetails = () => {
-  const { isLoading, data, error, detailData }: any = useJobDetail();
-  const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
+  const {
+    isLoading,
+    data,
+    error,
+    detailData,
+    appliedJobsQuery,
+    savedJobsQuery,
+    createJobApplicantFunction,
+  }: any = useJobDetail();
   return (
     <div>
       <JobDetailMaster
@@ -13,6 +20,7 @@ const JobsDetails = () => {
         error={error}
         appliedJobsQuery={appliedJobsQuery.data}
         savedJobsQuery={savedJobsQuery.data}
+        createJobApplicantFunction={createJobApplicantFunction}
       />
     </div>
   );

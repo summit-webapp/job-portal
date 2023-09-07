@@ -2,7 +2,12 @@ import Link from "next/link";
 import { jobsData } from "../datasets/jobs-data";
 // import { company } from "../public/image/l1/png/feature-brand-1.png";
 
-const FeaturedJobsGridCard = ({ jobListData }: any) => {
+const FeaturedJobsGridCard = ({
+  jobListData,
+  createJobApplicantFunction,
+  appliedJobsDesignationSet,
+  savedJobsDesignationSet,
+}: any) => {
   const showWorkingModuleAndEmploymentType = (job: any) => {
     if (
       job.hasOwnProperty("working_module") &&
@@ -85,19 +90,58 @@ const FeaturedJobsGridCard = ({ jobListData }: any) => {
                 100
               )}...`}</p>
               <div className="card-btn-group">
-                <a
-                  className="btn btn-green text-uppercase btn-medium rounded-3"
-                  href="#"
-                >
-                  Apply Now
-                </a>
-                <a
-                  className="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3"
-                  href="#"
-                >
-                  <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
-                  Save it
-                </a>
+                {appliedJobsDesignationSet?.has(job.designation) ? (
+                  <a
+                    className={`btn btn-green text-uppercase btn-medium rounded-3 ${
+                      appliedJobsDesignationSet?.has(job.designation)
+                        ? "disabled"
+                        : null
+                    } `}
+                  >
+                    Applied
+                  </a>
+                ) : (
+                  <a
+                    className={`btn btn-green text-uppercase btn-medium rounded-3  `}
+                    onClick={() =>
+                      createJobApplicantFunction(
+                        job.designation,
+                        job.name,
+                        "Apply"
+                      )
+                    }
+                  >
+                    Apply Now
+                  </a>
+                )}
+                {savedJobsDesignationSet?.has(job.designation) ? (
+                  <a
+                    className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${
+                      savedJobsDesignationSet?.has(job.designation)
+                        ? "disabled"
+                        : null
+                    }`}
+                  >
+                    <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
+                    Saved
+                  </a>
+                ) : (
+                  <>
+                    <a
+                      className="btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3"
+                      onClick={() =>
+                        createJobApplicantFunction(
+                          job.designation,
+                          job.name,
+                          "Save"
+                        )
+                      }
+                    >
+                      <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
+                      Save it
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           </div>

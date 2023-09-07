@@ -2,6 +2,7 @@ import useCategories from "@/hooks/home-page/categories-hook";
 import { APIDataTypes } from "@/interfaces/api-data-types";
 import loading from "../../styles/jobs-list-loading.module.css";
 import React from "react";
+import Link from "next/link";
 
 const ExploreByCategory = () => {
   const { isLoading, data, error }: APIDataTypes = useCategories();
@@ -38,8 +39,8 @@ const ExploreByCategory = () => {
             {[...Array(8)].map(() => {
               return (
                 <div className="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8">
-                  <a
-                    href="#"
+                  <Link
+                    href="/jobs"
                     className="icon-color bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100"
                   >
                     <div className=" bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7"></div>
@@ -47,7 +48,7 @@ const ExploreByCategory = () => {
                     <div
                       className={`${loading.category_skeleton_heading} bg-blue-opacity-1`}
                     ></div>
-                  </a>
+                  </Link>
                 </div>
               );
             })}
@@ -85,23 +86,22 @@ const ExploreByCategory = () => {
                     className="col-12 col-xl-3 col-lg-4 col-sm-6 col-xs-8"
                     key={index}
                   >
-                    <a
-                      href="#"
+                    <Link
+                      href="/jobs"
                       className="icon-color bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100"
                     >
                       <div className="d-flex flex-column just-content-center align-items-center">
+                        <div className=" bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
+                          <i className={`${category?.icon}`}></i>
+                        </div>
 
-                      <div className=" bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
-                        <i className={`${category?.icon}`}></i>
+                        <div className="">
+                          <h5 className="font-size-5 font-weight-semibold text-black-2 line-height-1">
+                            {category?.title}
+                          </h5>
+                        </div>
                       </div>
-
-                      <div className="">
-                        <h5 className="font-size-5 font-weight-semibold text-black-2 line-height-1">
-                          {category?.title}
-                        </h5>
-                      </div>
-                      </div>
-                    </a>
+                    </Link>
                   </div>
                 );
               })}
