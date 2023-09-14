@@ -10,9 +10,9 @@ import {
 } from "@/store/slices/auth_slice/login_slice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import partnerImg from '../../public/image/frappe-partner-removebg-preview.png'
-import iso1 from '../../public/image/iso1-removebg-preview.png'
-import iso2 from '../../public/image/iso2-removebg-preview.png'
+import partnerImg from "../../public/image/frappe-partner-removebg-preview.png";
+import iso1 from "../../public/image/iso1-removebg-preview.png";
+import iso2 from "../../public/image/iso2-removebg-preview.png";
 import Navbar from "../Navbar/Navbar";
 
 const NavSection = () => {
@@ -37,7 +37,7 @@ const NavSection = () => {
   const [LoggedIn, setLoggedIn] = useState<any>(false);
   const login = useSelector(get_access_token);
   const loginCheck = login.user;
-  console.log("token login check", loginCheck);
+  // console.log("token login check", loginCheck);
   let isLoggedIn: any;
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -65,129 +65,14 @@ const NavSection = () => {
         // className={`site-wrapper overflow-hidden ${isSticky ? "sticky" : ""}`}
         className="site-wrapper overflow-hidden"
       >
-        {/* <header
-          className={`site-header site-header--menu-right ${
-            isSticky ? "sticky" : ""
-          } py-7 py-lg-0 site-header--absolute site-header--sticky`}
-        >
-          <div className="container">
-            <nav className="navbar site-navbar offcanvas-active navbar-expand-lg  px-0 py-0">
-              <div className="brand-logo">
-                <Link href="/">
-                  <img
-                    src="/image/l1/png/logo.png"
-                    alt=""
-                    width={120}
-                    height={100}
-                  />
-                </Link>
-              </div>
-              <div className="collapse navbar-collapse" id="mobile-menu">
-                <div className="navbar-nav-wrapper">
-                  <ul className="navbar-nav main-menu">
-                    <li className="nav-item dropdown">
-                      <Link className="nav-link" href="/jobs">
-                        Explore Jobs
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <button
-                  className="d-block d-lg-none offcanvas-btn-close focus-reset"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#mobile-menu"
-                  aria-controls="mobile-menu"
-                  aria-expanded="true"
-                  aria-label="Toggle navigation"
-                >
-                  <i className="gr-cross-icon"></i>
-                </button>
-              </div>
-              <div className="header-btns header-btn-devider ml-auto pr-2 ml-lg-6">
-                {LoggedIn === "LoggedIn" ? (
-                  ""
-                ) : (
-                
-                  <Link href="/login" legacyBehavior>
-                    <a className="btn btn-transparent text-uppercase font-size-3 heading-default-color focus-reset">
-                      Log in
-                    </a>
-                  </Link>
-                )}
-                {LoggedIn === "LoggedIn" ? (
-                  <div>
-                    <div className="dropdown show-gr-dropdown py-5">
-                      <a
-                        className="proile media ml-7 flex-y-center"
-                        href="#"
-                        role="button"
-                        id="dropdownMenuLink"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        <div className="circle-40">
-                          <i className="fas fa-user-circle icon-size"></i>
-                        </div>
-                        <i className="fas fa-chevron-down heading-default-color ml-6"></i>
-                      </a>
-                      <div
-                        className="dropdown-menu gr-menu-dropdown dropdown-right border-0 border-width-2 py-2 w-auto bg-default"
-                        aria-labelledby="dropdownMenuLink"
-                      >
-                      
-                        <Link href="/profile" legacyBehavior>
-                          <a
-                            className="dropdown-item py-2 font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
-                            href="dashboard-main.html"
-                          >
-                            View Profile
-                          </a>
-                        </Link>
-                        <Link href="" legacyBehavior>
-                          <a
-                            onClick={handleLogOut}
-                            className="dropdown-item py-2 text-red font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
-                            href="#"
-                          >
-                            Log Out
-                          </a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <Link href="/register" legacyBehavior>
-                    <a className="btn btn-primary text-uppercase font-size-3">
-                      Sign up
-                    </a>
-                  </Link>
-                )}
-              </div>
-
-              <button
-                className="navbar-toggler btn-close-off-canvas  hamburger-icon border-0"
-                type="button"
-                data-toggle="collapse"
-                data-target="#mobile-menu"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="hamburger hamburger--squeeze js-hamburger">
-                  <span className="hamburger-box">
-                    <span className="hamburger-inner"></span>
-                  </span>
-                </span>
-              </button>
-            </nav>
-          </div>
-        </header> */}
-          <Navbar/>
+        <Navbar />
         <div className="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
           <div className="pos-abs-tr w-50 z-index-n2">
-            <img src={heroImg.src} alt="" className="gr-opacity-1" />
+            <img
+              src={heroImg.src}
+              alt="8848 Logo"
+              className="hero-img-styles gr-opacity-1"
+            />
           </div>
 
           <div className="container">
@@ -199,15 +84,29 @@ const NavSection = () => {
                 data-aos-once="true"
               >
                 <h1 className="font-size-11 mb-12 pr-md-30 pr-lg-0">
-                Elevate Your Career to New Heights
+                  Elevate Your Career to New Heights
                 </h1>
                 <div className="">
-                 <div>
-                  <img src={partnerImg.src}  width='155px' alt="" style={{marginRight:'20px'}}/>
-                  <img src={iso1.src}   width='100px' alt=""  style={{marginRight:'20px'}}/>
-                  <img src={iso2.src}  width='100px' alt=""  style={{marginRight:'20px'}}/>
-                 </div>
-                 
+                  <div>
+                    <img
+                      src={partnerImg.src}
+                      width="155px"
+                      alt=""
+                      style={{ marginRight: "20px" }}
+                    />
+                    <img
+                      src={iso1.src}
+                      width="100px"
+                      alt=""
+                      style={{ marginRight: "20px" }}
+                    />
+                    <img
+                      src={iso2.src}
+                      width="100px"
+                      alt=""
+                      style={{ marginRight: "20px" }}
+                    />
+                  </div>
                 </div>
               </div>
 

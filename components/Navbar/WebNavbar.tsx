@@ -72,8 +72,7 @@ const WebNavbar = () => {
                   <img
                     src="/image/l1/png/logo.png"
                     alt=""
-                    width={120}
-                    height={100}
+                    className="hero-img-styles"
                   />
                 </Link>
               </div>
@@ -82,7 +81,7 @@ const WebNavbar = () => {
                   <ul className="navbar-nav main-menu">
                     <li className="nav-item dropdown">
                       <Link className="nav-link" href="/jobs">
-                        Explore Jobs
+                        Explore Careers
                       </Link>
                     </li>
                   </ul>

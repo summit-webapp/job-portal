@@ -7,6 +7,16 @@ import Link from "next/link";
 const ExploreByCategory = () => {
   const { isLoading, data, error }: APIDataTypes = useCategories();
 
+  const createRedirectLink: any = (job_title_name: any) => {
+    if (job_title_name !== "" || job_title_name !== null) {
+      const filters = [{ name: "Job Category", value: [job_title_name] }];
+      const filterString = encodeURIComponent(JSON.stringify(filters));
+      return `/jobs?filter=${filterString}`;
+    } else {
+      return ``;
+    }
+  };
+
   if (isLoading) {
     return (
       <div
@@ -87,8 +97,9 @@ const ExploreByCategory = () => {
                     key={index}
                   >
                     <Link
-                      href="/jobs"
+                      href={createRedirectLink(category?.title)}
                       className="icon-color bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100"
+                      onClick={() => createRedirectLink(category?.title)}
                     >
                       <div className="d-flex flex-column just-content-center align-items-center">
                         <div className=" bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">

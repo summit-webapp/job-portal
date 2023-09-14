@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 import useProfileQuery from "./profile_hooks";
 
 const useJobsList = () => {
-  // console.log("query client check");
   const router = useRouter();
   const tokenFromStore = useSelector(get_access_token);
   const queryClient = useQueryClient();
@@ -23,11 +22,6 @@ const useJobsList = () => {
     error: false,
   });
   const [selectedFilters, setSelectedFilters] = useState<any>([]);
-  // const JobsListQuery: any = useQuery({
-  //   queryFn: (filters?: any) => GetJobsListAPI(filters),
-  //   queryKey: ["jobs-list"],
-  //   enabled: true,
-  // });
 
   const {
     appliedJobsQuery,
@@ -43,12 +37,12 @@ const useJobsList = () => {
     cacheTime: 600000, // 10 minutes in milliseconds
   });
 
-  const handleApplyFilters = async (event: any) => {
+  const selectFiltersFunc = async (
+    section: any,
+    filterValue: any,
+    isChecked: any
+  ) => {
     let duplicateFilters: any;
-    const section = event.target.name;
-    const filterValue = event.target.value;
-    const isChecked = event.target.checked;
-
     await setSelectedFilters((prevFilters: any) => {
       let updatedFilters = [...prevFilters];
 
@@ -82,29 +76,62 @@ const useJobsList = () => {
       duplicateFilters = [...updatedFilters];
       return updatedFilters;
     });
+    return duplicateFilters;
+  };
 
-    console.log("duplicateFilters", duplicateFilters);
-    // Construct the filterString
-    const filterString = encodeURIComponent(
-      JSON.stringify(
-        duplicateFilters.map((filter: any) => ({
-          name: filter.name,
-          value: Array.from(new Set(filter.value)), // Remove duplicates
-        }))
-      )
-    );
-    console.log("duplicateFilters", filterString);
+  const handleApplyFilters = async (event?: any) => {
+    let duplicateFilters: any;
+    let section: any;
+    let filterValue: any;
+    let isChecked: any;
+    if (event !== undefined) {
+      section = event.target.name;
+      filterValue = event.target.value;
+      isChecked = event.target.checked;
 
-    // Construct the new URL
-    let url = router.asPath.split("?")[0]; // Get the URL without existing query params
-    if (filterString !== "") {
-      url += `?filter=${filterString}`;
+      duplicateFilters = await selectFiltersFunc(
+        section,
+        filterValue,
+        isChecked
+      );
+      // Construct the filterString
+      const filterString = await encodeURIComponent(
+        JSON.stringify(
+          duplicateFilters?.map((filter: any) => ({
+            name: filter.name,
+            value: Array.from(new Set(filter.value)), // Remove duplicates
+          }))
+        )
+      );
+      // Construct the new URL
+      let url = router.asPath.split("?")[0]; // Get the URL without existing query params
+      if (filterString !== "") {
+        url += `?filter=${filterString}`;
+      }
+      await router.push(url);
+    } else {
+      const searchParams = decodeURIComponent(window.location.search);
+      const urlParams = new URLSearchParams(searchParams);
+
+      // Get the "filter" parameter
+      const filterParamFromURL = urlParams.get("filter");
+
+      if (filterParamFromURL !== null) {
+        const parsedURLParams = JSON.parse(`${filterParamFromURL}`);
+        if (parsedURLParams !== null || parsedURLParams !== undefined) {
+          section = parsedURLParams[0]?.name;
+          filterValue = parsedURLParams[0]?.value[0];
+          isChecked = true;
+          duplicateFilters = await selectFiltersFunc(
+            section,
+            filterValue,
+            isChecked
+          );
+        }
+      } else {
+        await setSelectedFilters([]);
+      }
     }
-    // console.log("filters", duplicateFilters);
-
-    // Use the new URL for navigation
-
-    await router.push(url);
   };
 
   const getJobsListingDataFunction = async () => {
@@ -119,6 +146,7 @@ const useJobsList = () => {
       storeURLQuery.forEach((item: any) => {
         url_query["custom_job_category"] = ["in", item.value];
       });
+    } else {
     }
     const jobsListingDataFromAPI: any = await GetJobsListAPI(url_query);
 
@@ -162,10 +190,6 @@ const useJobsList = () => {
         name,
         status
       );
-      // console.log(
-      //   "applicant creation api successfull in hook",
-      //   callAPIForCreatingJobApplicant
-      // );
 
       if (callAPIForCreatingJobApplicant?.status === 200) {
         if (callAPIForCreatingJobApplicant?.data?.message?.msg === "success") {
@@ -198,6 +222,7 @@ const useJobsList = () => {
 
   useEffect(() => {
     getJobsListingDataFunction();
+    handleApplyFilters();
   }, [router.query]);
 
   return {
