@@ -14,19 +14,7 @@ export default function Document() {
         <link rel="stylesheet" href="fonts/typography-font/typo.css" />
         <link rel="stylesheet" href="fonts/fontawesome-5/css/all.css" />
 
-        {/* Plugin stylesheets  */}
-
-        {/* <link rel="stylesheet" href="/plugins/aos/aos.min.css" />
-        <link
-          rel="stylesheet"
-          href="/plugins/nice-select/nice-select.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/plugins/fancybox/jquery.fancybox.min.css"
-        />
-        <link rel="stylesheet" href="/plugins/slick/slick.min.css" /> */}
-        
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
       </Head>
       <body>
