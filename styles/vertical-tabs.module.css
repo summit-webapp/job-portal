@@ -1,0 +1,35 @@
+.vertical_tabs {
+  display: flex;
+  /* flex-direction: column; */
+}
+
+.tab_links {
+  width: 350px;
+  background-color: #f1f1f1;
+  /* background-color: #f00; */
+}
+
+.tab_link {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+
+.active {
+  background-color: antiquewhite;
+}
+
+.tab_content {
+  /* display: none; */
+  /* padding: 20px; */
+  padding: 0px 20px;
+}
+
+.scrollable_content {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.vertical_tabs {
+  height: 300px;
+}
