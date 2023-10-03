@@ -1,34 +1,34 @@
-import { CONSTANTS } from "@/services/config/api-config";
+import { CONSTANTS } from "@/services/config/app-config";
 import axios from "axios";
 
+const GetAppliedJobAPI = async (token: any) => {
+  let response: any;
+  const version = CONSTANTS.VERSION;
+  const method = "get_applied_jobs";
+  const entity = "job_applicant";
 
-const GetAppliedJobAPI =async (token:any) => {
-
-    let response: any;
-    const version = CONSTANTS.VERSION;
-    const method = "get_applied_jobs";
-    const entity = "job_applicant";
-
-    const params = `?version=${version}&method=${method}&entity=${entity}`;
-    const config = {
-        headers: {
-            "Content-Type": "multipart/form-data",
-            Accept: "application/json",
-            Authorization: token,
-        },
-        timeout: 5000,
-    };
-    await axios
-        .get(
-            `${CONSTANTS.API_BASE_URL}${CONSTANTS.API_MANDATE_PARAMS}${params}`,config)
-        .then((res) => {
-            response = res.data.message.data;
-            console.log(response, "applied job response in api");
-        })
-        .catch((err) => {
-            console.log(err, "response in api");
-        });
-    return response;
-}
+  const params = `?version=${version}&method=${method}&entity=${entity}`;
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Accept: "application/json",
+      Authorization: token,
+    },
+    timeout: 5000,
+  };
+  await axios
+    .get(
+      `${CONSTANTS.API_BASE_URL}${CONSTANTS.API_MANDATE_PARAMS}${params}`,
+      config
+    )
+    .then((res) => {
+      response = res.data.message.data;
+      console.log(response, "applied job response in api");
+    })
+    .catch((err) => {
+      console.log(err, "response in api");
+    });
+  return response;
+};
 
 export default GetAppliedJobAPI;

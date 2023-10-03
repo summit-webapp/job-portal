@@ -1,4 +1,4 @@
-import { CONSTANTS } from "@/services/config/api-config";
+import { CONSTANTS } from "@/services/config/app-config";
 import axios from "axios";
 
 const GetProfileAPI = async (token: any) => {

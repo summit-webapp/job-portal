@@ -1,23 +1,37 @@
-import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import { useRouter } from "next/router";
 import NavSection from "@/components/Navsection/NavSection";
 import EasyStepSection from "@/components/Easystepsection/EasyStepSection";
 import ExploreByCategory from "@/components/Explorecategory/ExploreByCategory";
 import FeaturedJobs from "@/components/Featuredjobs/FeaturedJobs";
-import Footer from "@/components/Footer/Footer";
-import Login from "@/components/Login";
+import { CONSTANTS } from "@/services/config/app-config";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  return (
-    <>
-      <NavSection />
-      <EasyStepSection />
-      <ExploreByCategory />
-      <FeaturedJobs />
-    </>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    if (
+      CONSTANTS.CAREER_OPPORTUNITIES_PORTAL === false &&
+      CONSTANTS.CANDIDATE_EVALUATION_PORTAL
+    ) {
+      router.push("/hire");
+    }
+  }, []);
+
+  if (CONSTANTS.CAREER_OPPORTUNITIES_PORTAL) {
+    return (
+      <>
+        <NavSection />
+        <EasyStepSection />
+        <ExploreByCategory />
+        <FeaturedJobs />
+      </>
+    );
+  }
+
+  // If neither condition is met, you might want to return a fallback or an empty component.
+  return null;
 }

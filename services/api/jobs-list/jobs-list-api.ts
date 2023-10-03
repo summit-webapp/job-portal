@@ -1,6 +1,6 @@
 import axios from "axios";
-import { CONSTANTS } from "../../config/api-config";
-import { API_CONFIG, TIMEOUT } from "../../config/app-config";
+import { CONSTANTS } from "../../config/app-config";
+import { API_CONFIG, TIMEOUT } from "../../config/api-config";
 
 const GetJobsListAPI = async (query?: any) => {
   let response: any;

@@ -1,9 +1,8 @@
-import { CONSTANTS } from "@/services/config/api-config";
+import { CONSTANTS } from "@/services/config/app-config";
 import axios from "axios";
 
 const LogoutFetch = async () => {
   let response: any;
-
 
   const config = {
     headers: {
@@ -12,7 +11,7 @@ const LogoutFetch = async () => {
   };
 
   await axios
-    .post(`${CONSTANTS.API_BASE_URL}/api/method/logout`,undefined, {
+    .post(`${CONSTANTS.API_BASE_URL}/api/method/logout`, undefined, {
       ...config,
       timeout: 5000,
     })

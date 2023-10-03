@@ -1,6 +1,6 @@
 import axios from "axios";
-import { API_CONFIG, TIMEOUT } from "@/services/config/app-config";
-import { CONSTANTS } from "@/services/config/api-config";
+import { API_CONFIG, TIMEOUT } from "@/services/config/api-config";
+import { CONSTANTS } from "@/services/config/app-config";
 
 const CreateJobApplicantAPI = async (
   token: string,

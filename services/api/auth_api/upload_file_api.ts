@@ -1,4 +1,4 @@
-import { CONSTANTS } from "@/services/config/api-config";
+import { CONSTANTS } from "@/services/config/app-config";
 import axios from "axios";
 
 const UploadFileApi = async (request: any) => {
@@ -12,16 +12,12 @@ const UploadFileApi = async (request: any) => {
     headers: {
       "Content-Type": "multipart/form-data",
       Accept: "application/json",
-      Authorization: 'token 6b1d70ec569da48:d816c21720f15fa',
+      Authorization: "token 6b1d70ec569da48:d816c21720f15fa",
     },
     timeout: 5000,
   };
   await axios
-    .post(
-      `${CONSTANTS.API_BASE_URL}/api/method/upload_file`,
-      formData,
-      config
-    )
+    .post(`${CONSTANTS.API_BASE_URL}/api/method/upload_file`, formData, config)
     .then((res) => {
       console.log(res, "response in api");
       response = res.data.message;
