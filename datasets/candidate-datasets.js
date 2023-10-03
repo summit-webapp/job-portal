@@ -189,7 +189,7 @@ export const dataSet = [
     main_tab: "Interview",
     nested_tabs: [
       {
-        label: "Interveiw Round 1",
+        label: "Phone Interview",
         content: [
           {
             name: "Junaid",
@@ -212,7 +212,7 @@ export const dataSet = [
         ],
       },
       {
-        label: "Interveiw Round 2",
+        label: "TAT Test",
         content: [
           {
             name: "Hamza",
@@ -235,7 +235,7 @@ export const dataSet = [
         ],
       },
       {
-        label: "Interveiw Round 3",
+        label: "First Interview",
         content: [
           {
             name: "Khan",
@@ -251,6 +251,121 @@ export const dataSet = [
           },
           {
             name: "Touhid",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+      {
+        label: "Second Interview",
+        content: [
+          {
+            name: "L",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Rukh",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "M",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+      {
+        label: "Third Interview",
+        content: [
+          {
+            name: "K",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Rukh",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "J",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+      {
+        label: "Fourth Interview",
+        content: [
+          {
+            name: "I",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "H",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "G",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+      {
+        label: "Reference Check",
+        content: [
+          {
+            name: "F",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "E",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "D",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+      {
+        label: "Pipeline",
+        content: [
+          {
+            name: "A",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "B",
+            description: "With an experience of 5 yrs in an IT Company ...",
+            designation: "HR Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "C",
             description: "With an experience of 5 yrs in an IT Company ...",
             designation: "HR Specialist",
             date: "Fri 06/10/23",

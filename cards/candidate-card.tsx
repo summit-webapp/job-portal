@@ -4,7 +4,10 @@ const CandidateCard = ({ content }: any) => {
       {content?.map((content_card: any, index: number) => {
         return (
           <div className="card">
-            <div className="card-body">{content_card?.name}</div>
+            <div className="card-body">
+              <p>{content_card?.name}</p>
+              <p>{content_card?.designation}</p>
+            </div>
           </div>
         );
       })}
