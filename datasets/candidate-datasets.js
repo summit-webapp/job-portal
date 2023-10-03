@@ -1,9 +1,11 @@
 export const dataSet = [
   {
     main_tab: "Applicant",
+    count: "34",
     nested_tabs: [
       {
         label: "Devops",
+        nested_count: 15,
         content: [
           {
             name: "Saif",
@@ -81,6 +83,7 @@ export const dataSet = [
       },
       {
         label: "Developer",
+        nested_count: 19,
         content: [
           {
             name: "Salman",
@@ -116,6 +119,7 @@ export const dataSet = [
       },
       {
         label: "Consultants",
+        nested_count: 35,
         content: [
           {
             name: "Syed",
@@ -139,6 +143,7 @@ export const dataSet = [
       },
       {
         label: "Accounts",
+        nested_count: 38,
         content: [
           {
             name: "Tamim",
@@ -162,6 +167,7 @@ export const dataSet = [
       },
       {
         label: "HR",
+        nested_count: 30,
         content: [
           {
             name: "Jainam",
@@ -187,9 +193,11 @@ export const dataSet = [
   },
   {
     main_tab: "Interview",
+    count: " 25",
     nested_tabs: [
       {
         label: "Phone Interview",
+        nested_count: 35,
         content: [
           {
             name: "Junaid",
@@ -213,6 +221,7 @@ export const dataSet = [
       },
       {
         label: "TAT Test",
+        nested_count: 10,
         content: [
           {
             name: "Hamza",
@@ -236,6 +245,7 @@ export const dataSet = [
       },
       {
         label: "First Interview",
+        nested_count: 5,
         content: [
           {
             name: "Khan",
@@ -259,6 +269,7 @@ export const dataSet = [
       },
       {
         label: "Second Interview",
+        nested_count: 55,
         content: [
           {
             name: "L",
@@ -282,6 +293,7 @@ export const dataSet = [
       },
       {
         label: "Third Interview",
+        nested_count: 25,
         content: [
           {
             name: "K",
@@ -305,6 +317,7 @@ export const dataSet = [
       },
       {
         label: "Fourth Interview",
+        nested_count: 40,
         content: [
           {
             name: "I",
@@ -328,6 +341,7 @@ export const dataSet = [
       },
       {
         label: "Reference Check",
+        nested_count: 12,
         content: [
           {
             name: "F",
@@ -351,6 +365,7 @@ export const dataSet = [
       },
       {
         label: "Pipeline",
+        nested_count: 6,
         content: [
           {
             name: "A",

@@ -32,14 +32,16 @@ const Candidates = () => {
 
   return (
     <>
-      <div className="container" style={{ marginTop: "150px" }}>
+      <div className="container" style={{ marginTop: "120px" }}>
         <div>
           <nav>
             <div className="nav nav-tabs" id="nav-tab" role="tablist">
               {dataSet.map((tab: any, index: number) => (
                 <button
-                  className={`nav-link ${
-                    activeMainTab === index ? "active" : ""
+                  className={`nav-link ${styles.main_tab} ${
+                    activeMainTab === index
+                      ? styles.main_tab_active
+                      : styles.main_tab_stale
                   }`}
                   id={`${tab.main_tab}-tab`}
                   data-toggle="tab"
@@ -50,7 +52,8 @@ const Candidates = () => {
                   aria-selected={`${activeMainTab === index ? true : false}`}
                   onClick={() => handleMainTabIndex(index)}
                 >
-                  {tab.main_tab}
+                  {tab.main_tab}{" "}
+                  <span className="badge badge-primary mx-2">{tab.count}</span>
                 </button>
               ))}
             </div>
@@ -69,11 +72,16 @@ const Candidates = () => {
                     (nested_tab: any, index: number) => (
                       <div
                         key={index}
-                        className={`${styles.tab_link} 
+                        className={`d-flex justify-content-between align-items-center ${
+                          styles.tab_link
+                        } 
                             ${activeNestedTab === index ? styles.active : ""}`}
                         onClick={() => handleTabClick(index)}
                       >
-                        {nested_tab.label}
+                        <div>{nested_tab.label}</div>
+                        <span className={`badge ${styles.bg_color} mx-2`}>
+                          {nested_tab.nested_count}
+                        </span>
                       </div>
                     )
                   )}
