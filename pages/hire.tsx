@@ -32,8 +32,11 @@ const Candidates = () => {
 
   return (
     <>
-      <div className="container" style={{ marginTop: "120px" }}>
-        <div>
+      <div
+        className="container"
+        style={{ marginTop: "100px", backgroundColor: "#f5f5f5" }}
+      >
+        <div className="mt-3">
           <nav>
             <div className="nav nav-tabs" id="nav-tab" role="tablist">
               {dataSet.map((tab: any, index: number) => (
@@ -66,7 +69,7 @@ const Candidates = () => {
             }`}
           >
             <div className="row">
-              <div className="col-2">
+              <div className={`col-2 ${styles.nested_tab_main_div}`}>
                 <div className="nav flex-column nav-pills">
                   {dataSet[activeMainTab].nested_tabs.map(
                     (nested_tab: any, index: number) => (
@@ -74,7 +77,7 @@ const Candidates = () => {
                         key={index}
                         className={`d-flex justify-content-between align-items-center ${
                           styles.tab_link
-                        } 
+                        } ${styles.nested_tabs_container}
                             ${activeNestedTab === index ? styles.active : ""}`}
                         onClick={() => handleTabClick(index)}
                       >
@@ -87,7 +90,7 @@ const Candidates = () => {
                   )}
                 </div>
               </div>
-              <div className="col-8">
+              <div className={`col-8 ${styles.tab_content_container}`}>
                 <div className={`tab-content ${styles.tab_content}`}>
                   {dataSet[activeMainTab].nested_tabs.map(
                     (nested_tab_content: any, index: number) => (
