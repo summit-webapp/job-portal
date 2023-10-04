@@ -26,19 +26,25 @@
   padding: 0.5em 0.4em !important;
 }
 .main_tab_active {
-  font-weight: 700;
+  font-weight: bolder;
   background-color: #fff !important;
 }
 .main_tab_stale {
-  color: gray;
-  background-color: red;
+  /* font-weight: 700; */
+  font-weight: 700;
+  /* color: gray; */
+  opacity: 0.5;
 }
 .active {
+  font-weight: bold;
   color: #000;
   border-left: 2px solid green;
   /* border: 1px solid #ccc;
   border-radius: 7px; */
   background-color: #fff !important;
+}
+.inactive_nested_tab {
+  opacity: 0.5;
 }
 .tab_content_container {
   background-color: #fff !important;

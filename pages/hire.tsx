@@ -78,7 +78,11 @@ const Candidates = () => {
                         className={`d-flex justify-content-between align-items-center ${
                           styles.tab_link
                         } ${styles.nested_tabs_container}
-                            ${activeNestedTab === index ? styles.active : ""}`}
+                            ${
+                              activeNestedTab === index
+                                ? styles.active
+                                : styles.inactive_nested_tab
+                            }`}
                         onClick={() => handleTabClick(index)}
                       >
                         <div>{nested_tab.label}</div>
@@ -90,20 +94,19 @@ const Candidates = () => {
                   )}
                 </div>
               </div>
-              <div className={`col-8 ${styles.tab_content_container}`}>
-                <div className={`tab-content ${styles.tab_content}`}>
+              <div className={`col-10 ${styles.tab_content_container}`}>
+                <div
+                  className={`tab-content ${styles.scrollable_content} ${styles.tab_content}`}
+                >
                   {dataSet[activeMainTab].nested_tabs.map(
                     (nested_tab_content: any, index: number) => (
                       <div
                         key={index}
-                        className={`tab-pane ${
+                        className={`tab-pane  ${
                           activeNestedTab === index ? "active" : ""
                         }`}
                       >
-                        <div
-                          className={styles.scrollable_content}
-                          ref={contentRef}
-                        >
+                        <div className={``} ref={contentRef}>
                           <CandidateCard content={nested_tab_content.content} />
                         </div>
                       </div>
