@@ -62,7 +62,7 @@ const Candidates = () => {
             </div>
           </nav>
         </div>
-        <div className="tab-content mt-3">
+        <div className={`tab-content ${styles.tab_content_main}`}>
           <div
             className={`tab-pane ${
               activeMainTab === mainTabRef.current ? "active" : ""
@@ -70,7 +70,7 @@ const Candidates = () => {
           >
             <div className="row">
               <div className={`col-2 ${styles.nested_tab_main_div}`}>
-                <div className="nav flex-column nav-pills">
+                <div className={`nav flex-column nav-pills `}>
                   {dataSet[activeMainTab].nested_tabs.map(
                     (nested_tab: any, index: number) => (
                       <div
