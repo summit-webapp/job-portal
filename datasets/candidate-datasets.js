@@ -1,5 +1,215 @@
 export const dataSet = [
   {
+    main_tab: "Lead",
+    count: "34",
+    nested_tabs: [
+      {
+        label: "Open",
+        nested_count: 15,
+        content: [
+          {
+            name: "Saif",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Muayyad",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Mamoun",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Maqsood",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Mujeeb",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Karam",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Sajid",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Farah",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Wajid",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Younus",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Shoaib",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Meer",
+            description: "Keir International",
+            designation: "Devops Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+      {
+        label: "Accepted",
+        nested_count: 15,
+        content: [
+          {
+            name: "Furqan",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Zain",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Yousuf",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Hamza",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Kazi",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Amjad",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Athar",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Ayoub",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Bilal",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Ghazi",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Fareed",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Eisa",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Jabir",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Qasim",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Rajab",
+            description: "Keir International",
+            designation: "Developer Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+      {
+        label: "Rejected",
+        nested_count: 4,
+        content: [
+          {
+            name: "Syed",
+            description: "Keir International",
+            designation: "Consultants Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Touhid",
+            description: "Keir International",
+            designation: "Consultants Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Rashid",
+            description: "Keir International",
+            designation: "Consultants Specialist",
+            date: "Fri 06/10/23",
+          },
+          {
+            name: "Bashar",
+            description: "Keir International",
+            designation: "Consultants Specialist",
+            date: "Fri 06/10/23",
+          },
+        ],
+      },
+    ],
+  },
+  {
     main_tab: "Applicant",
     count: "34",
     nested_tabs: [
