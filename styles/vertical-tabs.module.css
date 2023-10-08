@@ -28,7 +28,7 @@
   border: 1px solid #ccc;
 }
 .nested_tabs_container:not(:last-child)::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -8px; /* Adjust the size of the triangle by changing this value */
   left: 50%;
@@ -47,15 +47,15 @@
   background-color: #fff !important;
 }
 .main_tab_stale {
-  /* font-weight: 700; */
   font-weight: 700;
+  /* font-weight: 700; */
   /* color: gray; */
   opacity: 0.5;
 }
 .active {
   font-weight: bold;
   color: #000;
-  border-right: 3px solid #1292EE;
+  border-right: 3px solid #1292ee;
   /* border: 1px solid #ccc; */
   /* border-radius: 7px; */
   /* background-color: #fff !important; */
@@ -84,6 +84,25 @@
 @media only screen and (max-width: 1024px) {
   .nested_tabs_container {
     /* width: 100px; */
+  }
+  .nav_pills_main_div {
+    /* height: 300px; */
+    /* overflow-y: scroll; */
+  }
+}
+@media only screen and (min-width: 375px) {
+  .nested_tabs_container {
+    width: 345px;
+  }
+}
+@media only screen and (min-width: 425px) {
+  .nested_tabs_container {
+    width: 395px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .nested_tabs_container {
+    width: 690px;
   }
 }
 @media only screen and (min-width: 1024px) {
