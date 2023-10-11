@@ -17,7 +17,6 @@ const JobsCardContainer = ({
       </div>
     );
   }
-  const filteredData = data.filter((job: any) => job.status !== "Closed");
   return (
     <div className="row">
       <JobsGridCard
