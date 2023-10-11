@@ -113,11 +113,13 @@ const useJobsList = () => {
       data: [],
       error: false,
     });
-    let url_query: any = {};
+    let url_query: any = [];
     if (Object.keys(router?.query)?.length > 0) {
       const storeURLQuery: any = JSON.parse(`${router?.query?.filter}`);
+      // console.log("storeURLQuery", storeURLQuery);
       storeURLQuery.forEach((item: any) => {
-        url_query["custom_job_category"] = ["in", item.value];
+        url_query.push(...item.value);
+        // url_query["custom_job_category"] = ["in", item.value];
       });
     }
     const jobsListingDataFromAPI: any = await GetJobsListAPI(url_query);
