@@ -36,6 +36,108 @@ const Candidates = () => {
         className="container"
         style={{ marginTop: "100px", backgroundColor: "#f5f5f5" }}
       >
+        {/* <nav>
+          <div className="nav nav-tabs" id="nav-tab" role="tablist">
+            <button
+              className="nav-link active"
+              id="nav-home-tab"
+              data-toggle="tab"
+              data-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+            >
+              Home
+            </button>
+            <button
+              className="nav-link"
+              id="nav-profile-tab"
+              data-toggle="tab"
+              data-target="#nav-profile"
+              type="button"
+              role="tab"
+              aria-controls="nav-profile"
+              aria-selected="false"
+            >
+              Profile
+            </button>
+            <button
+              className="nav-link"
+              id="nav-contact-tab"
+              data-toggle="tab"
+              data-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              Contact
+            </button>
+            <button
+              className="nav-link"
+              id="nav-contact-tab"
+              data-toggle="tab"
+              data-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              Applicant
+            </button>
+            <button
+              className="nav-link"
+              id="nav-contact-tab"
+              data-toggle="tab"
+              data-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              Lead
+            </button>
+            <button
+              className="nav-link"
+              id="nav-contact-tab"
+              data-toggle="tab"
+              data-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              Candidate
+            </button>
+          </div>
+        </nav> */}
+        {/* <div className="tab-content" id="nav-tabContent">
+          <div
+            className="tab-pane fade show active"
+            id="nav-home"
+            role="tabpanel"
+            aria-labelledby="nav-home-tab"
+          >
+            ...
+          </div>
+          <div
+            className="tab-pane fade"
+            id="nav-profile"
+            role="tabpanel"
+            aria-labelledby="nav-profile-tab"
+          >
+            ...
+          </div>
+          <div
+            className="tab-pane fade"
+            id="nav-contact"
+            role="tabpanel"
+            aria-labelledby="nav-contact-tab"
+          >
+            ...
+          </div>
+        </div> */}
         <div className="mt-3">
           <nav>
             <div className="nav nav-tabs" id="nav-tab" role="tablist">
@@ -70,7 +172,9 @@ const Candidates = () => {
           >
             <div className="row">
               <div className={`col-2 ${styles.nested_tab_main_div}`}>
-                <div className={`nav flex-column nav-pills `}>
+                <div
+                  className={`nav flex-column nav-pills ${styles.nav_pills_main_div}`}
+                >
                   {dataSet[activeMainTab].nested_tabs.map(
                     (nested_tab: any, index: number) => (
                       <div
