@@ -16,7 +16,15 @@ const JobDetailMaster = ({
   const savedJobsDesignationSet = new Set(
     savedJobsQuery?.map((item: any) => item.designation)
   );
-
+  const returnFormattedDate = (raw_date: any) => {
+    const splitDate: any = raw_date?.split(" ");
+    const options: any = { year: "numeric", month: "long", day: "numeric" };
+    const formattedDate = new Date(splitDate).toLocaleDateString(
+      "en-US",
+      options
+    );
+    return formattedDate;
+  };
   return (
     <div>
       <div className="jobDetails-section bg-default-1 pt-22 pt-lg-22 pb-xl-25 pb-12">
@@ -65,6 +73,15 @@ const JobDetailMaster = ({
                         {/* media texts end */}
                       </div>
                       {/* media end */}
+                    </div>
+                    <div className="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
+                      {/* media date start */}
+                      <div className="media justify-content-md-end">
+                        <p className="font-size-4 text-gray mb-0">
+                          {returnFormattedDate(data?.message?.data?.modified)}
+                        </p>
+                      </div>
+                      {/* <!-- media date end --> */}
                     </div>
                   </div>
                   <div className="row pt-9">
@@ -154,7 +171,7 @@ const JobDetailMaster = ({
                             <i className="fas fa-dollar-sign"></i>
                           </div>
                         </div>
-                        <div>
+                        <div style={{ paddingTop: "4px" }}>
                           <p className="font-weight-semibold font-size-4 text-black mb-0">
                             As per Industry standard
                           </p>
@@ -169,7 +186,7 @@ const JobDetailMaster = ({
                             <i className="fas fa-briefcase"></i>
                           </div>
                         </div>
-                        <div>
+                        <div style={{ paddingTop: "4px" }}>
                           <p className="font-weight-semibold font-size-4 text-black mb-0">
                             {data?.message?.data?.employement_type?.length >
                             1 ? (
@@ -207,7 +224,7 @@ const JobDetailMaster = ({
                             <i className="fas fa-map-marker-alt"></i>
                           </div>
                         </div>
-                        <div>
+                        <div style={{ paddingTop: "4px" }}>
                           <p className="font-weight-semibold font-size-4 text-black mb-0">
                             {data?.message?.data?.working_module?.length > 1 ? (
                               <>
