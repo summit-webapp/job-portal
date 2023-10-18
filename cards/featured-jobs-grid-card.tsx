@@ -76,14 +76,14 @@ const FeaturedJobsGridCard = ({
                 </a>
               </div> */}
 
-              <h2 className="mt-n4">
+              <h5 className="mt-n4">
                 <Link
                   href={`/job-details/${job?.name}`}
-                  className="font-size-7 text-black-2 font-weight-bold mb-4"
+                  className=" text-black-2 font-weight-bold mb-4"
                 >
                   {job?.job_title}
                 </Link>
-              </h2>
+              </h5>
               {showWorkingModuleAndEmploymentType(job)}
               <p className="mb-7 font-size-4 text-gray">{`${job?.job_summary?.slice(
                 0,
