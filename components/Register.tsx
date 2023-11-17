@@ -1,55 +1,58 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import { Form as BootstrapForm, Button } from 'react-bootstrap';
-import Link from 'next/link';
-import { toast } from 'react-toastify';
+import React, { useRef, useState } from "react";
+import { Formik, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { Form as BootstrapForm, Button } from "react-bootstrap";
+import Link from "next/link";
+import { toast } from "react-toastify";
 
-import RegisterPost from '@/services/api/auth_api/register_api';
-import { useRouter } from 'next/router';
-import UploadFileApi from '@/services/api/auth_api/upload_file_api';
+import RegisterPost from "@/services/api/auth_api/register_api";
+import { useRouter } from "next/router";
+import UploadFileApi from "@/services/api/auth_api/upload_file_api";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 const SignupValidationSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().required('Password is required'),
-  name: Yup.string().required('Name is required'),
-  phone_number: Yup.string().required('Mobile Number is required'),
-  city: Yup.string().required('City is required'),
-  resume: Yup.mixed().required('Resume attachment is required'),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  password: Yup.string().required("Password is required"),
+  name: Yup.string().required("Name is required"),
+  phone_number: Yup.string().required("Mobile Number is required"),
+  city: Yup.string().required("City is required"),
+  resume: Yup.mixed().required("Resume attachment is required"),
 });
 
 const Register: React.FC = () => {
   const router = useRouter();
-  const [uploadResponse, setUploadResponse] = useState<{ file_url: string } | null>(null);
+  const [uploadResponse, setUploadResponse] = useState<{
+    file_url: string;
+  } | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newSelectedFile = e.target.files?.[0];
     if (newSelectedFile) {
       try {
         const response = await UploadFileApi({ file: newSelectedFile });
-        // Handle the uploadResponse as needed
-        console.log('Upload Response:', response.file_url);
-
-        // Set the upload response and selected file to the state
         setUploadResponse(response);
         setSelectedFile(newSelectedFile);
-
-        // Continue with any other logic you need
       } catch (error) {
-        console.error('Upload Error:', error);
+        console.error("Upload Error:", error);
       }
     }
   };
 
   const clearSelectedFile = () => {
-    // Clear the selected file and upload response
     setSelectedFile(null);
     setUploadResponse(null);
   };
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  console.log('upload', uploadResponse?.file_url)
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
       <div className="bg-white overflow-hidden register-wrapper shadow-lg">
@@ -61,60 +64,154 @@ const Register: React.FC = () => {
               </div>
               <Formik
                 initialValues={{
-                  email: '',
-                  password: '',
-                  name: '',
-                  phone_number: '',
-                  city: '',
-                  resume: uploadResponse?.file_url,
+                  email: "",
+                  password: "",
+                  name: "",
+                  phone_number: "",
+                  city: "",
+                  resume: uploadResponse?.file_url || "",
                 }}
                 validationSchema={SignupValidationSchema}
-
                 onSubmit={async (values) => {
-                  console.log('value', values)
+                  console.log(values);
                   try {
                     const response = await RegisterPost(values);
-                    if (response.msg === 'success') {
-                      toast.success('Registration successful', {
+                    if (response.msg === "success") {
+                      toast.success("Registration successful", {
                         autoClose: 3000,
-                        className: 'custom-toast',
+                        className: "custom-toast",
                       });
-                      // Redirect to the login page after successful registration
-                      router.push('/login');
-                    } else if (response.msg === 'error') {
+                      router.push("/login");
+                    } else if (response.msg === "error") {
                       toast.error(response.error, {
                         autoClose: 5000,
-                        className: 'custom-toast',
+                        className: "custom-toast",
                       });
                     }
                   } catch (error) {
-                    console.error('Registration Error:', error);
+                    console.error("Registration Error:", error);
                   }
                 }}
               >
-                {({ setFieldValue }) => (
+                {({ setFieldValue, values, errors, touched }) => (
                   <Form>
                     <div className="row">
                       <div className="col-12">
                         <div className="form-group">
-                          <Field type="email" className="form-control" name="email" placeholder="Enter Email" />
-                          <ErrorMessage name="email" component="div" className="error_message" />
+                          <label
+                            htmlFor="email"
+                            className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
+                          >
+                            E-mail
+                          </label>
+                          <TextField
+                            type="email"
+                            className="w-100"
+                            name="email"
+                            value={values.email}
+                            onChange={(e) =>
+                              setFieldValue("email", e.target.value)
+                            }
+                            error={touched.email && Boolean(errors.email)}
+                            helperText={touched.email ? errors.email : ""}
+                          />
                         </div>
                         <div className="form-group">
-                          <Field type="password" className="form-control" name="password" placeholder="Enter Password" />
-                          <ErrorMessage name="password" component="div" className="error_message" />
+                          <label
+                            htmlFor="password"
+                            className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
+                          >
+                            Password
+                          </label>
+                          <TextField
+                            type={showPassword ? "text" : "password"}
+                            className="w-100"
+                            name="password"
+                            value={values.password}
+                            onChange={(e) =>
+                              setFieldValue("password", e.target.value)
+                            }
+                            InputProps={{
+                              endAdornment: (
+                                <InputAdornment position="end">
+                                  <IconButton
+                                    onClick={togglePasswordVisibility}
+                                  >
+                                    {showPassword ? (
+                                      <VisibilityIcon />
+                                    ) : (
+                                      <VisibilityOffIcon />
+                                    )}
+                                  </IconButton>
+                                </InputAdornment>
+                              ),
+                            }}
+                            error={touched.password && Boolean(errors.password)}
+                            helperText={touched.password ? errors.password : ""}
+                          />
                         </div>
                         <div className="form-group">
-                          <Field type="text" className="form-control" name="name" placeholder="Enter Name" />
-                          <ErrorMessage name="name" component="div" className="error_message" />
+                          <label
+                            htmlFor="password"
+                            className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
+                          >
+                            First Name
+                          </label>
+                          <TextField
+                            type="text"
+                            className="w-100"
+                            name="name"
+                            value={values.name}
+                            onChange={(e) =>
+                              setFieldValue("name", e.target.value)
+                            }
+                            error={touched.name && Boolean(errors.name)}
+                            helperText={touched.name ? errors.name : ""}
+                          />
                         </div>
                         <div className="form-group">
-                          <Field type="text" className="form-control" name="phone_number" placeholder="Enter Contact Number" />
-                          <ErrorMessage name="phone_number" component="div" className="error_message" />
+                          <label
+                            htmlFor="phone_number"
+                            className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
+                          >
+                            Phone Number
+                          </label>
+                          <TextField
+                            type="text"
+                            className="w-100"
+                            name="phone_number"
+                            value={values.phone_number}
+                            onChange={(e) =>
+                              setFieldValue("phone_number", e.target.value)
+                            }
+                            error={
+                              touched.phone_number &&
+                              Boolean(errors.phone_number)
+                            }
+                            helperText={
+                              touched.phone_number ? errors.phone_number : ""
+                            }
+                          />
                         </div>
                         <div className="form-group">
-                          <Field type="text" className="form-control" name="city" placeholder="Enter City" />
-                          <ErrorMessage name="city" component="div" className="error_message" />
+                          <label
+                            htmlFor="city"
+                            className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
+                          >
+                            City
+                          </label>
+                          <TextField
+                            type="text"
+                            className="w-100"
+                            label="Enter City"
+                            name="city"
+                            value={values.city}
+                            onChange={(e) =>
+                              setFieldValue("city", e.target.value)
+                            }
+                            error={touched.city && Boolean(errors.city)}
+                            helperText={touched.city ? errors.city : ""}
+                          />
                         </div>
                         <div className="form-group">
                           <label htmlFor="attachResume" className="mb-3">
@@ -123,7 +220,11 @@ const Register: React.FC = () => {
                           {selectedFile ? (
                             <div className="selected-file">
                               <span>{selectedFile.name}</span>
-                              <span className="delete-file" onClick={clearSelectedFile} style={{ cursor: 'pointer' }}>
+                              <span
+                                className="delete-file"
+                                onClick={clearSelectedFile}
+                                style={{ cursor: "pointer" }}
+                              >
                                 <i className="fas fa-times-circle text-red"></i>
                               </span>
                             </div>
@@ -140,22 +241,33 @@ const Register: React.FC = () => {
                                   handleFileSelect(e);
                                   const fileName = e.target.files?.[0]?.name;
                                   const filePath = `/files/${fileName}`;
-                                  setFieldValue('resume', filePath); // Set the file path as value
+                                  setFieldValue("resume", filePath);
                                 }}
                               />
                             </div>
                           )}
-                          <ErrorMessage name="resume" component="div" className="error_message" />
+                          <ErrorMessage
+                            name="resume"
+                            component="div"
+                            className="error_message"
+                          />
                         </div>
                       </div>
                       <div className="col-12 text-center">
                         <div className="form-group mb-8">
-                          <Button type="submit" variant="primary" className="w-50 rounded-5 text-uppercase">
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            className="w-50 rounded-5 text-uppercase"
+                          >
                             Sign Up
                           </Button>
                         </div>
                         <p className="font-size-4 text-center heading-default-color">
-                          Already have an account? <Link href="/login" className="text-primary">Log in</Link>
+                          Already have an account?{" "}
+                          <Link href="/login" className="text-primary">
+                            Log in
+                          </Link>
                         </p>
                       </div>
                     </div>

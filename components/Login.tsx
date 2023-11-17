@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Form as BootstrapForm, FormCheck } from "react-bootstrap";
@@ -10,6 +10,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import getAccessTokenApi from "@/services/api/auth_api/login_api";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 const LoginValidationSchema = Yup.object().shape({
   usr: Yup.string().email("Invalid email").required("Email is required"),
   pwd: Yup.string().required("Password is required"),
@@ -18,56 +22,12 @@ const LoginValidationSchema = Yup.object().shape({
 const Login = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const queryClient = useQueryClient(); // Create a query client instance
-  const mutation = useMutation(
-    (values: any) => getAccessTokenApi(values.usr, values.pwd),
-    {
-      // onSuccess: (response:any) => {
-      //   // On success, refetch data if needed
-      //   queryClient.invalidateQueries('accessToken'); // Replace 'accessToken' with your query key
-      // },
-    }
-  );
 
-  const handleSubmit = async (values: any) => {
-    try {
-      const response = await mutation.mutateAsync(values); // Start the mutation and wait for it to complete
-      console.log("token in handle", response);
-      // On success
-      if (response.msg === "success") {
-        // Show a success notification
-        toast.success("Login successful", {
-          autoClose: 3000,
-          className: "custom-toast", // Close the notification after 3 seconds
-        });
+  const [showPassword, setShowPassword] = useState(false);
 
-        // Perform any other actions you need after successful login
-        dispatch(fetchAccessToken(values) as any);
-        router.push("/");
-      } else if (response.msg === "error") {
-        toast.error(
-          "Login failed. Please check your credentials and try again.",
-          {
-            autoClose: 5000,
-            className: "custom-toast", // Close the notification after 3 seconds
-          }
-        );
-      }
-    } catch (error) {
-      // On error
-      // Show an error notification
-      toast.error(
-        "Login failed. Please check your credentials and try again.",
-        {
-          autoClose: 5000, // Close the notification after 5 seconds
-        }
-      );
-
-      // Handle the error as needed
-      console.error("Login error:", error);
-    }
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
-
   return (
     <>
       <div className="bg-white overflow-hidden login-wrapper shadow-lg">
@@ -83,70 +43,107 @@ const Login = () => {
                   pwd: "",
                 }}
                 validationSchema={LoginValidationSchema}
-                onSubmit={(values) => {
-                  handleSubmit(values);
+                onSubmit={async (values) => {
+                  console.log(values);
+                  try {
+                    const response = await getAccessTokenApi(
+                      values.usr,
+                      values.pwd
+                    );
+                    if (response.msg === "success") {
+                      toast.success("Login successful", {
+                        autoClose: 3000,
+                        className: "custom-toast",
+                      });
+                      dispatch(fetchAccessToken(values) as any);
+                      router.push("/");
+                    } else if (response.msg === "error") {
+                      toast.error(response.error, {
+                        autoClose: 5000,
+                        className: "custom-toast",
+                      });
+                    }
+                  } catch (error) {
+                    console.error("Registration Error:", error);
+                  }
                 }}
               >
-                <Form>
-                  <div className="form-group">
-                    <label
-                      htmlFor="email"
-                      className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
-                    >
-                      E-mail
-                    </label>
-                    <Field type="email" className="form-control" name="usr" />
-                    <ErrorMessage
-                      name="usr"
-                      component="div"
-                      className="error_message"
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label
-                      htmlFor="password"
-                      className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
-                    >
-                      Password
-                    </label>
-                    <div className="position-relative">
-                      <Field
-                        type="password"
-                        className="form-control"
-                        name="pwd"
+                {({ setFieldValue, values, errors, touched }) => (
+                  <Form>
+                    <div className="form-group">
+                      <label
+                        htmlFor="email"
+                        className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
+                      >
+                        E-mail
+                      </label>
+                      <TextField
+                        type="email"
+                        className="w-100"
+                        name="usr"
+                        value={values.usr}
+                        onChange={(e) => setFieldValue("usr", e.target.value)}
+                        error={touched.usr && Boolean(errors.usr)}
+                        helperText={touched.usr ? errors.usr : ""}
                       />
                     </div>
-                    <ErrorMessage
-                      name="pwd"
-                      component="div"
-                      className="error_message"
-                    />
-                  </div>
-                  <div className="form-group d-flex flex-wrap justify-content-end align-items-center">
-                    {/* <FormCheck>
-                      <Field type="checkbox" name="remember" id="terms-check" as={FormCheck.Input} />
-                      <FormCheck.Label className="font-size-3 mb-0 line-height-reset mb-1 d-block">
-                        Remember password
-                      </FormCheck.Label>
-                    </FormCheck> */}
-                    {/* <a href="" className="font-size-3 text-dodger line-height-reset" style={{ textDecoration: 'underline' }}>Forget Password</a> */}
-                  </div>
-                  <div className="form-group mb-8 text-center">
-                    <button
-                      type="submit"
-                      className="btn btn-primary btn-medium w-50 rounded-5 text-uppercase"
-                    >
-                      Log in
-                    </button>
-                  </div>
-                  <p className="font-size-4 text-center heading-default-color">
-                    Don't have an account?{" "}
-                    <Link className="text-primary" href="/register">
-                      {" "}
-                      Create a free account
-                    </Link>
-                  </p>
-                </Form>
+                    <div className="form-group">
+                      <label
+                        htmlFor="password"
+                        className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
+                      >
+                        Password
+                      </label>
+                      <div className="position-relative">
+                        <TextField
+                          type={showPassword ? "text" : "password"}
+                          className="w-100"
+                          name="pwd"
+                          value={values.pwd}
+                          onChange={(e) => setFieldValue("pwd", e.target.value)}
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton onClick={togglePasswordVisibility}>
+                                  {showPassword ? (
+                                    <VisibilityIcon />
+                                  ) : (
+                                    <VisibilityOffIcon />
+                                  )}
+                                </IconButton>
+                              </InputAdornment>
+                            ),
+                          }}
+                          error={touched.pwd && Boolean(errors.pwd)}
+                          helperText={touched.pwd ? errors.pwd : ""}
+                        />
+                      </div>
+                    </div>
+                    <div className="form-group d-flex flex-wrap justify-content-end align-items-center"></div>
+                    <div className="form-group mb-8 text-center">
+                      <button
+                        type="submit"
+                        className="btn btn-primary btn-medium w-50 rounded-5 text-uppercase"
+                      >
+                        Log in
+                      </button>
+                    </div>
+                    <p className="font-size-4 text-center heading-default-color">
+                      Don't have an account?{" "}
+                      <Link className="text-primary" href="/register">
+                        {" "}
+                        Create a free account
+                      </Link>
+                    </p>
+                    <p className="font-size-4 text-center heading-default-color">
+                      Forgot Password?{" "}
+                      <Link className="text-primary" href="/forgot-password">
+                        {" "}
+                        Click here
+                      </Link>
+                    </p>
+                  </Form>
+                )}
               </Formik>
             </div>
           </div>

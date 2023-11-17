@@ -4,6 +4,7 @@ import { CONSTANTS } from "@/services/config/app-config";
 
 const getAccessTokenApi = async (usr: any, pwd: any) => {
   let response: any;
+  console.log(usr,pwd)
   console.log("token in api", usr, pwd);
   const config = {
     headers: {
