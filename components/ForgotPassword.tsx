@@ -16,44 +16,6 @@ const LoginValidationSchema = Yup.object().shape({
 const ForgotPassword = () => {
   const router = useRouter();
 
-  //   const handleSubmit = async (values: any, action: any) => {
-  //     try {
-  //       console.log("values", values);
-  //       const response = await ForgetPasswordLinkAPI(values.email);
-  //       // On success
-  //       if (response.msg === "success") {
-  //         // Show a success notification
-  //         toast.success("Link Send Successfully", {
-  //           autoClose: 3000,
-  //           className: "custom-toast", // Close the notification after 3 seconds
-  //         });
-
-  //         // Perform any other actions you need after successful login
-  //         action.resetForm();
-  //         setTimeout(() => {
-  //           router.push("/");
-  //         }, 5000);
-  //       } else if (response.msg === "error") {
-  //         toast.error("Enter Correct Email", {
-  //           autoClose: 5000,
-  //           className: "custom-toast", // Close the notification after 3 seconds
-  //         });
-  //       }
-  //     } catch (error) {
-  //       // On error
-  //       // Show an error notification
-  //       toast.error(
-  //         "Login failed. Please check your credentials and try again.",
-  //         {
-  //           autoClose: 5000, // Close the notification after 5 seconds
-  //         }
-  //       );
-
-  //       // Handle the error as needed
-  //       console.error("Login error:", error);
-  //     }
-  //   };
-
   return (
     <>
       <div className="bg-white overflow-hidden login-wrapper shadow-lg">
@@ -85,7 +47,7 @@ const ForgotPassword = () => {
                       action.resetForm();
                       setTimeout(() => {
                         router.push("/");
-                      }, 5000);
+                      }, 1000);
                     } else if (response === "error") {
                       toast.error("Enter Correct Email", {
                         autoClose: 5000,
@@ -93,16 +55,6 @@ const ForgotPassword = () => {
                       });
                     }
                   } catch (error) {
-                    // On error
-                    // Show an error notification
-                    toast.error(
-                      "Login failed. Please check your credentials and try again.",
-                      {
-                        autoClose: 5000, // Close the notification after 5 seconds
-                      }
-                    );
-
-                    // Handle the error as needed
                     console.error("Login error:", error);
                   }
                 }}

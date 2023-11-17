@@ -71,19 +71,19 @@ const ResetPassword: React.FC = () => {
                     );
                     console.log(response);
                     if (response === "success") {
-                      toast.success("password Change successful", {
+                      toast.success("Password Reset successful", {
                         autoClose: 3000,
                         className: "custom-toast",
                       });
                       router.push("/login");
                     } else if (response === "error") {
-                      toast.error("Wrong password", {
+                      toast.error(response, {
                         autoClose: 5000,
                         className: "custom-toast",
                       });
                     }
                   } catch (error) {
-                    console.error("password Change Error:", error);
+                    console.error("password Reset Error:", error);
                   }
                 }}
               >
