@@ -18,12 +18,16 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <div className="bg-white overflow-hidden login-wrapper shadow-lg">
+      <div className="bg-white overflow-hidden common-wrapper shadow-lg">
         <div className="row">
           <div className="col-lg-12 col-md-12">
             <div className="bg-white-2 h-100 p-5">
               <div className="mt-2 mb-2 text-center">
-                <h5>Forgot Password</h5>
+                <h5 className="mb-5">Forgot Your Password</h5>
+                <p className="font-size-4">
+                  Please enter your email address associated with your account
+                  and we will email you instructions to reset your password
+                </p>
               </div>
               <Formik
                 initialValues={{

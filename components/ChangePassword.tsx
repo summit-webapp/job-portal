@@ -12,20 +12,25 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import ChangePasswordAPI from "@/services/api/auth_api/change-password_api";
-import { get_access_token } from "@/store/slices/auth_slice/login_slice";
-import { useSelector } from "react-redux";
+import {
+  ClearToken,
+  get_access_token,
+} from "@/store/slices/auth_slice/login_slice";
+import { useDispatch, useSelector } from "react-redux";
+import LogoutList from "@/services/api/auth_api/logout_api";
 // import ResetPassword from "./ForgotPassword";
 
 const SignupValidationSchema = Yup.object().shape({
   old_password: Yup.string().required("Old Password is required"),
   new_password: Yup.string().required("New Password is required"),
   confirm_password: Yup.string()
-  .required("Confirm Password is required")
-  .oneOf([Yup.ref("new_password")], "Passwords must match"),
+    .required("Confirm Password is required")
+    .oneOf([Yup.ref("new_password")], "Passwords must match"),
 });
 
 const ChangePassword: React.FC = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [showOldPassword, setShowOldPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
@@ -78,6 +83,10 @@ const ChangePassword: React.FC = () => {
                         autoClose: 3000,
                         className: "custom-toast",
                       });
+                      LogoutList();
+                      dispatch(ClearToken());
+                      localStorage.removeItem("LoggedIn");
+                      console.log("Logged out");
                       router.push("/");
                     } else if (response === "error") {
                       toast.error("Wrong password", {

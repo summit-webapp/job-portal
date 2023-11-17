@@ -47,7 +47,7 @@ const ResetPassword: React.FC = () => {
 
   return (
     <>
-      <div className="bg-white overflow-hidden register-wrapper shadow-lg">
+      <div className="bg-white overflow-hidden common-wrapper shadow-lg">
         <div className="row">
           <div className="col-lg-12 col-md-12">
             <div className="bg-white-2 h-100 p-5">
