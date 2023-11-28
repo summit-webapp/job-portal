@@ -10,7 +10,7 @@ const ForgetPasswordLinkAPI =async (email?:any, token?:any) => {
     const entity = "registration";
 
     const params = `?version=${version}&method=${method}&entity=${entity}`;
-    const link:any = "http://localhost:3000/reset-password"
+    const link:any = "https://careers.8848digital.com/reset-password"
     const config = {
         headers: {
             Accept: "application/json",
