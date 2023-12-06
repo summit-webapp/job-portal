@@ -43,7 +43,7 @@ const ForgotPassword = () => {
                       console.log("success");
                       // Show a success notification
                       toast.success("Link Send Successfully", {
-                        autoClose: 3000,
+                        autoClose: 1000,
                         className: "custom-toast", // Close the notification after 3 seconds
                       });
 
