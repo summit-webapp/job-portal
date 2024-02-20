@@ -28,10 +28,19 @@ const Register: React.FC = () => {
   } | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [showPassword, setShowPassword] = useState(false);
+  const [errForFileSizeExceedingLength, setErrForFileSizeExceedingLength] =
+    useState<boolean>(false);
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newSelectedFile = e.target.files?.[0];
-    if (newSelectedFile) {
+    const newSelectedFile: any = e.target.files?.[0];
+    const fileSizeInBytes = newSelectedFile?.size;
+    // 1048576 = since we are converting into mb i.e 1024*1024=1048576, if it would have been in kb then divide by 1024
+    const fileSizeInMegabytes = fileSizeInBytes / 1048576;
+    console.log("size in direct mb", fileSizeInMegabytes);
+    if (fileSizeInMegabytes > 1) {
+      setErrForFileSizeExceedingLength(true);
+    } else {
+      setErrForFileSizeExceedingLength(false);
       try {
         const response = await UploadFileApi({ file: newSelectedFile });
         setUploadResponse(response);
@@ -223,7 +232,7 @@ const Register: React.FC = () => {
                               <span
                                 className="delete-file"
                                 onClick={clearSelectedFile}
-                                style={{ cursor: "pointer" }}
+                                style={{ cursor: "pointer", marginLeft: "5px" }}
                               >
                                 <i className="fas fa-times-circle text-red"></i>
                               </span>
@@ -251,6 +260,14 @@ const Register: React.FC = () => {
                             component="div"
                             className="error_message"
                           />
+                          {errForFileSizeExceedingLength && (
+                            <p
+                              className="text-danger"
+                              style={{ fontSize: "14px" }}
+                            >
+                              Please upload file less than 1 MB.
+                            </p>
+                          )}
                         </div>
                       </div>
                       <div className="col-12 text-center">
