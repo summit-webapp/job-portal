@@ -81,12 +81,12 @@ const FeaturedJobsGridCard = ({
                     href={`/job-details/${job?.name}`}
                     className=" text-black-2 font-weight-bold mb-4"
                   >
-                    {job?.name}
+                    {job?.job_title}
                   </Link>
                 </h5>
               </div>
               {showWorkingModuleAndEmploymentType(job)}
-              <div className="" style={{ height: '100px' }}>
+              <div className="job_summary">
 
                 {
                   job?.job_summary === null ? '' : <p className="font-size-4 text-gray">{`${job?.job_summary?.slice(

@@ -33,6 +33,7 @@ const Register: React.FC = () => {
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newSelectedFile: any = e.target.files?.[0];
+    console.log('file upload', e.target.files?.[0])
     const fileSizeInBytes = newSelectedFile?.size;
     // 1048576 = since we are converting into mb i.e 1024*1024=1048576, if it would have been in kb then divide by 1024
     const fileSizeInMegabytes = fileSizeInBytes / 1048576;
@@ -43,6 +44,7 @@ const Register: React.FC = () => {
       setErrForFileSizeExceedingLength(false);
       try {
         const response = await UploadFileApi({ file: newSelectedFile });
+        console.log('file response',response)
         setUploadResponse(response);
         setSelectedFile(newSelectedFile);
       } catch (error) {

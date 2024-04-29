@@ -15,7 +15,7 @@ const JobsGridCard = ({
     ) {
       return (
         <>
-          <ul className="list-unstyled mb-1 card-tag-list">
+          <ul className="list-unstyled mb-1 card-tag-list mt-3">
             <li>
               <a
                 href=""
@@ -40,7 +40,7 @@ const JobsGridCard = ({
     } else {
       return (
         <>
-          <ul className="list-unstyled mb-1 card-tag-list">
+          <ul className="list-unstyled mb-1 card-tag-list mt-5">
             <li>
               <a
                 href=""
@@ -69,29 +69,37 @@ const JobsGridCard = ({
       {jobsData?.length > 0 ? (
         jobsData?.map((job: any, index: number) => {
           return (
-            <div className="col-12 col-lg-6" key={index}>
+            <div className="col-12 col-lg-6 mb-9" key={index}>
               <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-                <h2 className="mt-n4">
-                  <Link
-                    href={`/job-details/${job?.name}`}
-                    className="font-size-7 text-black-2 font-weight-bold mb-4"
-                  >
-                    {job?.job_title}
-                  </Link>
-                </h2>
+                <div className="job_title">
+                  <h2 className="mt-n4">
+                    <Link
+                      href={`/job-details/${job?.name}`}
+                      className="font-size-6 text-black-2 font-weight-bold mb-4"
+                    >
+                      {job?.job_title}
+                    </Link>
+                  </h2>
+                </div>
+                 
                 {showWorkingModuleAndEmploymentType(job)}
 
-                <p className="mb-7 font-size-4 text-gray">
-                  {`${job?.job_summary?.slice(0, 150)}...`}
-                </p>
+                <div className="job_summary">
+
+                  {
+                    job?.job_summary === null ? '' : <p className="font-size-4 text-gray">{`${job?.job_summary?.slice(
+                      0,
+                      80
+                    )}...`}</p>
+                  }
+                </div>
                 <div className="card-btn-group">
                   {appliedJobsDesignationSet?.has(job.designation) ? (
                     <a
-                      className={`btn btn-green text-uppercase btn-medium rounded-3 ${
-                        appliedJobsDesignationSet?.has(job.designation)
+                      className={`btn btn-green text-uppercase btn-medium rounded-3 ${appliedJobsDesignationSet?.has(job.designation)
                           ? "disabled"
                           : null
-                      } `}
+                        } `}
                     >
                       Applied
                     </a>
@@ -112,11 +120,10 @@ const JobsGridCard = ({
 
                   {savedJobsDesignationSet?.has(job.designation) ? (
                     <a
-                      className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${
-                        savedJobsDesignationSet?.has(job.designation)
+                      className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${savedJobsDesignationSet?.has(job.designation)
                           ? "disabled"
                           : null
-                      }`}
+                        }`}
                     >
                       <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
                       Saved
