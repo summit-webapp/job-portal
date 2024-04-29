@@ -1947,6 +1947,19 @@ body[data-theme="light"] .dark-mode-texts .light-shape.default-shape,
 /* ---------------------------
   01.Component -> { Cards } 
 ------------------------------*/
+.feature-cardOne-adjustments {
+  min-height: 250px;
+  height: 100%;
+}
+.feature-cardOne-adjustments .job_title {
+  max-height: 50px;
+  height: 100%;
+}
+
+.feature-cardOne-adjustments .job_summary {
+  max-height: 100px;
+  height: 100%;
+}
 .feature-cardOne-adjustments .card-tag-list {
   display: flex;
   align-items: center;
@@ -1993,6 +2006,8 @@ body[data-theme="light"] .dark-mode-texts .light-shape.default-shape,
   flex-wrap: wrap;
   margin-left: -8px;
   margin-right: -8px;
+  /* max-height: 50px;
+  height: 100%; */
 }
 
 .feature-cardOne-adjustments .card-btn-group .btn {

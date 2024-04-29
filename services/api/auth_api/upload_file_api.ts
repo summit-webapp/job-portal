@@ -12,7 +12,7 @@ const UploadFileApi = async (request: any) => {
     headers: {
       "Content-Type": "multipart/form-data",
       Accept: "application/json",
-      Authorization: "token 6b1d70ec569da48:d816c21720f15fa",
+      Authorization: "token 4b1690b4e3df667:38e73fec78d7af3",
     },
     timeout: 5000,
   };

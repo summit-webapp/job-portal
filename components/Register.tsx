@@ -164,7 +164,7 @@ const Register: React.FC = () => {
                             htmlFor="password"
                             className="font-size-4 text-black-2 font-weight-semibold line-height-reset"
                           >
-                            First Name
+                            Name
                           </label>
                           <TextField
                             type="text"

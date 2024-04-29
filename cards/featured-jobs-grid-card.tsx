@@ -68,35 +68,41 @@ const FeaturedJobsGridCard = ({
     <>
       {jobListData?.slice(0, 6)?.map((job: any, index: number) => {
         return (
-          <div className="col-12 col-lg-4" key={job.id}>
+          <div className="col-12 col-lg-4 h-100" key={job.id}>
             <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
               {/* <div className="d-block mb-7">
                 <a href="#">
                   <img src="./image/l1/png/feature-brand-1.png" alt="" />
                 </a>
               </div> */}
-
-              <h5 className="mt-n4">
-                <Link
-                  href={`/job-details/${job?.name}`}
-                  className=" text-black-2 font-weight-bold mb-4"
-                >
-                  {job?.job_title}
-                </Link>
-              </h5>
+              <div className="job_title">
+                <h5 className="mt-n4">
+                  <Link
+                    href={`/job-details/${job?.name}`}
+                    className=" text-black-2 font-weight-bold mb-4"
+                  >
+                    {job?.name}
+                  </Link>
+                </h5>
+              </div>
               {showWorkingModuleAndEmploymentType(job)}
-              <p className="mb-7 font-size-4 text-gray">{`${job?.job_summary?.slice(
-                0,
-                100
-              )}...`}</p>
+              <div className="" style={{ height: '100px' }}>
+
+                {
+                  job?.job_summary === null ? '' : <p className="font-size-4 text-gray">{`${job?.job_summary?.slice(
+                    0,
+                    80
+                  )}...`}</p>
+                }
+              </div>
+
               <div className="card-btn-group">
                 {appliedJobsDesignationSet?.has(job.designation) ? (
                   <a
-                    className={`btn btn-green text-uppercase btn-medium rounded-3 ${
-                      appliedJobsDesignationSet?.has(job.designation)
-                        ? "disabled"
-                        : null
-                    } `}
+                    className={`btn btn-green text-uppercase btn-medium rounded-3 ${appliedJobsDesignationSet?.has(job.designation)
+                      ? "disabled"
+                      : null
+                      } `}
                   >
                     Applied
                   </a>
@@ -116,11 +122,10 @@ const FeaturedJobsGridCard = ({
                 )}
                 {savedJobsDesignationSet?.has(job.designation) ? (
                   <a
-                    className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${
-                      savedJobsDesignationSet?.has(job.designation)
-                        ? "disabled"
-                        : null
-                    }`}
+                    className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${savedJobsDesignationSet?.has(job.designation)
+                      ? "disabled"
+                      : null
+                      }`}
                   >
                     <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
                     Saved
