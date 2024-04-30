@@ -8559,7 +8559,7 @@ a.hover-text-hitgray:hover {
 .bg-gradient-1 {
   background-image: linear-gradient(
     to right,
-    rgba(0, 176, 116, 0.1) 0%,
+      rgba(0, 176, 116, 0.1) 0%,
     rgba(88, 88, 0, 0.05) 100%
   );
 }
@@ -9179,6 +9179,30 @@ html .ui-button.ui-state-disabled:active {
 }
 
 /* --------form----------- */
-.login_inp input{
-  padding: 10px ;
+.login_inp input {
+  padding: 10px;
+}
+
+/* seemachal styles*/
+
+.list-unstyled{
+  padding-top: 1rem;
+}
+
+@media (max-width: 760px) {
+  .homepage-content {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .job-listing {
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 991px) {
+  .brand-logo a {
+    margin-bottom: 30px;
+  }
 }
