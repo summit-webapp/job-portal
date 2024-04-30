@@ -2013,7 +2013,8 @@ body[data-theme="light"] .dark-mode-texts .light-shape.default-shape,
 .feature-cardOne-adjustments .card-btn-group .btn {
   margin-left: 8px;
   margin-right: 8px;
-  min-width: calc(100% - 16px);
+  /* min-width: calc(100% - 16px); old code*/
+  min-width: calc(50% - 16px);
   margin-bottom: 10px;
 }
 
@@ -2025,7 +2026,8 @@ body[data-theme="light"] .dark-mode-texts .light-shape.default-shape,
 
 @media (min-width: 992px) {
   .feature-cardOne-adjustments .card-btn-group .btn {
-    min-width: calc(100% - 16px);
+    /* min-width: calc(100% - 16px); old code*/
+    min-width: calc(50% - 16px);
   }
 }
 
