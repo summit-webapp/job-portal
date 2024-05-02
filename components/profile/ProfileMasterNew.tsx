@@ -63,7 +63,7 @@ const ProfileMasterNew = () => {
               <div>
                 <h4>Applied Jobs</h4>
                 <div>
-                   No Applied Jobs<span><Link className="nav-link" href="/jobs">Click to Apply</Link></span>
+                  <p>No Applied Jobs<span><Link className="nav-link" href="/jobs">Click to Apply</Link></span></p>
                 </div>
                 <div className="row">
                   {appliedJobsQuery.isLoading ? (
@@ -87,28 +87,28 @@ const ProfileMasterNew = () => {
 
               <div>
                 <h4 className="mt-5">Saved Jobs</h4>
-                <div>
-                  No Saved Jobs<span><Link className="nav-link" href="/jobs">Click to Save</Link></span>
-                 </div>
+                {savedJobsQuery.data && savedJobsQuery.data.length > 0 ? (
+                  <div className="row">
+                    {savedJobsQuery.isLoading ? (
+                      <div className="spinner-border text-success text-center" role="status">
+                        <span className="sr-only">Loading...</span>
+                      </div>
+                    ) : savedJobsQuery.error ? (
+                      <div>Error</div>
+                    ) : (
+                      <ProfileJobsCard
+                        isLoading={savedJobsQuery.isLoading}
+                        data={savedJobsQuery.data}
+                        error={savedJobsQuery.error}
+                      />
+                    )}
+                  </div>
+                ) : (
+                  <div>
+                    <p>No Saved Jobs<span><Link className="nav-link" href="/jobs">Click to Save</Link></span></p>
+                  </div>
+                )}
 
-                <div className="row">
-                  {savedJobsQuery.isLoading ? (
-                    <div
-                      className="spinner-border text-success  text-center"
-                      role="status"
-                    >
-                      <span className="sr-only">Loading...</span>
-                    </div>
-                  ) : savedJobsQuery.error ? (
-                    <div>Error</div>
-                  ) : (
-                    <ProfileJobsCard
-                      isLoading={savedJobsQuery.isLoading}
-                      data={savedJobsQuery.data}
-                      error={savedJobsQuery.error}
-                    />
-                  )}
-                </div>
               </div>
             </div>
           </div>
