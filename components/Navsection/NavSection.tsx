@@ -189,8 +189,8 @@ const NavSection = () => {
           <div className="pos-abs-tr w-50 z-index-n2">
             <img src={heroImg.src} alt="" className="gr-opacity-1" />
           </div>
-
-          <div className="container">
+          {/* homepage-content class added */}
+          <div className="container homepage-content">
             <div className="row position-relative align-items-center">
               <div
                 className="col-xxl-6 col-xl-7 col-lg-8 col-md-12 pt-lg-13 pb-lg-33 pb-xl-34 pb-md-33 pb-10"

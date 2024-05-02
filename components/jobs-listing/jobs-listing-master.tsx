@@ -26,7 +26,8 @@ const JobsListMaster = ({
   // console.log("applicant ", appliedJobsDesignationSet);
   return (
     <div className="bg-default-1 pt-24 pt-lg-28 pb-13 pb-lg-25">
-      <div className="container">
+      {/* job-listing class added */}
+      <div className="container job-listing"> 
         <div className="row">
           <div className="col-12 col-md-3 col-xs-8">
             <FilterSection

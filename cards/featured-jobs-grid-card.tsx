@@ -68,8 +68,8 @@ const FeaturedJobsGridCard = ({
     <>
       {jobListData?.slice(0, 6)?.map((job: any, index: number) => {
         return (
-          <div className="col-12 col-lg-4 h-100" key={job.id}>
-            <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+          <div className="col-12 col-lg-4 h-100 col-md-6" key={job.id}>
+            <div className="bg-white px-8 pt-13 pb-12 rounded-4 mb-9 feature-cardOne-adjustments">
               {/* <div className="d-block mb-7">
                 <a href="#">
                   <img src="./image/l1/png/feature-brand-1.png" alt="" />
