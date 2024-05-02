@@ -2008,7 +2008,7 @@ body[data-theme="light"] .dark-mode-texts .light-shape.default-shape,
 
 .feature-cardOne-adjustments .card-btn-group {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin-left: -8px;
   margin-right: -8px;
   max-height: 50px;
