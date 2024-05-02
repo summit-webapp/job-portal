@@ -24,10 +24,11 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
         <div className="px-9 pt-5 pt-xl-6 pb-5">
           <h5 className="text-black-2 mb-8 font-size-5">Contact Info</h5>
 
+          {/* profile name added */}
           <div className="mb-7">
-            <p className="font-size-4 mb-0">Location</p>
+            <p className="font-size-4 mb-0">Name</p>
             <h5 className="font-size-4 font-weight-semibold mb-0 text-black-2 text-break">
-              {data?.city}
+              {data?.name}
             </h5>
           </div>
 
@@ -46,9 +47,17 @@ const ProfileInfoCard = ({ isLoading, data, error }: ProfileInterface) => {
               </a>
             </h5>
           </div>
+
+          <div className="mb-7">
+            <p className="font-size-4 mb-0">Location</p>
+            <h5 className="font-size-4 font-weight-semibold mb-0 text-black-2 text-break">
+              {data?.city}
+            </h5>
+          </div>
+
           <div>
             <Link href="change-password">
-              <Button className=" rounded-5 text-uppercase">
+              <Button className=" rounded-5 py-6 px-5">
                 Change Password
               </Button>
             </Link>

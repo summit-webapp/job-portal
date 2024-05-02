@@ -1950,10 +1950,15 @@ body[data-theme="light"] .dark-mode-texts .light-shape.default-shape,
 .feature-cardOne-adjustments {
   min-height: 250px;
   height: 100%;
+  padding:30px;
+}
+.feature-job-cardOne-adjustments{
+  padding: 30px 30px 0 !important;
 }
 .feature-cardOne-adjustments .job_title {
-  max-height: 45px;
+  max-height: 30px;
   height: 100%;
+  padding-top: 5px;
 }
 
 .feature-cardOne-adjustments .job_summary {
@@ -9203,6 +9208,34 @@ html .ui-button.ui-state-disabled:active {
 
 @media (max-width: 991px) {
   .brand-logo a {
-    margin-bottom: 30px;
+    margin-bottom: 4px;
+  }
+  .profile-container{
+    justify-content: center;
+  }
+  .back-job-container {
+    padding-top: 3rem;
+  }
+  .site-header--sticky:not(.mobile-sticky-enable) {
+    top:-10px
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .profile-applies {
+    padding-left: 7vmin;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .profile-applies {
+    padding-left: 14vmin;
+  }
+}
+
+@media (max-width: 479px) {
+  .profile-applies {
+    padding-left: 10vmin;
   }
 }
