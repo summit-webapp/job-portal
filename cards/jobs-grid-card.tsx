@@ -70,12 +70,12 @@ const JobsGridCard = ({
         jobsData?.map((job: any, index: number) => {
           return (
             <div className="col-12 col-lg-6 mb-9" key={index}>
-              <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
+              <div className="bg-white rounded-4 mb-9 feature-cardOne-adjustments feature-job-cardOne-adjustments">
                 <div className="job_title">
                   <h2 className="mt-n4">
                     <Link
                       href={`/job-details/${job?.name}`}
-                      className="font-size-6 text-black-2 font-weight-bold mb-4"
+                      className="font-size-6 text-black-2 font-weight-bold"
                     >
                       {job?.job_title}
                     </Link>

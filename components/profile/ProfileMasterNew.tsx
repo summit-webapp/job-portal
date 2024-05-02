@@ -31,7 +31,7 @@ const ProfileMasterNew = () => {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row profile-container">
           {/* sidebar starts */}
           <div className="col-12 col-xl-4 col-lg-4 col-md-12 col-xs-10 mb-11 mb-lg-0">
             <div className="mr-0 mr-xl-17">
@@ -58,10 +58,13 @@ const ProfileMasterNew = () => {
             </div>
           </div>
           {/* sidebar ends */}
-          <div className="col-12 col-xl-8 col-lg-8 ms-3">
+          <div className="col-12 col-xl-8 col-lg-8 ms-3 profile-applies">
             <div className="mb-5">
               <div>
                 <h4>Applied Jobs</h4>
+                <div>
+                   No Applied Jobs<span><Link className="nav-link" href="/jobs">Click to Apply</Link></span>
+                </div>
                 <div className="row">
                   {appliedJobsQuery.isLoading ? (
                     <div
@@ -84,6 +87,10 @@ const ProfileMasterNew = () => {
 
               <div>
                 <h4 className="mt-5">Saved Jobs</h4>
+                <div>
+                  No Saved Jobs<span><Link className="nav-link" href="/jobs">Click to Save</Link></span>
+                 </div>
+
                 <div className="row">
                   {savedJobsQuery.isLoading ? (
                     <div

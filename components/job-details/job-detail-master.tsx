@@ -31,7 +31,7 @@ const JobDetailMaster = ({
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xl-10 col-lg-11 mt-5 ml-xxl-32 ml-xl-15 dark-mode-texts">
-              <div className="mb-9">
+              <div className="mb-9 back-job-container">
                 <Link href="/jobs" className="d-flex align-items-center ml-4">
                   {" "}
                   <i className="icon icon-small-left bg-white circle-40 mr-5 font-size-7 text-black font-weight-bold shadow-8"></i>

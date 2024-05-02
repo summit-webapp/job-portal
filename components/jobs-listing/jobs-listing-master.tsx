@@ -56,7 +56,7 @@ const JobsListMaster = ({
               />
             </div> */}
 
-            <div className=" ml-lg-0 ml-md-15">
+            <div className=" ml-lg-0 ml-md-15 pt-1">
               {/* count of jobs div starts */}
               <div className="d-flex align-items-center justify-content-between">
                 <h5 className="font-size-4 font-weight-normal text-default-color">

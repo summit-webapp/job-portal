@@ -69,7 +69,7 @@ const FeaturedJobsGridCard = ({
       {jobListData?.slice(0, 6)?.map((job: any, index: number) => {
         return (
           <div className="col-12 col-lg-4 h-100 col-md-6" key={job.id}>
-            <div className="bg-white px-8 pt-13 pb-12 rounded-4 mb-9 feature-cardOne-adjustments">
+            <div className="bg-white rounded-4 mb-9 feature-cardOne-adjustments">
               {/* <div className="d-block mb-7">
                 <a href="#">
                   <img src="./image/l1/png/feature-brand-1.png" alt="" />
@@ -79,7 +79,7 @@ const FeaturedJobsGridCard = ({
                 <h5 className="mt-n4">
                   <Link
                     href={`/job-details/${job?.name}`}
-                    className=" text-black-2 font-weight-bold mb-4"
+                    className=" text-black-2 font-weight-bold"
                   >
                     {job?.job_title}
                   </Link>
