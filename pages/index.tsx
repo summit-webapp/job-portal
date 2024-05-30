@@ -29,7 +29,7 @@ export default function Home() {
         <title>8848 Digital-Job Portal</title>
         <meta name="description" content="8848 Digital Job Portal - Find your dream job here" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ICO" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
         <NavSection />
         <EasyStepSection />
