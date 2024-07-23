@@ -78,7 +78,8 @@ const FeaturedJobsGridCard = ({
               <div className="job_title">
                 <h5 className="mt-n4">
                   <Link
-                    href={`/job-details/${job?.name}`}
+                    // href={`/job-details/${job?.name?.replaceAll("/","%2F")}`}
+                    href={`/job-details/${encodeURIComponent(job?.name)}`}
                     className=" text-black-2 font-weight-bold"
                   >
                     {job?.job_title}
