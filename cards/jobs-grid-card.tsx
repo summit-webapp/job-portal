@@ -74,7 +74,7 @@ const JobsGridCard = ({
                 <div className="job_title">
                   <h2 className="mt-n4">
                     <Link
-                      href={`/job-details/${job?.name}`}
+                      href={`/job-details/${encodeURIComponent(job?.name)}`}
                       className="font-size-6 text-black-2 font-weight-bold"
                     >
                       {job?.job_title}
