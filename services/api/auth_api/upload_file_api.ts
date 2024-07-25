@@ -14,13 +14,12 @@ const UploadFileApi = async (request: any) => {
       Accept: "application/json",
       Authorization: "token 4b1690b4e3df667:26b5c8c66c432cc",
     },
-    timeout: 5000,
   };
   await axios
     .post(`${CONSTANTS.API_BASE_URL}/api/method/upload_file`, formData, config)
     .then((res) => {
       console.log(res, "response in api");
-      response = res.data.message;
+      response = res;
     })
     .catch((err) => {
       if (err.code === "ECONNABORTED") {

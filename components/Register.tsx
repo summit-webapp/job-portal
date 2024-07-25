@@ -23,17 +23,16 @@ const SignupValidationSchema = Yup.object().shape({
 
 const Register: React.FC = () => {
   const router = useRouter();
-  const [uploadResponse, setUploadResponse] = useState<{
-    file_url: string;
-  } | null>(null);
+  const [uploadResponse, setUploadResponse] = useState<string>("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [showPassword, setShowPassword] = useState(false);
   const [errForFileSizeExceedingLength, setErrForFileSizeExceedingLength] =
     useState<boolean>(false);
+  const [errorInUploadingFile, setErrorInUploadingFile] =
+    useState<boolean>(false);
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const newSelectedFile: any = e.target.files?.[0];
-    console.log('file upload', e.target.files?.[0])
     const fileSizeInBytes = newSelectedFile?.size;
     // 1048576 = since we are converting into mb i.e 1024*1024=1048576, if it would have been in kb then divide by 1024
     const fileSizeInMegabytes = fileSizeInBytes / 1048576;
@@ -42,20 +41,25 @@ const Register: React.FC = () => {
       setErrForFileSizeExceedingLength(true);
     } else {
       setErrForFileSizeExceedingLength(false);
+      setErrorInUploadingFile(false);
       try {
         const response = await UploadFileApi({ file: newSelectedFile });
-        console.log('file response',response)
-        setUploadResponse(response);
-        setSelectedFile(newSelectedFile);
+        if (response?.status === 200) {
+          setUploadResponse(response?.data?.message?.file_url);
+          setSelectedFile(newSelectedFile);
+        } else {
+          setErrorInUploadingFile(true);
+        }
       } catch (error) {
         console.error("Upload Error:", error);
+      } finally {
       }
     }
   };
 
   const clearSelectedFile = () => {
     setSelectedFile(null);
-    setUploadResponse(null);
+    setUploadResponse("");
   };
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -80,13 +84,14 @@ const Register: React.FC = () => {
                   name: "",
                   phone_number: "",
                   city: "",
-                  resume: uploadResponse?.file_url || "",
+                  resume: uploadResponse || "",
                 }}
                 validationSchema={SignupValidationSchema}
                 onSubmit={async (values) => {
                   console.log(values);
                   try {
                     const response = await RegisterPost(values);
+                    console.log("sign up api res", response);
                     if (response.msg === "success") {
                       toast.success("Registration successful", {
                         autoClose: 3000,
@@ -270,6 +275,15 @@ const Register: React.FC = () => {
                               Please upload file less than 1 MB.
                             </p>
                           )}
+                          {errorInUploadingFile && (
+                            <p
+                              className="text-danger"
+                              style={{ fontSize: "14px" }}
+                            >
+                              There seems to be an issue with uploading the
+                              file. Please check and upload it again.
+                            </p>
+                          )}
                         </div>
                       </div>
                       <div className="col-12 text-center">
@@ -278,6 +292,7 @@ const Register: React.FC = () => {
                             type="submit"
                             variant="primary"
                             className="w-50 rounded-5 text-uppercase"
+                            disabled={uploadResponse === "" ? true : false}
                           >
                             Sign Up
                           </Button>
