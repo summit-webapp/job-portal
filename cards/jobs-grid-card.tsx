@@ -77,7 +77,7 @@ const JobsGridCard = ({
                       href={`/job-details/${encodeURIComponent(job?.name)}`}
                       className="font-size-6 text-black-2 font-weight-bold"
                     >
-                      {job?.job_title}
+                      {job?.designation}
                     </Link>
                   </h2>
                 </div>
