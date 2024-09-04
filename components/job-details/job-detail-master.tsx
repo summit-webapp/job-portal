@@ -64,7 +64,7 @@ const JobDetailMaster = ({
                         {/* media texts start */}
                         <div>
                           <h3 className="font-size-6 mb-0">
-                            {data?.message?.data?.job_title}
+                            {data?.message?.data?.designation}
                           </h3>
                           <span className="font-size-3 text-gray line-height-2">
                             8848 Digital LLP
