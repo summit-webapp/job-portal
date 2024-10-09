@@ -10,9 +10,9 @@ import {
 } from "@/store/slices/auth_slice/login_slice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import partnerImg from '../../public/image/frappe-partner-removebg-preview.png'
-import iso1 from '../../public/image/iso1-removebg-preview.png'
-import iso2 from '../../public/image/iso2-removebg-preview.png'
+import partnerImg from '../../public/image/frappe-partner.png'
+import iso1 from '../../public/image/iso1.png'
+import iso2 from '../../public/image/iso2.png'
 import Navbar from "../Navbar/Navbar";
 
 const NavSection = () => {

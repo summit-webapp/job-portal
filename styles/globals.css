@@ -68,6 +68,9 @@ body {
   --border-color: #e5e5e5;
   --border-color-2: #f0f0f0;
   --border-color-3: #e5e5e5;
+  --medium-green: #10635a;
+  --light-green: #137e71;
+  --dark-green: #001210;
 }
 
 .default-logo,
@@ -1950,9 +1953,9 @@ body[data-theme="light"] .dark-mode-texts .light-shape.default-shape,
 .feature-cardOne-adjustments {
   min-height: 250px;
   height: 100%;
-  padding:30px;
+  padding: 30px;
 }
-.feature-job-cardOne-adjustments{
+.feature-job-cardOne-adjustments {
   padding: 30px 30px 0 !important;
 }
 .feature-cardOne-adjustments .job_title {
@@ -8564,7 +8567,7 @@ a.hover-text-hitgray:hover {
 .bg-gradient-1 {
   background-image: linear-gradient(
     to right,
-      rgba(0, 176, 116, 0.1) 0%,
+    rgba(0, 176, 116, 0.1) 0%,
     rgba(88, 88, 0, 0.05) 100%
   );
 }
@@ -9190,7 +9193,7 @@ html .ui-button.ui-state-disabled:active {
 
 /* seemachal styles*/
 
-.list-unstyled{
+.list-unstyled {
   padding-top: 1rem;
 }
 
@@ -9210,17 +9213,16 @@ html .ui-button.ui-state-disabled:active {
   .brand-logo a {
     margin-bottom: 4px;
   }
-  .profile-container{
+  .profile-container {
     justify-content: center;
   }
   .back-job-container {
     padding-top: 3rem;
   }
   .site-header--sticky:not(.mobile-sticky-enable) {
-    top:-10px
+    top: -10px;
   }
 }
-
 
 @media (min-width: 768px) and (max-width: 991px) {
   .profile-applies {
@@ -9238,4 +9240,64 @@ html .ui-button.ui-state-disabled:active {
   .profile-applies {
     padding-left: 10vmin;
   }
+}
+
+/* Color theme changed to green */
+
+.btn.btn-primary,
+.btn.btn-green {
+  background-color: var(--medium-green) !important;
+  border-color: var(--medium-green) !important;
+}
+
+.btn.btn-primary:focus,
+.btn.btn-green:focus {
+  box-shadow: none !important;
+}
+
+.btn.btn-primary:active,
+.btn.btn-green:active {
+  border-color: var(--medium-green) !important;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-green:hover {
+  background-color: var(--light-green) !important;
+  border-color: var(--light-green) !important;
+}
+
+.icon-green, .text-denim{
+  color: var(--medium-green) !important;
+}
+.icon-color:hover .icon-green{
+  color: var(--light-green) !important;
+}
+a.text-denim:hover {
+  color: var(--light-green) !important;
+}
+
+.bg-dodger, .bg-green, .circle-icon {
+  background-color: var(--medium-green) !important;
+}
+
+.bg-black-2{
+  background-color: var(--dark-green) !important;
+}
+
+.file--upload > label {
+  color: var(--medium-green) !important;
+  border-color: var(--medium-green) !important;
+}
+
+.file--upload > label:hover {
+  color: var(--light-green) !important;
+  border-color: var(--light-green) !important;
+}
+
+a.text-primary:hover, a.text-primary:focus {
+  color: var(--light-green) !important;
+}
+
+a.text-primary {
+  color: var(--medium-green) !important;
 }

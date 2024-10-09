@@ -70,10 +70,10 @@ const WebNavbar = () => {
               <div className="brand-logo">
                 <Link href="/">
                   <img
-                    src="/image/l1/png/logo.png"
+                    src="/8848_Logo.png"
                     alt=""
-                    width={120}
-                    height={100}
+                    width={90}
+                    height={45}
                   />
                 </Link>
               </div>

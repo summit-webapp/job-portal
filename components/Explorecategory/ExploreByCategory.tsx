@@ -43,7 +43,7 @@ const ExploreByCategory = () => {
                     href="/jobs"
                     className="icon-color bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100"
                   >
-                    <div className=" bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7"></div>
+                    <div className="icon-green bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7"></div>
 
                     <div
                       className={`${loading.category_skeleton_heading} bg-blue-opacity-1`}
@@ -91,7 +91,7 @@ const ExploreByCategory = () => {
                       className="icon-color bg-white border border-color-2 rounded-4 pl-9 pt-10 pb-3 pr-7 hover-shadow-1 mb-9 d-block w-100"
                     >
                       <div className="d-flex flex-column just-content-center align-items-center">
-                        <div className=" bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
+                        <div className=" icon-green bg-blue-opacity-1 square-70 rounded-4 mb-7 font-size-7">
                           <i className={`${category?.icon}`}></i>
                         </div>
 
