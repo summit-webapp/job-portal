@@ -73,7 +73,7 @@ const WebNavbar = () => {
                     src="/8848_Logo.png"
                     alt=""
                     width={90}
-                    height={45}
+                    height={'auto'}
                   />
                 </Link>
               </div>

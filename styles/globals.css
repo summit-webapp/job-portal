@@ -28,7 +28,7 @@
 |--- THEME CUSTOM STYLES
 
 ******************************************************/
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Ubuntu:ital,wght@0,300;0,400;1,300&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Ubuntu:ital,wght@0,300;0,400;1,300&display=swap"); */
 body[data-theme="dark"],
 .dark-bg,
 .dark-mode-texts {
@@ -9004,10 +9004,10 @@ html .ui-button.ui-state-disabled:active {
 .react-tabs__tab-list {
   border: none !important;
 }
-.react-tabs__tab {
-  /* border: 1px solid transparent !important; */
-  /* margin-bottom: 20px !important; */
-}
+/* .react-tabs__tab {
+  border: 1px solid transparent !important;
+  margin-bottom: 20px !important;
+} */
 
 .react-tabs__tab:focus:after {
   background: none !important;
@@ -9023,6 +9023,7 @@ html .ui-button.ui-state-disabled:active {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: var(--font-inter), sans-serif !important;
 }
 
 .footer {

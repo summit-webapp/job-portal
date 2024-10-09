@@ -3,6 +3,12 @@ import { useRouter } from "next/router";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
 
+import { Inter } from "next/font/google";
+const interFont = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
 const Layout = ({ children }: any) => {
   const router = useRouter();
   // const toShowHeader = router.pathname === '/' ? false : true;
@@ -11,7 +17,7 @@ const Layout = ({ children }: any) => {
     router.pathname === "/" || router.pathname === "/hire" ? false : true;
   return (
     <>
-      <div className="main">
+      <div className={`main ${interFont.variable}`}>
         {/* <Navbar/> */}
         {/* remove below line SG Demo */}
         {toShowHeader ? <Navbar /> : null}
