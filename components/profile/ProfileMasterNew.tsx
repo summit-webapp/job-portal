@@ -63,7 +63,7 @@ const ProfileMasterNew = () => {
               <div>
                 <h4>Applied Jobs</h4>
                 <div>
-                  <p>No Applied Jobs<span><Link className="nav-link" href="/jobs">Click to Apply</Link></span></p>
+                  <p>No Applied Jobs<span><Link className="nav-link text-primary" href="/jobs">Click to Apply</Link></span></p>
                 </div>
                 <div className="row">
                   {appliedJobsQuery.isLoading ? (
@@ -105,7 +105,7 @@ const ProfileMasterNew = () => {
                   </div>
                 ) : (
                   <div>
-                    <p>No Saved Jobs<span><Link className="nav-link" href="/jobs">Click to Save</Link></span></p>
+                    <p>No Saved Jobs<span><Link className="nav-link text-primary" href="/jobs">Click to Save</Link></span></p>
                   </div>
                 )}
 

@@ -127,7 +127,7 @@ const WebNavbar = () => {
                         aria-expanded="false"
                       >
                         <div className="circle-40">
-                          <i className="fas fa-user-circle icon-size"></i>
+                          <i className="fas fa-user-circle text-primary icon-size"></i>
                         </div>
                         <i className="fas fa-chevron-down heading-default-color ml-6"></i>
                       </a>

@@ -33135,12 +33135,12 @@ button.bg-conch:focus {
 }
 
 .text-primary {
-  color: #1292ee !important;
+  color: var(--medium-green) !important;
 }
 
 a.text-primary:hover,
 a.text-primary:focus {
-  color:#1292ee !important;
+  color: var(--light-green) !important;
 }
 
 .text-secondary {

@@ -112,7 +112,7 @@ const NavbarMobile = () => {
 
                                                     <Link href="/profile" legacyBehavior>
                                                         <a
-                                                            className=" p-0 font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
+                                                            className=" p-0 text-primary font-size-3 font-weight-semibold line-height-1p2 text-uppercase"
                                                             href="dashboard-main.html"
                                                         >
                                                             View Profile
