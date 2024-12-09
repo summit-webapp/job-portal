@@ -1,3 +1,4 @@
+
 # Job Portal
 
 This repository contains the codebase for a job portal application. The application facilitates job seekers to apply for jobs.
