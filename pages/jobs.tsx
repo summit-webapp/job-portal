@@ -2,6 +2,7 @@ import JobsListMaster from "@/components/jobs-listing/jobs-listing-master";
 import useJobsList from "@/hooks/jobs-list-hook";
 import useProfileQuery from "@/hooks/profile_hooks";
 import { APIDataTypes } from "@/interfaces/api-data-types";
+import Head from "next/head";
 import { useState } from "react";
 
 const JobsListing = () => {
@@ -18,7 +19,10 @@ const JobsListing = () => {
   // const [appliedJobsQueryData, setAppliedJobsQueryData] = useState([]);
   // console.log("job listing", jobsListQuery.data);
   return (
-    <div>
+    <>
+      <Head>
+        <title>Current openings | 8848 Digital</title>
+      </Head>
       <JobsListMaster
         jobListIsLoading={jobsListQuery.isLoading}
         jobListData={jobsListQuery.data}
@@ -32,7 +36,7 @@ const JobsListing = () => {
         appliedJobsQuery={appliedJobsQuery.data}
         savedJobsQuery={savedJobsQuery.data}
       />
-    </div>
+    </>
   );
 };
 
