@@ -26,7 +26,7 @@ export default function Home() {
     return (
       <>
       <Head>
-        <title>8848 DIGITAL - JOB PORTAL</title>
+        <title>Explore career prospects at 8848 Digital, a leading software services company. Elevate your career with us!</title>
         <meta name="description" content="8848 Digital Job Portal - Find your dream job here" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon_8848.svg" />
