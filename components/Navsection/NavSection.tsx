@@ -10,10 +10,11 @@ import {
 } from "@/store/slices/auth_slice/login_slice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import partnerImg from '../../public/image/frappe-partner.png'
-import iso1 from '../../public/image/iso1.png'
-import iso2 from '../../public/image/iso2.png'
+import partnerImg from "../../public/image/frappe-partner.png";
+import iso1 from "../../public/image/iso1.png";
+import iso2 from "../../public/image/iso2.png";
 import Navbar from "../Navbar/Navbar";
+import AICPA from "@/public/image/AICP-logo-svg.svg";
 
 const NavSection = () => {
   const router = useRouter();
@@ -184,7 +185,7 @@ const NavSection = () => {
             </nav>
           </div>
         </header> */}
-          <Navbar/>
+        <Navbar />
         <div className="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
           <div className="pos-abs-tr w-50 z-index-n2">
             <img src={heroImg.src} alt="" className="gr-opacity-1" />
@@ -199,15 +200,35 @@ const NavSection = () => {
                 data-aos-once="true"
               >
                 <h1 className="font-size-11 mb-12 pr-md-30 pr-lg-0">
-                Elevate Your Career to New Heights
+                  Elevate Your Career to New Heights
                 </h1>
                 <div className="">
-                 <div>
-                  <img src={partnerImg.src}  width='155px' alt="" style={{marginRight:'20px'}}/>
-                  <img src={iso1.src}   width='100px' alt=""  style={{marginRight:'20px'}}/>
-                  <img src={iso2.src}  width='100px' alt=""  style={{marginRight:'20px'}}/>
-                 </div>
-                 
+                  <div>
+                    <img
+                      src={partnerImg.src}
+                      width="155px"
+                      alt=""
+                      style={{ marginRight: "20px" }}
+                    />
+                    <img
+                      src={iso1.src}
+                      width="100px"
+                      alt=""
+                      style={{ marginRight: "20px" }}
+                    />
+                    <img
+                      src={iso2.src}
+                      width="100px"
+                      alt=""
+                      style={{ marginRight: "20px" }}
+                    />
+                    <img
+                      src={AICPA.src}
+                      width="105px"
+                      alt=""
+                      style={{ marginRight: "20px" }}
+                    />
+                  </div>
                 </div>
               </div>
 
