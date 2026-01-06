@@ -1,27 +1,31 @@
-import { useState } from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
-const TabSwitch = () => {
-  const [value, setValue] = useState('one');
+interface TabDataInterface {
+	label: string;
+	content: React.ReactNode;
+}
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
+interface TabSwitchProps {
+	tabs: TabDataInterface[];
+}
 
-  return (
-    <Tabs
-      value={value}
-      onChange={handleChange}
-      textColor="secondary"
-      indicatorColor="secondary"
-      aria-label="secondary tabs example"
-    >
-      <Tab value="one" label="Item One" />
-      <Tab value="two" label="Item Two" />
-      <Tab value="three" label="Item Three" />
-    </Tabs>
-  );
+const TabSwitch = ({ tabs }: TabSwitchProps) => {
+	return (
+		<Tabs className="tabs-wrapper">
+			<TabList>
+				{tabs.map((tab, index) => (
+					<Tab key={index}>{tab.label}</Tab>
+				))}
+			</TabList>
+
+			{tabs.map((tab, index) => (
+				<TabPanel key={index}>
+					{tab.content}
+				</TabPanel>
+			))}
+		</Tabs>
+	);
 }
 
 export default TabSwitch;

@@ -1,7 +1,21 @@
+import ProfileJobsCard from "@/cards/profile-jobs-card";
 import BelowNav from "../common/BelowNav"
 import TabSwitch from "../common/TabSwitch"
 import ProfileContactDetails from "./cards/ProfileContactDetails"
 import useProfileQuery from "@/hooks/profile_hooks";
+import ProfileSavedJobs from "./cards/ProfileSavedJobs";
+import JobDetailsCard from "./cards/JobDetailsCard";
+
+const TabData = [
+    {
+        label: "Applied Jobs",
+        content: <JobDetailsCard />
+    },
+    {
+        label: "Saved Jobs",
+        content: <ProfileSavedJobs />
+    }
+]
 
 const ProfileMasterLatest = () => {
     const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
@@ -18,7 +32,7 @@ const ProfileMasterLatest = () => {
                         />
                     </div>
                     <div className="col-8">
-                        <TabSwitch />
+                        <TabSwitch tabs={TabData} />
                     </div>
                 </div>
             </div>
