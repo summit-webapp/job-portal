@@ -114,6 +114,7 @@
 .job-details-card .jobcard-header-section {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 20px;
 }
 
@@ -125,6 +126,28 @@
 .jobcard-header-section .jobcard-job-location {
     display: flex;
     gap: 24px;
+}
+
+.jobcard-header-section .jobcard-job-location div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #595959;
+}
+
+.jobcard-header-section .jobcard-application-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 8px 1px 1px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #5D9F71;
+    border: 1px solid #BBD9C4;
+    background-color: #DEFFE8;
+    border-radius: 30px;
 }
 
 /* Job Details - Description */
@@ -154,6 +177,9 @@
     font-size: 12px;
     font-weight: 500;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     color: var(--color-gray-9c);
     border: 1px solid transparent;
     background-color: var(--color-offwhite);
@@ -162,6 +188,12 @@
 .job-status-tracker .status-step.active {
     color: #FFFFFF;
     background-color: var(--color-darkgreen);
+}
+
+.job-status-tracker .status-step.completed {
+    color: var(--color-darkgreen);
+    border-color: var(--color-darkgreen);
+    background-color: var(--color-lightmint);
 }
 
 .job-status-tracker .status-line {

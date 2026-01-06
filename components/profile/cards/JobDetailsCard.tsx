@@ -1,3 +1,4 @@
+import { BriefcaseIcon, ChatsCircleIcon, CheckCircleIcon, EnvelopeOpenIcon, FileTextIcon, MapPinLineIcon, PhoneCallIcon, UserCircleCheckIcon, UserSoundIcon } from '@phosphor-icons/react';
 import React from 'react'
 import { Button } from 'react-bootstrap';
 
@@ -10,11 +11,18 @@ const JobDetailsCard = () => {
                 <div className="jobcard-job-details">
                     <h2>UX Researcher</h2>
                     <div className="jobcard-job-location">
-                        <div>Mumbai</div>
-                        <div>Full Time</div>
+                        <div>
+                            <MapPinLineIcon size={20} />
+                            Mumbai
+                        </div>
+                        <div>
+                            <BriefcaseIcon size={20} />
+                            Full Time
+                        </div>
                     </div>
                 </div>
-                <div>
+                <div className="jobcard-application-status">
+                    <CheckCircleIcon size={24} weight="fill" />
                     <div>Applied</div>
                 </div>
             </div>
@@ -29,17 +37,35 @@ const JobDetailsCard = () => {
             {/* If Job Applied */}
             <div className="jobcard-job-applied-wrapper">
                 <div className="job-status-tracker">
-                    <div className="status-step active">Shortlisted</div>
+                    <div className="status-step completed">
+                        <UserCircleCheckIcon size={20} />
+                        Shortlisted
+                    </div>
                     <div className="status-line active"></div>
-                    <div className="status-step">HR Screening</div>
+                    <div className="status-step active">
+                        <PhoneCallIcon size={20} />
+                        HR Screening
+                    </div>
                     <div className="status-line"></div>
-                    <div className="status-step">Assessment</div>
+                    <div className="status-step">
+                        <FileTextIcon size={20} />
+                        Assessment
+                    </div>
                     <div className="status-line"></div>
-                    <div className="status-step">Tech Round</div>
+                    <div className="status-step">
+                        <ChatsCircleIcon size={20} />
+                        Tech Round
+                    </div>
                     <div className="status-line"></div>
-                    <div className="status-step">Final Interview</div>
+                    <div className="status-step">
+                        <UserSoundIcon size={20} />
+                        Final Interview
+                    </div>
                     <div className="status-line"></div>
-                    <div className="status-step">Offer Letter</div>
+                    <div className="status-step">
+                        <EnvelopeOpenIcon size={20} />
+                        Offer Letter
+                    </div>
                 </div>
 
                 <div className="jobcard-status-message">
