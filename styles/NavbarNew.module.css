@@ -1,0 +1,103 @@
+.navbarNew {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #eef0f2; */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.navbarNewLeft {
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: var(--black);
+}
+
+.navbarNewHamburger {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #2b3940;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.navbarNewLogo img {
+    /* height: 32px; */
+    width: auto;
+}
+
+.navbarNewRight {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.navbarNewBtnExplore {
+    background-color: #074c4f;
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+
+.navbarNewBtnExplore:hover {
+    background-color: #0a5f63;
+    box-shadow: 0 4px 12px rgba(7, 76, 79, 0.2);
+}
+
+.navbarNewIcons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbarNewIconLink {
+    color: #2b3940;
+    font-size: 18px;
+    text-decoration: none !important;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbarNewIconLink::after {
+    display: none !important;
+}
+
+.navbarNewIconLink:hover {
+    color: #0d6efd;
+}
+
+@media (max-width: 768px) {
+    .navbarNew {
+        padding: 10px 15px;
+    }
+
+    .navbarNewBtnExplore {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .navbarNewRight {
+        gap: 12px;
+    }
+
+    .navbarNewIcons {
+        gap: 12px;
+    }
+}

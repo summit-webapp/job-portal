@@ -4,6 +4,7 @@ import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
 
 import { Inter, Manrope } from "next/font/google";
+import NavbarNew from "./Navbar/NavbarNew";
 const interFont = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -26,7 +27,7 @@ const Layout = ({ children }: any) => {
       <div className={`main ${interFont.variable} ${manropeFont.variable}`}>
         {/* <Navbar/> */}
         {/* remove below line SG Demo */}
-        {toShowHeader ? <Navbar /> : null}
+        {toShowHeader ? <NavbarNew /> : null}
         {children}
         <Footer />
       </div>

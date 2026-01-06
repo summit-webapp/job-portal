@@ -20,7 +20,7 @@ const TabData = [
 const ProfileMasterLatest = () => {
     const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
     return (
-        <div className="bg-default-3 profile-wrapper flex-grow-1 font-manrope">
+        <div className="bg-default-3 flex-grow-1 font-manrope">
             <BelowNav />
             <div className="container profile-container mb-6">
                 <div className="row row-gap-4">
