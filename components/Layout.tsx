@@ -3,11 +3,17 @@ import { useRouter } from "next/router";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
 
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 const interFont = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+
+const manropeFont = Manrope({
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--font-manrope",
+})
 
 const Layout = ({ children }: any) => {
   const router = useRouter();
@@ -17,7 +23,7 @@ const Layout = ({ children }: any) => {
     router.pathname === "/" || router.pathname === "/hire" ? false : true;
   return (
     <>
-      <div className={`main ${interFont.variable}`}>
+      <div className={`main ${interFont.variable} ${manropeFont.variable}`}>
         {/* <Navbar/> */}
         {/* remove below line SG Demo */}
         {toShowHeader ? <Navbar /> : null}

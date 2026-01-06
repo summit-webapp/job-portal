@@ -1,0 +1,19 @@
+import Link from "next/link"
+import { ArrowBack } from "@mui/icons-material"
+
+const BelowNav = () => {
+    return (
+        <div className="bg-white below-nav-header-wrapper mb-6">
+            <div className="container py-1">
+                <Link href="/" className="d-flex align-items-center">
+                    <ArrowBack style={{ width: 20, height: 20, color: "#20D296", margin: 8 }} />
+                    <span className="below-nav-header-text">
+                        Back
+                    </span>
+                </Link>
+            </div>
+        </div>
+    )
+}
+
+export default BelowNav

@@ -1,0 +1,29 @@
+import BelowNav from "../common/BelowNav"
+import TabSwitch from "../common/TabSwitch"
+import ProfileContactDetails from "./cards/ProfileContactDetails"
+import useProfileQuery from "@/hooks/profile_hooks";
+
+const ProfileMasterLatest = () => {
+    const { profileQuery, appliedJobsQuery, savedJobsQuery } = useProfileQuery();
+    return (
+        <div className="bg-default-3 profile-wrapper flex-grow-1 font-manrope">
+            <BelowNav />
+            <div className="container profile-container">
+                <div className="row row-gap-4">
+                    <div className="col-4">
+                        <ProfileContactDetails
+                            isLoading={profileQuery.isLoading}
+                            data={profileQuery.data}
+                            error={profileQuery.error}
+                        />
+                    </div>
+                    <div className="col-8">
+                        <TabSwitch />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default ProfileMasterLatest
