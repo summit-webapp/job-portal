@@ -22,16 +22,16 @@ const ProfileMasterLatest = () => {
     return (
         <div className="bg-default-3 profile-wrapper flex-grow-1 font-manrope">
             <BelowNav />
-            <div className="container profile-container">
+            <div className="container profile-container mb-6">
                 <div className="row row-gap-4">
-                    <div className="col-4">
+                    <div className="col-lg-4">
                         <ProfileContactDetails
                             isLoading={profileQuery.isLoading}
                             data={profileQuery.data}
                             error={profileQuery.error}
                         />
                     </div>
-                    <div className="col-8">
+                    <div className="col-lg-8 mt-10 mt-lg-0">
                         <TabSwitch tabs={TabData} />
                     </div>
                 </div>
