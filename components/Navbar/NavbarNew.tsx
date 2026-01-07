@@ -21,9 +21,22 @@ const NavbarNew = () => {
     const loginCheck = login.user;
 
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         setIsLoggedIn(loginCheck === "LoggedIn");
+
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
     }, [loginCheck]);
 
     const handleLogOut = () => {
@@ -40,7 +53,7 @@ const NavbarNew = () => {
     };
 
     return (
-        <nav className="job-portal-navbar">
+        <nav className={`job-portal-navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="job-portal-navbar-inner">
                 <div className="job-portal-navbar-left">
                     {/* <ListIcon size={24} /> */}

@@ -1,10 +1,20 @@
+.layout-navbar-padding {
+    padding-top: 62px;
+}
+
 .job-portal-navbar {
     /* border-bottom: 1px solid #eef0f2; */
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.job-portal-navbar.scrolled {
     background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .job-portal-navbar-inner {

@@ -24,7 +24,7 @@ const Layout = ({ children }: any) => {
     router.pathname === "/" || router.pathname === "/hire" ? false : true;
   return (
     <>
-      <div className={`main ${interFont.variable} ${manropeFont.variable}`}>
+      <div className={`main ${interFont.variable} ${manropeFont.variable} ${toShowHeader ? "layout-navbar-padding" : ""}`}>
         {/* <Navbar/> */}
         {/* remove below line SG Demo */}
         {toShowHeader ? <NavbarNew /> : null}
