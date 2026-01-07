@@ -107,6 +107,10 @@
     font-size: 14px;
 }
 
+.job-portal-navbar-icons .dropdown-menu .dropdown-item:focus {
+    background: var(--color-darkgreen);
+}
+
 @media screen and (max-width: 520px) {
     .job-portal-navbar-inner {
         padding: 8px 15px;
