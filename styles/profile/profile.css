@@ -23,7 +23,13 @@
 }
 
 /* Profile Details Card */
-.profile-infocard-wrapper .profile-infocard-header {
+.profile-infocard-wrapper,
+.profile-card-wrapper {
+    border: 1px solid var(--border-color-4);
+}
+
+.profile-infocard-wrapper .profile-infocard-header,
+.profile-card-wrapper .profile-card-header {
     color: var(--text-black-2b);
     padding-bottom: 12px;
     margin-bottom: 18px;

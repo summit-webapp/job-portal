@@ -32,6 +32,7 @@
 
 @import "../styles/profile/profile.css";
 @import "../styles/NavbarNew.css";
+@import "../styles/password/password.css";
 
 body[data-theme="dark"],
 .dark-bg,
@@ -9466,4 +9467,23 @@ a.text-primary:focus {
 
 a.text-primary {
   color: var(--medium-green) !important;
+}
+
+
+/* Input Field Styling */
+.form-label-default {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: #575E60;
+  margin-bottom: 6px;
+}
+
+.input-field-default {
+  font-size: 13px;
+  width: 100%;
+  border-radius: 4px;
+  height: 40px;
+  padding: 10px 8px 10px 12px;
+  border: 1px solid #A7BCC3;
 }
