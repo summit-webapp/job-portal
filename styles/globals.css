@@ -9112,7 +9112,8 @@ html .ui-button.ui-state-disabled:active {
 .login-wrapper {
   border: 1px solid black !important;
   border-radius: 5px;
-  margin: 170px auto 50px auto;
+  /* margin: 170px auto 50px auto; */
+  margin: 50px auto 50px auto;
   max-width: 500px;
   width: 95%;
   padding: 25px;
@@ -9132,7 +9133,8 @@ html .ui-button.ui-state-disabled:active {
   overflow: hidden;
   border: 1px solid black !important;
   border-radius: 5px;
-  margin: 170px auto 50px auto;
+  /* margin: 170px auto 50px auto; */
+  margin: 50px auto 50px auto;
   max-width: 500px;
   width: 95%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

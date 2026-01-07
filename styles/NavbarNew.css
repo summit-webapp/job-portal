@@ -85,3 +85,19 @@
 .job-portal-navbar-icon-link:hover {
     color: var(--color-darkgreen);
 }
+
+.job-portal-navbar-icons .job-portal-login,
+.job-portal-navbar-icons .job-portal-signup {
+    font-size: 16px;
+    color: var(--black);
+}
+
+@media screen and (max-width: 520px) {
+    .job-portal-navbar-inner {
+        padding: 8px 15px;
+    }
+
+    .job-portal-navbar-right {
+        gap: 12px;
+    }
+}

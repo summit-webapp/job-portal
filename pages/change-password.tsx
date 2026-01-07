@@ -4,8 +4,8 @@ import ChangePasswordNew from "@/components/changePassword/ChangePassword";
 const resetPassword = () => {
   return (
     <>
-      {/* <ChangePassword /> */}
-      <ChangePasswordNew />
+      <ChangePassword />
+      {/* <ChangePasswordNew /> */}
     </>
   );
 };

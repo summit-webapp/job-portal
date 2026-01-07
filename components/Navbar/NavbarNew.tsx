@@ -43,7 +43,7 @@ const NavbarNew = () => {
         <nav className="job-portal-navbar">
             <div className="job-portal-navbar-inner">
                 <div className="job-portal-navbar-left">
-                    <ListIcon size={24} />
+                    {/* <ListIcon size={24} /> */}
                     <div className="job-portal-navbar-logo">
                         <Link href="/">
                             <Image src="/8848_Logo.png" alt="8848 Digital" width={55} height={24} />
@@ -88,9 +88,16 @@ const NavbarNew = () => {
                                 </div>
                             </div>
                         ) : (
-                            <Link href="/login" className="job-portal-navbar-icon-link">
-                                <UserIcon size={20} />
-                            </Link>
+                            <div className="d-flex">
+                                <Link href="/login" className="job-portal-login">
+                                    Login
+                                </Link>
+                                <span className="mx-2">|</span>
+                                <Link href="/register" className="job-portal-signup">
+                                    Sign Up
+                                </Link>
+                            </div>
+
                         )}
                     </div>
                 </div>
