@@ -74,6 +74,7 @@
 
 /* Tabs CSS */
 .tabs-wrapper .react-tabs__tab-list {
+    margin-bottom: 16px;
     border-bottom: 1px solid var(--border-color-5) !important;
     background-color: var(--white);
     border-top-left-radius: 4px;
@@ -165,8 +166,6 @@
 
 /* Job Applied Wrapper */
 .jobcard-job-applied-wrapper {
-    padding-top: 16px;
-    border-top: 1px solid var(--border-color-4);
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -178,6 +177,11 @@
     align-items: center;
     flex-wrap: wrap;
     row-gap: 12px;
+}
+
+.job-status-tracker.progress-steps {
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color-4);
 }
 
 .job-status-tracker .status-step {
@@ -274,12 +278,9 @@
     background-color: var(--color-lightmint) !important;
 }
 
-/* @media (max-width: 768px) {
-    .status-line {
-        display: none;
-    }
 
-    .job-status-tracker {
-        gap: 8px;
-    }
-} */
+/* Job Cards Container */
+.job-cards-flex-list {
+    display: grid;
+    gap: 16px;
+}

@@ -1,110 +1,117 @@
 import { BriefcaseIcon, ChatsCircleIcon, CheckCircleIcon, EnvelopeOpenIcon, FileTextIcon, HourglassIcon, MapPinLineIcon, PhoneCallIcon, UserCircleCheckIcon, UserSoundIcon, XCircleIcon } from '@phosphor-icons/react';
 import React from 'react'
 import { Button } from 'react-bootstrap';
+import { Job } from '@/interfaces/job-interface';
 
-const JobDetailsCard = () => {
+interface JobDetailsCardProps {
+    job: Job;
+}
+
+const JobDetailsCard: React.FC<JobDetailsCardProps> = ({ job }) => {
+    const steps = [
+        { label: 'Shortlisted', icon: UserCircleCheckIcon },
+        { label: 'HR Screening', icon: PhoneCallIcon },
+        { label: 'Assessment', icon: FileTextIcon },
+        { label: 'Tech Round', icon: ChatsCircleIcon },
+        { label: 'Final Interview', icon: UserSoundIcon },
+        { label: 'Offer Letter', icon: EnvelopeOpenIcon },
+    ];
+
     return (
         <div className="job-details-card">
-
             {/* Header */}
             <div className="jobcard-header-section">
                 <div className="jobcard-job-details">
-                    <h2>UX Researcher</h2>
+                    <h2>{job.title}</h2>
                     <div className="jobcard-job-location">
                         <div>
                             <MapPinLineIcon size={20} />
-                            Mumbai
+                            {job.location}
                         </div>
                         <div>
                             <BriefcaseIcon size={20} />
-                            Full Time
+                            {job.type}
                         </div>
                     </div>
                 </div>
-                <div className="jobcard-application-status">
-                    <CheckCircleIcon size={24} weight="fill" />
-                    <div>Applied</div>
-                </div>
-                <div className="jobcard-application-status application-rejected">
-                    <XCircleIcon size={24} weight="fill" />
-                    <div>Rejected</div>
-                </div>
+                {job.status === 'shortlisted' || job.status === 'pending' ? (
+                    <div className="jobcard-application-status">
+                        <CheckCircleIcon size={24} weight="fill" />
+                        <div>Applied</div>
+                    </div>
+                ) : job.status === 'rejected' ? (
+                    <div className="jobcard-application-status application-rejected">
+                        <XCircleIcon size={24} weight="fill" />
+                        <div>Rejected</div>
+                    </div>
+                ) : null}
             </div>
 
             {/* Description */}
             <p className="jobcard-description m-0">
-                We are seeking a highly capable and detail-oriented UX Researcher
-                to join our team. As a UX Researcher, you will play a critical role
-                in understanding user needs.....
+                {job.description}
             </p>
 
             {/* If Job Applied */}
-            <div className="jobcard-job-applied-wrapper">
-                <div className="job-status-tracker">
-                    <div className="status-step completed">
-                        <UserCircleCheckIcon size={20} />
-                        Shortlisted
-                    </div>
-                    <div className="status-line active"></div>
-                    <div className="status-step active">
-                        <PhoneCallIcon size={20} />
-                        HR Screening
-                    </div>
-                    <div className="status-line"></div>
-                    <div className="status-step">
-                        <FileTextIcon size={20} />
-                        Assessment
-                    </div>
-                    <div className="status-line"></div>
-                    <div className="status-step">
-                        <ChatsCircleIcon size={20} />
-                        Tech Round
-                    </div>
-                    <div className="status-line"></div>
-                    <div className="status-step">
-                        <UserSoundIcon size={20} />
-                        Final Interview
-                    </div>
-                    <div className="status-line"></div>
-                    <div className="status-step">
-                        <EnvelopeOpenIcon size={20} />
-                        Offer Letter
-                    </div>
+            {job.status !== 'saved' && (
+                <div className="jobcard-job-applied-wrapper">
+                    {job.status === 'shortlisted' && (
+                        <div className="job-status-tracker progress-steps">
+                            {steps.map((step, index) => (
+                                <React.Fragment key={index}>
+                                    <div className={`status-step ${index + 1 < (job.currentStep || 0) ? 'completed' : index + 1 === job.currentStep ? 'active' : ''}`}>
+                                        <step.icon size={20} />
+                                        {step.label}
+                                    </div>
+                                    {index < steps.length - 1 && (
+                                        <div className={`status-line ${index + 1 < (job.currentStep || 0) ? 'active' : ''}`}></div>
+                                    )}
+                                </React.Fragment>
+                            ))}
+                        </div>
+                    )}
+
+                    {job.status === 'pending' && (
+                        <div className="job-status-tracker justify-content-between">
+                            <div className="status-step under-review">
+                                <HourglassIcon size={20} />
+                                Under Review
+                            </div>
+                            <div className="jobcard-contact-footer">
+                                <span>For Any Queries:</span>
+                                <span className="jobcard-contact-number">{job.contactNumber}</span>
+                            </div>
+                        </div>
+                    )}
+
+                    {(job.status === 'shortlisted' || job.status === 'pending') && job.statusMessage && (
+                        <div className="jobcard-status-message">
+                            {job.statusMessage}
+                        </div>
+                    )}
+
+                    {job.status === 'rejected' && (
+                        <div className="jobcard-status-message status-rejected">
+                            {job.statusMessage || "Thank you for taking the time to apply. After reviewing your profile, we regret to inform you that you have not been shortlisted for this stage. We appreciate your interest and encourage you to apply again for future openings."}
+                        </div>
+                    )}
+
+                    {job.status === 'shortlisted' && (
+                        <div className="jobcard-contact-footer">
+                            <span>For Any Queries:</span>
+                            <span className="jobcard-contact-number">{job.contactNumber}</span>
+                        </div>
+                    )}
                 </div>
+            )}
 
-                <div className="job-status-tracker justify-content-between">
-                    <div className="status-step under-review">
-                        <HourglassIcon size={20} />
-                        Under Review
-                    </div>
-                    <div className="jobcard-contact-footer">
-                        <span>For Any Queries:</span>
-                        <span className="jobcard-contact-number">+91 94164 23913</span>
-                    </div>
+            {/* If Job Saved (Optional interaction if needed) */}
+            {job.status === 'saved' && (
+                <div className="jobcard-button-wrap">
+                    <Button className="jobcard-save-job-btn">Remove</Button>
+                    <Button className="jobcard-apply-to-job-btn">Apply Now</Button>
                 </div>
-
-                <div className="jobcard-status-message">
-                    Congratulations! Your profile has been shortlisted. Our HR team will reach out to you soon.
-                </div>
-
-                <div className="jobcard-status-message status-rejected">
-                    Thank you for taking the time to apply. After reviewing your profile,
-                    we regret to inform you that you have not been shortlisted for this stage.
-                    We appreciate your interest and encourage you to apply again for future openings.
-                </div>
-
-                <div className="jobcard-contact-footer">
-                    <span>For Any Queries:</span>
-                    <span className="jobcard-contact-number">+91 94164 23913</span>
-                </div>
-            </div>
-
-            {/* If Job Saved */}
-            <div className="jobcard-button-wrap">
-                <Button className="jobcard-save-job-btn">Unsave Job</Button>
-                <Button className="jobcard-apply-to-job-btn">Apply to Job</Button>
-            </div>
-
+            )}
         </div>
     )
 }

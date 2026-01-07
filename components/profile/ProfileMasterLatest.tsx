@@ -1,19 +1,19 @@
-import ProfileJobsCard from "@/cards/profile-jobs-card";
 import BelowNav from "../common/BelowNav"
 import TabSwitch from "../common/TabSwitch"
 import ProfileContactDetails from "./cards/ProfileContactDetails"
 import useProfileQuery from "@/hooks/profile_hooks";
-import ProfileSavedJobs from "./cards/ProfileSavedJobs";
-import JobDetailsCard from "./cards/JobDetailsCard";
+import { APPLIED_JOBS_DATA } from "@/datasets/new-applied-jobs-data";
+import { SAVED_JOBS_DATA } from "@/datasets/saved-jobs-data";
+import JobList from "./JobList";
 
 const TabData = [
     {
         label: "Applied Jobs",
-        content: <JobDetailsCard />
+        content: <JobList jobs={APPLIED_JOBS_DATA} />
     },
     {
         label: "Saved Jobs",
-        content: <ProfileSavedJobs />
+        content: <JobList jobs={SAVED_JOBS_DATA} />
     }
 ]
 
