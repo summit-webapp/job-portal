@@ -10,7 +10,7 @@ import {
     get_access_token,
 } from "@/store/slices/auth_slice/login_slice";
 import LogoutList from "@/services/api/auth_api/logout_api";
-import styles from "@/styles/NavbarNew.module.css";
+// import "@/styles/NavbarNew.css";
 import Image from "next/image";
 import { ListIcon, UserIcon } from "@phosphor-icons/react";
 
@@ -40,57 +40,59 @@ const NavbarNew = () => {
     };
 
     return (
-        <nav className={styles.navbarNew}>
-            <div className={styles.navbarNewLeft}>
-                <ListIcon size={24} />
-                <div className={styles.navbarNewLogo}>
-                    <Link href="/">
-                        <Image src="/8848_Logo.png" alt="8848 Digital" width={55} height={24} />
-                    </Link>
-                </div>
-            </div>
-
-            <div className={styles.navbarNewRight}>
-                <Link href="/jobs" className={styles.navbarNewBtnExplore}>
-                    Explore Jobs
-                </Link>
-
-                <div className={styles.navbarNewIcons}>
-
-                    {isLoggedIn ? (
-                        <div className="dropdown">
-                            <a
-                                className={styles.navbarNewIconLink}
-                                href="#"
-                                role="button"
-                                id="profileDropdown"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                <UserIcon size={20} />
-                            </a>
-                            <div
-                                className="dropdown-menu dropdown-menu-right"
-                                aria-labelledby="profileDropdown"
-                            >
-                                <Link href="/profile" className="dropdown-item">
-                                    View Profile
-                                </Link>
-                                <div className="dropdown-divider"></div>
-                                <button
-                                    onClick={handleLogOut}
-                                    className="dropdown-item text-danger"
-                                >
-                                    Log Out
-                                </button>
-                            </div>
-                        </div>
-                    ) : (
-                        <Link href="/login" className={styles.navbarNewIconLink}>
-                            <UserIcon size={20} />
+        <nav className="job-portal-navbar">
+            <div className="job-portal-navbar-inner">
+                <div className="job-portal-navbar-left">
+                    <ListIcon size={24} />
+                    <div className="job-portal-navbar-logo">
+                        <Link href="/">
+                            <Image src="/8848_Logo.png" alt="8848 Digital" width={55} height={24} />
                         </Link>
-                    )}
+                    </div>
+                </div>
+
+                <div className="job-portal-navbar-right">
+                    <Link href="/jobs" className="job-portal-navbar-btn-explore">
+                        Explore Jobs
+                    </Link>
+
+                    <div className="job-portal-navbar-icons">
+
+                        {isLoggedIn ? (
+                            <div className="dropdown">
+                                <a
+                                    className="job-portal-navbar-icon-link"
+                                    href="#"
+                                    role="button"
+                                    id="profileDropdown"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <UserIcon size={20} />
+                                </a>
+                                <div
+                                    className="dropdown-menu dropdown-menu-right"
+                                    aria-labelledby="profileDropdown"
+                                >
+                                    <Link href="/profile" className="dropdown-item">
+                                        View Profile
+                                    </Link>
+                                    <div className="dropdown-divider"></div>
+                                    <button
+                                        onClick={handleLogOut}
+                                        className="dropdown-item text-danger"
+                                    >
+                                        Log Out
+                                    </button>
+                                </div>
+                            </div>
+                        ) : (
+                            <Link href="/login" className="job-portal-navbar-icon-link">
+                                <UserIcon size={20} />
+                            </Link>
+                        )}
+                    </div>
                 </div>
             </div>
         </nav>

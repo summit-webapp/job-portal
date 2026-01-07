@@ -1,20 +1,23 @@
-.navbarNew {
-    max-width: 1440px;
-    width: 100%;
-    margin: 0 auto;
-    background: #ffffff;
-    padding: 8px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.job-portal-navbar {
     /* border-bottom: 1px solid #eef0f2; */
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    background-color: var(--white);
 }
 
-.navbarNewLeft {
+.job-portal-navbar-inner {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 8px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.job-portal-navbar-left {
     padding: 10px 12px;
     display: flex;
     align-items: center;
@@ -22,7 +25,7 @@
     color: var(--black);
 }
 
-.navbarNewHamburger {
+.job-portal-navbar-hamburger {
     background: transparent;
     border: none;
     font-size: 20px;
@@ -32,18 +35,18 @@
     align-items: center;
 }
 
-.navbarNewLogo img {
+.job-portal-navbar-logo img {
     /* height: 32px; */
     width: auto;
 }
 
-.navbarNewRight {
+.job-portal-navbar-right {
     display: flex;
     align-items: center;
     gap: 24px;
 }
 
-.navbarNewBtnExplore {
+.job-portal-navbar-btn-explore {
     background-color: #074c4f;
     color: #ffffff !important;
     font-weight: 500;
@@ -54,18 +57,18 @@
     text-decoration: none !important;
 }
 
-.navbarNewBtnExplore:hover {
+.job-portal-navbar-btn-explore:hover {
     background-color: #0a5f63;
     box-shadow: 0 4px 12px rgba(7, 76, 79, 0.2);
 }
 
-.navbarNewIcons {
+.job-portal-navbar-icons {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.navbarNewIconLink {
+.job-portal-navbar-icon-link {
     color: #2b3940;
     font-size: 18px;
     text-decoration: none !important;
@@ -75,29 +78,10 @@
     position: relative;
 }
 
-.navbarNewIconLink::after {
+.job-portal-navbar-icon-link::after {
     display: none !important;
 }
 
-.navbarNewIconLink:hover {
-    color: #0d6efd;
-}
-
-@media (max-width: 768px) {
-    .navbarNew {
-        padding: 10px 15px;
-    }
-
-    .navbarNewBtnExplore {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    .navbarNewRight {
-        gap: 12px;
-    }
-
-    .navbarNewIcons {
-        gap: 12px;
-    }
+.job-portal-navbar-icon-link:hover {
+    color: var(--color-darkgreen);
 }
