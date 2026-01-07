@@ -150,6 +150,12 @@
     border-radius: 30px;
 }
 
+.jobcard-header-section .jobcard-application-status.application-rejected {
+    color: #D44E4B;
+    border-color: #D1B9B8;
+    background-color: #FFF0EF;
+}
+
 /* Job Details - Description */
 .job-details-card .jobcard-description {
     font-size: 14px;
@@ -161,6 +167,9 @@
 .jobcard-job-applied-wrapper {
     padding-top: 16px;
     border-top: 1px solid var(--border-color-4);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 /* Job Status Tracker - Steps */
@@ -176,6 +185,7 @@
     border-radius: 4px;
     font-size: 12px;
     font-weight: 500;
+    line-height: 1;
     white-space: nowrap;
     display: flex;
     align-items: center;
@@ -188,6 +198,11 @@
 .job-status-tracker .status-step.active {
     color: #FFFFFF;
     background-color: var(--color-darkgreen);
+}
+
+.job-status-tracker .status-step.under-review {
+    color: var(--text-black-2b);
+    background-color: #F8FAA6;
 }
 
 .job-status-tracker .status-step.completed {
@@ -209,9 +224,8 @@
 }
 
 .jobcard-job-applied-wrapper .jobcard-status-message {
-    margin-top: 16px;
-    padding: 12px;
-    line-height: 1;
+    padding: 6.5px 12px;
+    line-height: 1.5;
     font-size: 14px;
     font-weight: 600;
     border-radius: 4px;
@@ -219,8 +233,12 @@
     background-color: var(--color-lightmint);
 }
 
+.jobcard-job-applied-wrapper .jobcard-status-message.status-rejected {
+    border: 1px solid #D1B9B8;
+    background-color: #FFF0EF;
+}
+
 .jobcard-job-applied-wrapper .jobcard-contact-footer {
-    margin-top: 16px;
     display: flex;
     gap: 6px;
     font-size: 12px;

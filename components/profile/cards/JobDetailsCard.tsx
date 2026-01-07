@@ -1,4 +1,4 @@
-import { BriefcaseIcon, ChatsCircleIcon, CheckCircleIcon, EnvelopeOpenIcon, FileTextIcon, MapPinLineIcon, PhoneCallIcon, UserCircleCheckIcon, UserSoundIcon } from '@phosphor-icons/react';
+import { BriefcaseIcon, ChatsCircleIcon, CheckCircleIcon, EnvelopeOpenIcon, FileTextIcon, HourglassIcon, MapPinLineIcon, PhoneCallIcon, UserCircleCheckIcon, UserSoundIcon, XCircleIcon } from '@phosphor-icons/react';
 import React from 'react'
 import { Button } from 'react-bootstrap';
 
@@ -24,6 +24,10 @@ const JobDetailsCard = () => {
                 <div className="jobcard-application-status">
                     <CheckCircleIcon size={24} weight="fill" />
                     <div>Applied</div>
+                </div>
+                <div className="jobcard-application-status application-rejected">
+                    <XCircleIcon size={24} weight="fill" />
+                    <div>Rejected</div>
                 </div>
             </div>
 
@@ -68,8 +72,25 @@ const JobDetailsCard = () => {
                     </div>
                 </div>
 
+                <div className="job-status-tracker justify-content-between">
+                    <div className="status-step under-review">
+                        <HourglassIcon size={20} />
+                        Under Review
+                    </div>
+                    <div className="jobcard-contact-footer">
+                        <span>For Any Queries:</span>
+                        <span className="jobcard-contact-number">+91 94164 23913</span>
+                    </div>
+                </div>
+
                 <div className="jobcard-status-message">
                     Congratulations! Your profile has been shortlisted. Our HR team will reach out to you soon.
+                </div>
+
+                <div className="jobcard-status-message status-rejected">
+                    Thank you for taking the time to apply. After reviewing your profile,
+                    we regret to inform you that you have not been shortlisted for this stage.
+                    We appreciate your interest and encourage you to apply again for future openings.
                 </div>
 
                 <div className="jobcard-contact-footer">
