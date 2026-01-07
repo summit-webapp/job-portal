@@ -33,6 +33,7 @@
 @import "../styles/profile/profile.css";
 @import "../styles/NavbarNew.css";
 @import "../styles/password/password.css";
+@import "../styles/jobsingle/jobsingle.css";
 
 body[data-theme="dark"],
 .dark-bg,
