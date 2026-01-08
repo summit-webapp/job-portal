@@ -1,7 +1,7 @@
 import BelowNav from "../common/BelowNav";
-import JobHeader from "./jobComponents/jobHeader";
-import JobContent from "./jobComponents/jobContent";
-import JobDetailList from "./jobComponents/jobDetailList";
+import JobHeader from "./jobComponents/JobHeader";
+import JobContent from "./jobComponents/JobContent";
+import JobDetailList from "./jobComponents/JobDetailList";
 
 import { job_single_details } from "../../datasets/job-single-details";
 

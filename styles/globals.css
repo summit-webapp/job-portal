@@ -34,6 +34,7 @@
 @import "../styles/NavbarNew.css";
 @import "../styles/password/password.css";
 @import "../styles/jobsingle/jobsingle.css";
+@import "../styles/resume/resume.css";
 
 body[data-theme="dark"],
 .dark-bg,
@@ -9489,4 +9490,30 @@ a.text-primary {
   height: 40px;
   padding: 10px 8px 10px 12px;
   border: 1px solid #A7BCC3;
+}
+
+/* Upload File Field Styling */
+.upload-file-field {
+  border: 2px dashed var(--color-darkgreen);
+  border-radius: 4px;
+  background-color: var(--color-lightmint);
+  width: 100%;
+  position: relative;
+}
+
+.upload-file-field input[type="file"] {
+  width: 100%;
+  opacity: 0;
+  height: 42px;
+  cursor: pointer;
+}
+
+.upload-file-field-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-darkgreen);
+  font-size: 16px;
+  font-weight: 500;
 }

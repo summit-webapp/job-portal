@@ -44,7 +44,7 @@ const ProfileContactDetails = ({ isLoading, data, error }: ProfileInterface) => 
                             Change Password
                         </Button>
                     </Link>
-                    <Link href="change-password" className="w-full">
+                    <Link href="update-resume" className="w-full">
                         <Button className="profile-btn btn-update-resume">
                             Update Resume
                         </Button>
