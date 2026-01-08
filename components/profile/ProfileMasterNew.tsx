@@ -16,7 +16,7 @@ const ProfileMasterNew = () => {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
 
   return (
-    <div className="bg-default-2 pt-8 pt-lg-8 pb-7 pb-lg-23 profile-wrapper">
+    <div className="bg-default-2 pt-8 pt-lg-8 pb-7 pb-lg-23">
       <div className="container">
         <div className="row">
           <div className="col-12 mt-8 dark-mode-texts">
