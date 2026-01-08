@@ -73,6 +73,10 @@
     border-color: var(--color-lightmint) !important;
 }
 
+.profile-btn.btn-primary.btn-changepassword:hover {
+    background-color: var(--color-lightmint) !important;
+}
+
 .profile-btn.btn-primary.btn-update-resume {
     background-color: var(--color-darkgreen) !important;
 }
@@ -278,12 +282,15 @@
     background-color: var(--color-darkgreen) !important;
 }
 
-.jobcard-button-wrap .btn.btn-primary.jobcard-save-job-btn {
+.jobcard-button-wrap .btn.jobcard-save-job-btn {
     color: var(--color-darkgreen);
-    border: var(--color-lightmint);
+    border-color: var(--color-lightmint) !important;
     background-color: var(--color-lightmint) !important;
 }
 
+.jobcard-button-wrap .btn.jobcard-save-job-btn:hover {
+    background-color: var(--color-lightmint) !important;
+}
 
 /* Job Cards Container */
 .job-cards-flex-list {

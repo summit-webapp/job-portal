@@ -1,14 +1,14 @@
-const JobContent = () => {
+interface JobContentProps {
+    title: string;
+    content: string;
+}
+
+const JobContent = ({ title, content }: JobContentProps) => {
     return (
-        <div className="job-details-content">
-            <h2>About Us</h2>
-            <p>
-                8848 Digital LLP provides clients with high quality ERPNext
-                implementations, application customizations, management
-                consulting and a variety of technical infrastructure services.
-                8848 Digital provides enterprise resource planning (ERP) solutions
-                to mid-market companies around the world including custom solutions
-                on web and mobile.
+        <div className="job-details-content-wrap">
+            <h2 className="job-details-title-bold mt-4">{title}</h2>
+            <p className="job-details-text">
+                {content}
             </p>
         </div>
     );

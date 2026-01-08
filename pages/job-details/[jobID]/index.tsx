@@ -23,14 +23,7 @@ const JobsDetails = () => {
         savedJobsQuery={savedJobsQuery.data}
         createJobApplicantFunction={createJobApplicantFunction}
       />
-      {/* <JobDetailMasterNew
-        isLoading={isLoading}
-        data={data}
-        error={error}
-        appliedJobsQuery={appliedJobsQuery.data}
-        savedJobsQuery={savedJobsQuery.data}
-        createJobApplicantFunction={createJobApplicantFunction}
-      /> */}
+      {/* <JobDetailMasterNew /> */}
     </>
   );
 };
