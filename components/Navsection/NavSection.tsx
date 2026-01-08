@@ -184,8 +184,9 @@ const NavSection = () => {
             </nav>
           </div>
         </header> */}
-          <Navbar/>
-        <div className="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden">
+        {/* <Navbar /> */}
+        {/* <div className="bg-gradient-1 pt-26 pt-md-32 pt-lg-33 pt-xl-35 position-relative z-index-1 overflow-hidden"> */}
+        <div className="bg-gradient-1 pt-18 pt-md-25 pt-lg-30 pt-xl-34 position-relative z-index-1 overflow-hidden">
           <div className="pos-abs-tr w-50 z-index-n2">
             <img src={heroImg.src} alt="" className="gr-opacity-1" />
           </div>
@@ -199,15 +200,15 @@ const NavSection = () => {
                 data-aos-once="true"
               >
                 <h1 className="font-size-11 mb-12 pr-md-30 pr-lg-0">
-                Elevate Your Career to New Heights
+                  Elevate Your Career to New Heights
                 </h1>
                 <div className="">
-                 <div>
-                  <img src={partnerImg.src}  width='155px' alt="" style={{marginRight:'20px'}}/>
-                  <img src={iso1.src}   width='100px' alt=""  style={{marginRight:'20px'}}/>
-                  <img src={iso2.src}  width='100px' alt=""  style={{marginRight:'20px'}}/>
-                 </div>
-                 
+                  <div>
+                    <img src={partnerImg.src} width='155px' alt="" style={{ marginRight: '20px' }} />
+                    <img src={iso1.src} width='100px' alt="" style={{ marginRight: '20px' }} />
+                    <img src={iso2.src} width='100px' alt="" style={{ marginRight: '20px' }} />
+                  </div>
+
                 </div>
               </div>
 

@@ -1,0 +1,299 @@
+:root {
+    --text-black-2b: #2B2B2B;
+    --text-gray-7c: #7C7C7C;
+
+    --color-darkgreen: #004040;
+    --color-lightmint: #ECFAFA;
+    --color-offwhite: #F5F5F5;
+
+    --color-tabgray: #999999;
+    --color-gray-9c: #9C9C9C;
+    --border-color-6: #D5E2E8;
+}
+
+/* Below Nav Container CSS */
+.below-nav-header-wrapper {
+    border-top: 1px solid var(--border-color-3);
+}
+
+.below-nav-header-text {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--black);
+}
+
+/* Profile Details Card */
+.profile-infocard-wrapper,
+.profile-card-wrapper {
+    border: 1px solid var(--border-color-4);
+}
+
+.profile-infocard-wrapper .profile-infocard-header,
+.profile-card-wrapper .profile-card-header {
+    color: var(--text-black-2b);
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border-color-5);
+}
+
+.profile-infocard-wrapper .profile-infocard-details-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.profile-infocard-details-wrap .profile-infocard-detail span {
+    font-size: 14px;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.profile-infocard-details-wrap .profile-infocard-detail h4 {
+    line-height: 1;
+}
+
+/* Profile Details Card Buttons */
+.profile-infocard-wrapper .profile-infocard-buttonwrap {
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-infocard-buttonwrap .profile-btn {
+    width: 100%;
+    height: 42px;
+    padding: 16px 12px;
+    border-radius: 5px;
+}
+
+.profile-btn.btn-primary.btn-changepassword {
+    color: var(--color-darkgreen);
+    background-color: var(--color-lightmint) !important;
+    border-color: var(--color-lightmint) !important;
+}
+
+.profile-btn.btn-primary.btn-changepassword:hover {
+    background-color: var(--color-lightmint) !important;
+}
+
+.profile-btn.btn-primary.btn-update-resume {
+    background-color: var(--color-darkgreen) !important;
+}
+
+
+/* Tabs CSS */
+.tabs-wrapper .react-tabs__tab-list {
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border-color-5) !important;
+    background-color: var(--white);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.tabs-wrapper .react-tabs__tab {
+    padding: 15px 32px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    color: var(--color-tabgray);
+    border: none;
+    bottom: 0px;
+}
+
+.tabs-wrapper .react-tabs__tab.react-tabs__tab--selected {
+    color: var(--color-darkgreen);
+    background-color: var(--color-lightmint);
+    border-bottom: 2px solid var(--color-darkgreen);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+
+/* Job Details Card - Main CSS */
+.job-details-card {
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: var(--white);
+    border: 1px solid var(--border-color-6);
+}
+
+/* Job Details Header */
+.job-details-card .jobcard-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.job-details-card .jobcard-header-section h2 {
+    font-size: 20px;
+}
+
+/* Header Location - Full Time section */
+.jobcard-header-section .jobcard-job-location {
+    display: flex;
+    gap: 24px;
+}
+
+.jobcard-header-section .jobcard-job-location div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #595959;
+}
+
+.jobcard-header-section .jobcard-application-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 8px 1px 1px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #5D9F71;
+    border: 1px solid #BBD9C4;
+    background-color: #DEFFE8;
+    border-radius: 30px;
+}
+
+.jobcard-header-section .jobcard-application-status.application-rejected {
+    color: #D44E4B;
+    border-color: #D1B9B8;
+    background-color: #FFF0EF;
+}
+
+/* Job Details - Description */
+.job-details-card .jobcard-description {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-gray-7c);
+}
+
+/* Job Applied Wrapper */
+.jobcard-job-applied-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Job Status Tracker - Steps */
+.job-status-tracker {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 12px;
+}
+
+.job-status-tracker.progress-steps {
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color-4);
+}
+
+.job-status-tracker .status-step {
+    padding: 6px 8px 6px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-gray-9c);
+    border: 1px solid transparent;
+    background-color: var(--color-offwhite);
+}
+
+.job-status-tracker .status-step.active {
+    color: #FFFFFF;
+    background-color: var(--color-darkgreen);
+}
+
+.job-status-tracker .status-step.under-review {
+    color: var(--text-black-2b);
+    background-color: #F8FAA6;
+}
+
+.job-status-tracker .status-step.completed {
+    color: var(--color-darkgreen);
+    border-color: var(--color-darkgreen);
+    background-color: var(--color-lightmint);
+}
+
+.job-status-tracker .status-line {
+    height: 1.5px;
+    flex-grow: 1;
+    min-width: 15px;
+    max-width: 40px;
+    background-color: #E1E1E1;
+}
+
+.job-status-tracker .status-line.active {
+    background-color: var(--color-darkgreen);
+}
+
+.jobcard-job-applied-wrapper .jobcard-status-message {
+    padding: 6.5px 12px;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    color: var(--text-black-2b);
+    background-color: var(--color-lightmint);
+}
+
+.jobcard-job-applied-wrapper .jobcard-status-message.status-rejected {
+    border: 1px solid #D1B9B8;
+    background-color: #FFF0EF;
+}
+
+.jobcard-job-applied-wrapper .jobcard-contact-footer {
+    display: flex;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1;
+    color: var(--color-gray-7c);
+}
+
+.jobcard-job-applied-wrapper .jobcard-contact-footer .jobcard-contact-number {
+    color: var(--text-black-2b);
+    text-decoration: underline;
+}
+
+.jobcard-button-wrap {
+    max-width: 460px;
+    width: 100%;
+    display: flex;
+    gap: 16px;
+}
+
+.jobcard-button-wrap .btn.btn-primary {
+    flex: 1;
+    height: 42px;
+    padding: 12px 16px;
+    color: var(--white);
+    border-radius: 5px;
+    background-color: var(--color-darkgreen) !important;
+}
+
+.jobcard-button-wrap .btn.jobcard-save-job-btn {
+    color: var(--color-darkgreen);
+    border-color: var(--color-lightmint) !important;
+    background-color: var(--color-lightmint) !important;
+}
+
+.jobcard-button-wrap .btn.jobcard-save-job-btn:hover {
+    background-color: var(--color-lightmint) !important;
+}
+
+/* Job Cards Container */
+.job-cards-flex-list {
+    display: grid;
+    gap: 16px;
+}

@@ -7,6 +7,7 @@ import FeaturedJobs from "@/components/Featuredjobs/FeaturedJobs";
 import { CONSTANTS } from "@/services/config/app-config";
 import { useEffect } from "react";
 import Head from "next/head";
+import NavbarNew from "@/components/Navbar/NavbarNew";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +26,13 @@ export default function Home() {
   if (CONSTANTS.CAREER_OPPORTUNITIES_PORTAL) {
     return (
       <>
-      <Head>
-        <title>8848 DIGITAL - JOB PORTAL</title>
-        <meta name="description" content="8848 Digital Job Portal - Find your dream job here" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon_8848.svg" />
-      </Head>
+        <Head>
+          <title>8848 DIGITAL - JOB PORTAL</title>
+          <meta name="description" content="8848 Digital Job Portal - Find your dream job here" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon_8848.svg" />
+        </Head>
+        <NavbarNew />
         <NavSection />
         <EasyStepSection />
         <ExploreByCategory />
