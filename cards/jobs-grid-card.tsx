@@ -1,4 +1,10 @@
 import Link from "next/link";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { get_access_token } from "@/store/slices/auth_slice/login_slice";
+import { useRouter } from "next/router";
+import ApplyJobModal from "@/components/ApplyJobModal";
+import ResumeScore from "@/components/ResumeScore";
 
 // import { company } from "../public/image/l1/png/feature-brand-1.png";
 
@@ -7,7 +13,13 @@ const JobsGridCard = ({
   createJobApplicantFunction,
   appliedJobsDesignationSet,
   savedJobsDesignationSet,
+  appliedJobsQuery,
 }: any) => {
+  const router = useRouter();
+  const authState = useSelector(get_access_token);
+  const token = authState?.token ?? "";
+
+  const [activeJob, setActiveJob] = useState<{ designation: string; name: string } | null>(null);
   const showWorkingModuleAndEmploymentType = (job: any) => {
     if (
       job.hasOwnProperty("working_module") &&
@@ -68,11 +80,14 @@ const JobsGridCard = ({
     <>
       {jobsData?.length > 0 ? (
         jobsData?.map((job: any, index: number) => {
+          const matchedAppliedJob = appliedJobsQuery?.find(
+            (item: any) => item.designation === job.designation
+          );
           return (
             <div className="col-12 col-lg-6 mb-9" key={index}>
-              <div className="bg-white rounded-4 mb-9 feature-cardOne-adjustments feature-job-cardOne-adjustments">
-                <div className="job_title">
-                  <h2 className="mt-n4">
+              <div className="bg-white rounded-4 mb-9 feature-cardOne-adjustments feature-job-cardOne-adjustments" style={{ position: "relative" }}>
+                <div className="job_title" style={{ paddingRight: "80px", marginBottom: "16px" }}>
+                  <h2 className="mt-n4 mb-0">
                     <Link
                       href={`/job-details/${encodeURIComponent(job?.name)}`}
                       className="font-size-6 text-black-2 font-weight-bold"
@@ -80,6 +95,13 @@ const JobsGridCard = ({
                       {job?.designation}
                     </Link>
                   </h2>
+                </div>
+                <div style={{ position: "absolute", top: "20px", right: "20px", zIndex: 10 }}>
+                  <ResumeScore
+                    score={matchedAppliedJob?.custom_score}
+                    label={matchedAppliedJob?.custom_label}
+                    size={72}
+                  />
                 </div>
                  
                 {showWorkingModuleAndEmploymentType(job)}
@@ -106,13 +128,13 @@ const JobsGridCard = ({
                   ) : (
                     <a
                       className={`btn btn-green text-uppercase btn-medium rounded-3  `}
-                      onClick={() =>
-                        createJobApplicantFunction(
-                          job.designation,
-                          job.name,
-                          "Apply"
-                        )
-                      }
+                      onClick={() => {
+                        if (!token) {
+                          router.push("/login");
+                          return;
+                        }
+                        setActiveJob({ designation: job.designation, name: job.name });
+                      }}
                     >
                       Apply Now
                     </a>
@@ -161,6 +183,13 @@ const JobsGridCard = ({
           />
         </>
       )}
+      <ApplyJobModal
+        show={activeJob !== null}
+        onClose={() => setActiveJob(null)}
+        designation={activeJob?.designation || ""}
+        jobName={activeJob?.name || ""}
+        createJobApplicantFunction={createJobApplicantFunction}
+      />
     </>
   );
 };

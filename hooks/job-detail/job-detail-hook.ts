@@ -29,7 +29,8 @@ const useJobDetail = () => {
   const createJobApplicantFunction = async (
     designation: string,
     name: string,
-    status: string
+    status: string,
+    resume?: string
   ) => {
     console.log("token", tokenFromStore.token);
     if (
@@ -41,7 +42,8 @@ const useJobDetail = () => {
         tokenFromStore.token,
         designation,
         name,
-        status
+        status,
+        resume
       );
       // console.log(
       //   "applicant creation api successfull in hook",
@@ -55,20 +57,25 @@ const useJobDetail = () => {
             className: "custom-toast", // Close the notification after 3 seconds
           });
         } else {
-          toast.error(`Sorry, Can't Accept your Application now!`, {
+          if (status !== "Apply") {
+            toast.error(`Sorry, Can't Accept your Application now!`, {
+              autoClose: 5000,
+              className: "custom-toast", // Close the notification after 5 seconds
+            });
+          }
+        }
+      } else {
+        if (status !== "Apply") {
+          toast.error(`Something went wrong. Please check back in sometime.`, {
             autoClose: 5000,
             className: "custom-toast", // Close the notification after 5 seconds
           });
         }
-      } else {
-        toast.error(`Something went wrong. Please check back in sometime.`, {
-          autoClose: 5000,
-          className: "custom-toast", // Close the notification after 5 seconds
-        });
       }
 
       await fetchAppliedJobsData();
       await fetchSavedJobsData();
+      return callAPIForCreatingJobApplicant;
     } else {
       router.push("/login");
     }

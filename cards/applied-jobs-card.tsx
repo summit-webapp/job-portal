@@ -1,5 +1,5 @@
-import { applied_jobs_data } from '@/datasets/applied-jobs';
 import { ProfileInterface } from '@/interfaces/profile-interface';
+import ResumeScore from '@/components/ResumeScore';
 import React from 'react'
 
 const AppliedJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
@@ -11,26 +11,32 @@ const AppliedJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
         {data?.map((job: any, index: any) => {
           return (
             <div
-              className="col-lg-6 col-md-6 col-sm-11 mb-9 card"
-              key={index} style={{ marginLeft: '15px' }}
+              className="col-12 col-lg-6 col-md-6 mb-9"
+              key={index}
             >
-              <div className="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded hover-shadow-3 card-body">
-                <div className="media align-items-center">
-                  <div className="square-52 bg-indigo mr-8 rounded">
-                    <a href="#">
-                      <img src="./image/l3/png/fimize.png" alt="" />
-                    </a>
-                  </div>
-                  <div>
-                    <h3 className="font-size-6 mb-0 text-uppercase">
-                      <a
-                        className="heading-default-color font-weight-semibold"
-                        href="#"
-                      >
-                        {job.job_title}
+              <div className="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded-4 hover-shadow-3 border border-mercury shadow-9 h-100" style={{ position: "relative" }}>
+                {/* Header row: title + resume score */}
+                <div className="d-flex align-items-center justify-content-between" style={{ paddingRight: "90px", minHeight: "60px" }}>
+                  <div className="media align-items-center flex-grow-1">
+                    <div className="square-52 bg-indigo mr-8 rounded">
+                      <a href="#">
+                        <img src="./image/l3/png/fimize.png" alt="" />
                       </a>
-                    </h3>
+                    </div>
+                    <div>
+                      <h3 className="font-size-6 mb-0 text-uppercase">
+                        <a
+                          className="heading-default-color font-weight-semibold"
+                          href="#"
+                        >
+                          {job.job_title}
+                        </a>
+                      </h3>
+                    </div>
                   </div>
+                </div>
+                <div style={{ position: "absolute", top: "24px", right: "24px", zIndex: 10 }}>
+                  <ResumeScore score={job.custom_score} label={job.custom_label} size={88} />
                 </div>
                 <div className="d-flex pt-8">
                   <ul className="list-unstyled mb-1 d-flex flex-wrap">

@@ -150,7 +150,8 @@ const useJobsList = () => {
   const createJobApplicantFunction = async (
     designation: string,
     name: string,
-    status: string
+    status: string,
+    resume?: string
   ) => {
     console.log("token", tokenFromStore.token);
     if (
@@ -162,7 +163,8 @@ const useJobsList = () => {
         tokenFromStore.token,
         designation,
         name,
-        status
+        status,
+        resume
       );
       // console.log(
       //   "applicant creation api successfull in hook",
@@ -176,23 +178,28 @@ const useJobsList = () => {
             className: "custom-toast", // Close the notification after 3 seconds
           });
         } else {
-          toast.error(
-            `${callAPIForCreatingJobApplicant?.data?.message?.data}`,
-            {
-              autoClose: 5000,
-              className: "custom-toast", // Close the notification after 5 seconds
-            }
-          );
+          if (status !== "Apply") {
+            toast.error(
+              `${callAPIForCreatingJobApplicant?.data?.message?.data || callAPIForCreatingJobApplicant?.data?.message?.error || "Error"}`,
+              {
+                autoClose: 5000,
+                className: "custom-toast", // Close the notification after 5 seconds
+              }
+            );
+          }
         }
       } else {
-        toast.error(`Something went wrong. Please check back in sometime.`, {
-          autoClose: 5000,
-          className: "custom-toast", // Close the notification after 5 seconds
-        });
+        if (status !== "Apply") {
+          toast.error(`Something went wrong. Please check back in sometime.`, {
+            autoClose: 5000,
+            className: "custom-toast", // Close the notification after 5 seconds
+          });
+        }
       }
 
       await fetchAppliedJobsData();
       await fetchSavedJobsData();
+      return callAPIForCreatingJobApplicant;
     } else {
       router.push("/login");
     }

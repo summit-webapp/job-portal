@@ -6,27 +6,35 @@ const CreateJobApplicantAPI = async (
   token: string,
   designation: string,
   name: string,
-  status: string
+  status: string,
+  resume?: string
 ) => {
-  console.log("applicant creation", token, designation, name, status);
+  console.log("applicant creation", token, designation, name, status, resume);
 
   let response: any;
   let params: any;
 
-  params = `?version=${CONSTANTS.VERSION}&method=apply_job&entity=job_applicant&designation=${designation}&name=${name}&status=${status}`;
+  params = `?version=${CONSTANTS.VERSION}&method=apply_job&entity=job_applicant&designation=${encodeURIComponent(
+    designation
+  )}&name=${encodeURIComponent(name)}&status=${status}`;
+  if (resume) {
+    params += `&resume=${encodeURIComponent(resume)}`;
+  }
   const config = {
     headers: {
       Accept: "application/json",
       Authorization: token,
     },
-    timeout: TIMEOUT,
+    timeout: 30000,
   };
-  await axios
-    .post(
-      `${CONSTANTS.API_BASE_URL}${CONSTANTS.API_MANDATE_PARAMS}${params}`,
-      undefined,
-      config
-    )
+
+  const method = (status === "Apply") ? "put" : "post";
+
+  await axios[method](
+    `${CONSTANTS.API_BASE_URL}${CONSTANTS.API_MANDATE_PARAMS}${params}`,
+    undefined,
+    config
+  )
     .then((res) => {
       console.log("applicant creation api successfull", res);
       response = res;

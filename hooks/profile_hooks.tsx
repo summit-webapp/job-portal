@@ -94,6 +94,7 @@ const useProfileQuery = () => {
     profileQuery,
     appliedJobsQuery,
     savedJobsQuery,
+    fetchProfileData,
     fetchAppliedJobsData,
     fetchSavedJobsData,
   };

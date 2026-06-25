@@ -1,5 +1,6 @@
 import { applied_jobs_data } from "@/datasets/applied-jobs";
 import { ProfileInterface } from "@/interfaces/profile-interface";
+import ResumeScore from "@/components/ResumeScore";
 import Link from "next/link";
 import React from "react";
 
@@ -10,21 +11,21 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
       {data?.map((job: any, index: any) => {
         return (
           <div className="col-12 col-lg-6" key={job.id}>
-            <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments">
-              {/* <div className="d-block mb-7">
-                <a href="#">
-                  <img src="./image/l1/png/feature-brand-1.png" alt="" />
-                </a>
-              </div> */}
-
-              <h2 className="mt-n4">
-                <Link
-                  href={`/job-details/${job?.job_title}`}
-                  className="font-size-7 text-black-2 font-weight-bold mb-4"
-                >
-                  {job?.designation}
-                </Link>
-              </h2>
+            <div className="bg-white px-8 pt-9 pb-7 rounded-4 mb-9 feature-cardOne-adjustments" style={{ position: "relative" }}>
+              {/* Header: title + resume score */}
+              <div className="d-flex align-items-center justify-content-between mb-3" style={{ paddingRight: "90px" }}>
+                <h2 className="mt-n4 mb-0">
+                  <Link
+                    href={`/job-details/${job?.job_title}`}
+                    className="font-size-7 text-black-2 font-weight-bold mb-4"
+                  >
+                    {job?.designation}
+                  </Link>
+                </h2>
+              </div>
+              <div style={{ position: "absolute", top: "24px", right: "24px", zIndex: 10 }}>
+                <ResumeScore score={job.custom_score} label={job.custom_label} size={88} />
+              </div>
               <ul className="list-unstyled mb-1 card-tag-list">
                 <li>
                   <a

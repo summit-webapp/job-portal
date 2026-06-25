@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { job_details_data } from "../../datasets/job-details";
 import { APIDataTypes } from "@/interfaces/api-data-types";
+import ResumeScore from "@/components/ResumeScore";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { get_access_token } from "@/store/slices/auth_slice/login_slice";
+import { useRouter } from "next/router";
+import ApplyJobModal from "@/components/ApplyJobModal";
 
 const JobDetailMaster = ({
   isLoading,
@@ -10,11 +16,19 @@ const JobDetailMaster = ({
   savedJobsQuery,
   createJobApplicantFunction,
 }: any) => {
+  const router = useRouter();
+  const authState = useSelector(get_access_token);
+  const token = authState?.token ?? "";
+
+  const [showApplyModal, setShowApplyModal] = useState(false);
   const appliedJobsDesignationSet = new Set(
     appliedJobsQuery?.map((item: any) => item.designation)
   );
   const savedJobsDesignationSet = new Set(
     savedJobsQuery?.map((item: any) => item.designation)
+  );
+  const matchedAppliedJob = appliedJobsQuery?.find(
+    (item: any) => item.designation === data?.message?.data?.designation
   );
   const returnFormattedDate = (raw_date: any) => {
     const splitDate: any = raw_date?.split(" ");
@@ -46,21 +60,10 @@ const JobDetailMaster = ({
               <div className="bg-white rounded-4 border border-mercury shadow-9">
                 {/* job opening data main starts*/}
                 <div className="pt-9 pl-sm-9 pl-5 pr-sm-9 pr-5 pb-8 border-bottom border-width-1 border-default-color light-mode-texts">
-                  <div className="row">
+                  <div className="row align-items-center">
                     <div className="col-md-6">
                       {/* media start */}
                       <div className="media align-items-center">
-                        {/* media logo start */}
-                        {/* <div className="square-72 d-block mr-8">
-                          <img
-                            src="/image/l1/png/logo.png"
-                            alt=""
-                            width={90}
-                            height={72}
-                          />
-                        </div> */}
-                        {/* media logo end */}
-
                         {/* media texts start */}
                         <div>
                           <h3 className="font-size-6 mb-0">
@@ -74,14 +77,22 @@ const JobDetailMaster = ({
                       </div>
                       {/* media end */}
                     </div>
-                    <div className="col-md-6 text-right pt-7 pt-md-0 mt-md-n1">
+                    <div className="col-md-4 text-right pt-7 pt-md-0 mt-md-n1">
                       {/* media date start */}
                       <div className="media justify-content-md-end">
                         <p className="font-size-4 text-gray mb-0">
                           {returnFormattedDate(data?.message?.data?.modified)}
                         </p>
                       </div>
-                      {/* <!-- media date end --> */}
+                      {/* media date end */}
+                    </div>
+                    {/* Resume Score — dynamic score matching current applied job details */}
+                    <div className="col-md-2 d-flex justify-content-end pt-5 pt-md-0">
+                      <ResumeScore
+                        score={matchedAppliedJob?.custom_score}
+                        label={matchedAppliedJob?.custom_label}
+                        size={96}
+                      />
                     </div>
                   </div>
                   <div className="row pt-9">
@@ -109,13 +120,13 @@ const JobDetailMaster = ({
                             {" "}
                             <a
                               className="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5"
-                              onClick={() =>
-                                createJobApplicantFunction(
-                                  data?.message?.data?.designation,
-                                  data?.message?.data?.name,
-                                  "Apply"
-                                )
-                              }
+                              onClick={() => {
+                                if (!token) {
+                                  router.push("/login");
+                                  return;
+                                }
+                                setShowApplyModal(true);
+                              }}
                             >
                               Apply to this job
                             </a>
@@ -333,13 +344,13 @@ const JobDetailMaster = ({
                           {" "}
                           <a
                             className="btn btn-green text-uppercase btn-medium rounded-3 w-180 mr-4 mb-5"
-                            onClick={() =>
-                              createJobApplicantFunction(
-                                data?.message?.data?.designation,
-                                data?.message?.data?.name,
-                                "Apply"
-                              )
-                            }
+                            onClick={() => {
+                              if (!token) {
+                                router.push("/login");
+                                return;
+                              }
+                              setShowApplyModal(true);
+                            }}
                           >
                             Apply to this job
                           </a>
@@ -353,6 +364,13 @@ const JobDetailMaster = ({
           </div>
         </div>
       </div>
+      <ApplyJobModal
+        show={showApplyModal}
+        onClose={() => setShowApplyModal(false)}
+        designation={data?.message?.data?.designation || ""}
+        jobName={data?.message?.data?.name || ""}
+        createJobApplicantFunction={createJobApplicantFunction}
+      />
     </div>
   );
 };

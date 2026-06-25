@@ -9,6 +9,7 @@ const JobsCardContainer = ({
   createJobApplicantFunction,
   appliedJobsDesignationSet,
   savedJobsDesignationSet,
+  appliedJobsQuery,
 }: any) => {
   if (isLoading) {
     return (
@@ -24,6 +25,7 @@ const JobsCardContainer = ({
         createJobApplicantFunction={createJobApplicantFunction}
         appliedJobsDesignationSet={appliedJobsDesignationSet}
         savedJobsDesignationSet={savedJobsDesignationSet}
+        appliedJobsQuery={appliedJobsQuery}
       />
     </div>
   );

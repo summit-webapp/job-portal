@@ -84,6 +84,7 @@ const JobsListMaster = ({
                     createJobApplicantFunction={createJobApplicantFunction}
                     appliedJobsDesignationSet={appliedJobsDesignationSet}
                     savedJobsDesignationSet={savedJobsDesignationSet}
+                    appliedJobsQuery={appliedJobsQuery}
                   />
                 )}
               </div>
