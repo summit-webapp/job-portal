@@ -23,9 +23,9 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                   </Link>
                 </h2>
               </div>
-              <div style={{ position: "absolute", top: "24px", right: "24px", zIndex: 10 }}>
+              {/* <div style={{ position: "absolute", top: "24px", right: "24px", zIndex: 10 }}>
                 <ResumeScore score={job.custom_score} label={job.custom_label} size={88} />
-              </div>
+              </div> */}
               <ul className="list-unstyled mb-1 card-tag-list">
                 <li>
                   <a
@@ -53,17 +53,17 @@ const ProfileJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                     <i className="fa fa-briefcase mr-2 font-weight-bold"></i>{" "}
                     {job?.employement_type?.map((type: any, index: any) => {
                       return <>{index > 0 && " / "}{" "}
-                      {/* Add a slash and space between modules */}
-                      {type}</>;
+                        {/* Add a slash and space between modules */}
+                        {type}</>;
                     })}
                   </a>
                 </li>
               </ul>
               <p className="mb-7 font-size-4 text-gray">
-              <p className="mb-7 font-size-4 text-gray">{`${job?.job_summary?.slice(
-                0,
-                100
-              )}...`}</p>
+                <p className="mb-7 font-size-4 text-gray">{`${job?.job_summary?.slice(
+                  0,
+                  100
+                )}...`}</p>
               </p>
               {/* <div className="card-btn-group">
                 <a

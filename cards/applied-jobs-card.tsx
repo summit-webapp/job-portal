@@ -6,7 +6,7 @@ const AppliedJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
   console.log('Applied Jobs Data', data)
   return (
     <>
-      <div className="row">
+      <div className="row gx-5">
 
         {data?.map((job: any, index: any) => {
           return (
@@ -14,7 +14,7 @@ const AppliedJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
               className="col-12 col-lg-6 col-md-6 mb-9"
               key={index}
             >
-              <div className="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded-4 hover-shadow-3 border border-mercury shadow-9 h-100" style={{ position: "relative" }}>
+              <div className="pt-9 px-xl-9 px-lg-7 px-7 pb-7 light-mode-texts bg-white rounded-4 hover-shadow-3 border border-mercury shadow-9 h-100 mb-3" style={{ position: "relative" }}>
                 {/* Header row: title + resume score */}
                 <div className="d-flex align-items-center justify-content-between" style={{ paddingRight: "90px", minHeight: "60px" }}>
                   <div className="media align-items-center flex-grow-1">
@@ -35,9 +35,9 @@ const AppliedJobsCard = ({ isLoading, data, error }: ProfileInterface) => {
                     </div>
                   </div>
                 </div>
-                <div style={{ position: "absolute", top: "24px", right: "24px", zIndex: 10 }}>
+                {/* <div style={{ position: "absolute", top: "24px", right: "24px", zIndex: 10 }}>
                   <ResumeScore score={job.custom_score} label={job.custom_label} size={88} />
-                </div>
+                </div> */}
                 <div className="d-flex pt-8">
                   <ul className="list-unstyled mb-1 d-flex flex-wrap">
                     <li>

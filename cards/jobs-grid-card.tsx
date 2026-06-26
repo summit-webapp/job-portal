@@ -96,14 +96,14 @@ const JobsGridCard = ({
                     </Link>
                   </h2>
                 </div>
-                <div style={{ position: "absolute", top: "20px", right: "20px", zIndex: 10 }}>
+                {/* <div style={{ position: "absolute", top: "20px", right: "20px", zIndex: 10 }}>
                   <ResumeScore
                     score={matchedAppliedJob?.custom_score}
                     label={matchedAppliedJob?.custom_label}
                     size={72}
                   />
-                </div>
-                 
+                </div> */}
+
                 {showWorkingModuleAndEmploymentType(job)}
 
                 <div className="job_summary">
@@ -119,8 +119,8 @@ const JobsGridCard = ({
                   {appliedJobsDesignationSet?.has(job.designation) ? (
                     <a
                       className={`btn btn-green text-uppercase btn-medium rounded-3 ${appliedJobsDesignationSet?.has(job.designation)
-                          ? "disabled"
-                          : null
+                        ? "disabled"
+                        : null
                         } `}
                     >
                       Applied
@@ -143,8 +143,8 @@ const JobsGridCard = ({
                   {savedJobsDesignationSet?.has(job.designation) ? (
                     <a
                       className={`btn btn-outline-mercury text-black-2 text-uppercase btn-medium rounded-3  ${savedJobsDesignationSet?.has(job.designation)
-                          ? "disabled"
-                          : null
+                        ? "disabled"
+                        : null
                         }`}
                     >
                       <i className="icon icon-bookmark-2 font-weight-bold mr-4 font-size-4"></i>{" "}
